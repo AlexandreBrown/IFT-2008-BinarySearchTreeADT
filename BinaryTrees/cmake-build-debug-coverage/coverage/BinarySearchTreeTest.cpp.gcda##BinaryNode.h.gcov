@@ -1,0 +1,52 @@
+        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/src/main/BinaryNode.h
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef BINARYTREE_SRC_MAIN_BINARYNODE_H_
+        -:    2:#define BINARYTREE_SRC_MAIN_BINARYNODE_H_
+        -:    3:
+        -:    4:template<typename T>
+        -:    5:struct BinaryNode {
+        -:    6:
+        -:    7:	T element;
+        -:    8:	BinaryNode* left;
+        -:    9:	BinaryNode* right;
+        -:   10:
+       47:   11:	BinaryNode(
+        -:   12:		const T& theElement,
+        -:   13:		BinaryNode* theLeft,
+        -:   14:		BinaryNode* theRight
+        -:   15:	) : element{theElement},
+        -:   16:	    left{theLeft},
+       47:   17:	    right{theRight} {}
+------------------
+_ZN10BinaryNodeIiEC2ERKiPS0_S3_:
+        8:   11:	BinaryNode(
+        -:   12:		const T& theElement,
+        -:   13:		BinaryNode* theLeft,
+        -:   14:		BinaryNode* theRight
+        -:   15:	) : element{theElement},
+        -:   16:	    left{theLeft},
+        8:   17:	    right{theRight} {}
+------------------
+_ZN10BinaryNodeImEC2ERKmPS0_S3_:
+       39:   11:	BinaryNode(
+        -:   12:		const T& theElement,
+        -:   13:		BinaryNode* theLeft,
+        -:   14:		BinaryNode* theRight
+        -:   15:	) : element{theElement},
+        -:   16:	    left{theLeft},
+       39:   17:	    right{theRight} {}
+------------------
+        -:   18:
+       36:   19:	BinaryNode(
+        -:   20:		const T&& theElement,
+        -:   21:		BinaryNode* theLeft,
+        -:   22:		BinaryNode* theRight
+       36:   23:	) : element{std::move(theElement)},
+       36:   23-block  0
+        -:   24:	    left{theLeft},
+       36:   25:	    right{theRight} {}
+        -:   26:};
+        -:   27:
+        -:   28:#endif

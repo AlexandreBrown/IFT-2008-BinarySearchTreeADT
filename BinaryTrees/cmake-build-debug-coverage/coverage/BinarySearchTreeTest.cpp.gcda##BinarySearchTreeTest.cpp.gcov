@@ -1,0 +1,1988 @@
+        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/src/test/BinarySearchTreeTest.cpp
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include <gtest/gtest.h>
+        -:    2:#include "../main/BinarySearchTree.h"
+        -:    3:
+        -:    4:using std::logic_error;
+        -:    5:using std::to_string;
+        -:    6:
+        -:    7:namespace {
+        -:    8:	class BinarySearchTreeTest : public testing::Test {
+        -:    9:
+        -:   10:		public:
+        -:   11:			BinarySearchTree<size_t> tree;
+        -:   12:	};
+        -:   13:}
+        -:   14:
+        4:   15:TEST_F(BinarySearchTreeTest, contains_return_true_when_node_is_present_in_tree) {
+        -:   16:
+        1:   17:	auto expectedValue = random();
+        1:   18:	tree.insert(expectedValue);
+        -:   19:
+        1:   20:	auto contains = tree.contains(expectedValue);
+        -:   21:
+       1*:   22:	ASSERT_TRUE(contains);
+        -:   23:}
+------------------
+_ZN75BinarySearchTreeTest_contains_return_true_when_node_is_present_in_tree_TestC2Ev:
+        1:   15:TEST_F(BinarySearchTreeTest, contains_return_true_when_node_is_present_in_tree) {
+        1:   15-block  0
+------------------
+_ZN75BinarySearchTreeTest_contains_return_true_when_node_is_present_in_tree_TestD0Ev:
+        1:   15:TEST_F(BinarySearchTreeTest, contains_return_true_when_node_is_present_in_tree) {
+        1:   15-block  0
+------------------
+_ZN75BinarySearchTreeTest_contains_return_true_when_node_is_present_in_tree_TestD2Ev:
+        1:   15:TEST_F(BinarySearchTreeTest, contains_return_true_when_node_is_present_in_tree) {
+        1:   15-block  0
+------------------
+_ZN75BinarySearchTreeTest_contains_return_true_when_node_is_present_in_tree_Test8TestBodyEv:
+        1:   15:TEST_F(BinarySearchTreeTest, contains_return_true_when_node_is_present_in_tree) {
+        -:   16:
+        1:   17:	auto expectedValue = random();
+        1:   17-block  0
+        1:   18:	tree.insert(expectedValue);
+    $$$$$:   18-block  0
+        -:   19:
+        1:   20:	auto contains = tree.contains(expectedValue);
+        1:   20-block  0
+    $$$$$:   20-block  1
+        -:   21:
+       1*:   22:	ASSERT_TRUE(contains);
+        1:   22-block  0
+    %%%%%:   22-block  1
+    %%%%%:   22-block  2
+    %%%%%:   22-block  3
+    %%%%%:   22-block  4
+    %%%%%:   22-block  5
+    $$$$$:   22-block  6
+    $$$$$:   22-block  7
+    $$$$$:   22-block  8
+    $$$$$:   22-block  9
+    $$$$$:   22-block 10
+    $$$$$:   22-block 11
+    $$$$$:   22-block 12
+        -:   23:}
+------------------
+        -:   24:
+        4:   25:TEST_F(BinarySearchTreeTest, contains_return_false_when_node_is_not_present_in_tree) {
+        -:   26:
+        1:   27:	auto expectedValue = random();
+        1:   28:	tree.insert(expectedValue + 1);
+        -:   29:
+        1:   30:	auto contains = tree.contains(expectedValue);
+        -:   31:
+       1*:   32:	ASSERT_FALSE(contains);
+        -:   33:}
+------------------
+_ZN80BinarySearchTreeTest_contains_return_false_when_node_is_not_present_in_tree_TestC2Ev:
+        1:   25:TEST_F(BinarySearchTreeTest, contains_return_false_when_node_is_not_present_in_tree) {
+        1:   25-block  0
+------------------
+_ZN80BinarySearchTreeTest_contains_return_false_when_node_is_not_present_in_tree_TestD0Ev:
+        1:   25:TEST_F(BinarySearchTreeTest, contains_return_false_when_node_is_not_present_in_tree) {
+        1:   25-block  0
+------------------
+_ZN80BinarySearchTreeTest_contains_return_false_when_node_is_not_present_in_tree_TestD2Ev:
+        1:   25:TEST_F(BinarySearchTreeTest, contains_return_false_when_node_is_not_present_in_tree) {
+        1:   25-block  0
+------------------
+_ZN80BinarySearchTreeTest_contains_return_false_when_node_is_not_present_in_tree_Test8TestBodyEv:
+        1:   25:TEST_F(BinarySearchTreeTest, contains_return_false_when_node_is_not_present_in_tree) {
+        -:   26:
+        1:   27:	auto expectedValue = random();
+        1:   27-block  0
+        1:   28:	tree.insert(expectedValue + 1);
+    $$$$$:   28-block  0
+        -:   29:
+        1:   30:	auto contains = tree.contains(expectedValue);
+        1:   30-block  0
+    $$$$$:   30-block  1
+        -:   31:
+       1*:   32:	ASSERT_FALSE(contains);
+        1:   32-block  0
+    %%%%%:   32-block  1
+    %%%%%:   32-block  2
+    %%%%%:   32-block  3
+    %%%%%:   32-block  4
+    %%%%%:   32-block  5
+    $$$$$:   32-block  6
+    $$$$$:   32-block  7
+    $$$$$:   32-block  8
+    $$$$$:   32-block  9
+    $$$$$:   32-block 10
+    $$$$$:   32-block 11
+    $$$$$:   32-block 12
+        -:   33:}
+------------------
+        -:   34:
+        4:   35:TEST_F(BinarySearchTreeTest, contains_return_true_when_node_is_present_in_complex_tree) {
+        -:   36:
+        1:   37:	auto expectedValue = random();
+        1:   38:	tree.insert(expectedValue - 4);
+        1:   39:	tree.insert(expectedValue - 3);
+        1:   40:	tree.insert(expectedValue - 2);
+        1:   41:	tree.insert(expectedValue - 1);
+        1:   42:	tree.insert(expectedValue);
+        1:   43:	tree.insert(expectedValue + 1);
+        1:   44:	tree.insert(expectedValue + 2);
+        1:   45:	tree.insert(expectedValue + 3);
+        1:   46:	tree.insert(expectedValue + 4);
+        -:   47:
+        1:   48:	auto contains = tree.contains(expectedValue);
+        -:   49:
+       1*:   50:	ASSERT_TRUE(contains);
+        -:   51:}
+------------------
+_ZN83BinarySearchTreeTest_contains_return_true_when_node_is_present_in_complex_tree_TestC2Ev:
+        1:   35:TEST_F(BinarySearchTreeTest, contains_return_true_when_node_is_present_in_complex_tree) {
+        1:   35-block  0
+------------------
+_ZN83BinarySearchTreeTest_contains_return_true_when_node_is_present_in_complex_tree_TestD0Ev:
+        1:   35:TEST_F(BinarySearchTreeTest, contains_return_true_when_node_is_present_in_complex_tree) {
+        1:   35-block  0
+------------------
+_ZN83BinarySearchTreeTest_contains_return_true_when_node_is_present_in_complex_tree_TestD2Ev:
+        1:   35:TEST_F(BinarySearchTreeTest, contains_return_true_when_node_is_present_in_complex_tree) {
+        1:   35-block  0
+------------------
+_ZN83BinarySearchTreeTest_contains_return_true_when_node_is_present_in_complex_tree_Test8TestBodyEv:
+        1:   35:TEST_F(BinarySearchTreeTest, contains_return_true_when_node_is_present_in_complex_tree) {
+        -:   36:
+        1:   37:	auto expectedValue = random();
+        1:   37-block  0
+        1:   38:	tree.insert(expectedValue - 4);
+    $$$$$:   38-block  0
+        1:   39:	tree.insert(expectedValue - 3);
+        1:   39-block  0
+    $$$$$:   39-block  1
+        1:   40:	tree.insert(expectedValue - 2);
+        1:   40-block  0
+    $$$$$:   40-block  1
+        1:   41:	tree.insert(expectedValue - 1);
+        1:   41-block  0
+    $$$$$:   41-block  1
+        1:   42:	tree.insert(expectedValue);
+        1:   42-block  0
+    $$$$$:   42-block  1
+        1:   43:	tree.insert(expectedValue + 1);
+        1:   43-block  0
+    $$$$$:   43-block  1
+        1:   44:	tree.insert(expectedValue + 2);
+        1:   44-block  0
+    $$$$$:   44-block  1
+        1:   45:	tree.insert(expectedValue + 3);
+        1:   45-block  0
+    $$$$$:   45-block  1
+        1:   46:	tree.insert(expectedValue + 4);
+        1:   46-block  0
+    $$$$$:   46-block  1
+        -:   47:
+        1:   48:	auto contains = tree.contains(expectedValue);
+        1:   48-block  0
+    $$$$$:   48-block  1
+        -:   49:
+       1*:   50:	ASSERT_TRUE(contains);
+        1:   50-block  0
+    %%%%%:   50-block  1
+    %%%%%:   50-block  2
+    %%%%%:   50-block  3
+    %%%%%:   50-block  4
+    %%%%%:   50-block  5
+    $$$$$:   50-block  6
+    $$$$$:   50-block  7
+    $$$$$:   50-block  8
+    $$$$$:   50-block  9
+    $$$$$:   50-block 10
+    $$$$$:   50-block 11
+    $$$$$:   50-block 12
+        -:   51:}
+------------------
+        -:   52:
+        4:   53:TEST_F(BinarySearchTreeTest, findMin_throws_logic_error_when_tree_is_empty) {
+        -:   54:
+       2*:   55:	ASSERT_THROW(tree.findMin(), logic_error);
+        -:   56:}
+------------------
+_ZN71BinarySearchTreeTest_findMin_throws_logic_error_when_tree_is_empty_TestC2Ev:
+        1:   53:TEST_F(BinarySearchTreeTest, findMin_throws_logic_error_when_tree_is_empty) {
+        1:   53-block  0
+------------------
+_ZN71BinarySearchTreeTest_findMin_throws_logic_error_when_tree_is_empty_TestD0Ev:
+        1:   53:TEST_F(BinarySearchTreeTest, findMin_throws_logic_error_when_tree_is_empty) {
+        1:   53-block  0
+------------------
+_ZN71BinarySearchTreeTest_findMin_throws_logic_error_when_tree_is_empty_TestD2Ev:
+        1:   53:TEST_F(BinarySearchTreeTest, findMin_throws_logic_error_when_tree_is_empty) {
+        1:   53-block  0
+------------------
+_ZN71BinarySearchTreeTest_findMin_throws_logic_error_when_tree_is_empty_Test8TestBodyEv:
+        1:   53:TEST_F(BinarySearchTreeTest, findMin_throws_logic_error_when_tree_is_empty) {
+        -:   54:
+       2*:   55:	ASSERT_THROW(tree.findMin(), logic_error);
+        1:   55-block  0
+        1:   55-block  1
+        1:   55-block  2
+        1:   55-block  3
+        1:   55-block  4
+    %%%%%:   55-block  5
+    %%%%%:   55-block  6
+    %%%%%:   55-block  7
+    %%%%%:   55-block  8
+    %%%%%:   55-block  9
+    %%%%%:   55-block 10
+        1:   55-block 11
+    $$$$$:   55-block 12
+    $$$$$:   55-block 13
+    $$$$$:   55-block 14
+    $$$$$:   55-block 15
+    $$$$$:   55-block 16
+    $$$$$:   55-block 17
+    $$$$$:   55-block 18
+    $$$$$:   55-block 19
+    $$$$$:   55-block 20
+    $$$$$:   55-block 21
+    $$$$$:   55-block 22
+    $$$$$:   55-block 23
+    $$$$$:   55-block 24
+    $$$$$:   55-block 25
+    $$$$$:   55-block 26
+    $$$$$:   55-block 27
+    $$$$$:   55-block 28
+    $$$$$:   55-block 29
+        -:   56:}
+------------------
+        -:   57:
+        4:   58:TEST_F(BinarySearchTreeTest, findMin_returns_minimum_value_when_value_is_present) {
+        -:   59:
+        1:   60:	auto expectedMin = random();
+        1:   61:	tree.insert(expectedMin);
+        -:   62:
+        1:   63:	auto min = tree.findMin();
+        -:   64:
+       1*:   65:	ASSERT_EQ(expectedMin, min);
+        -:   66:}
+------------------
+_ZN77BinarySearchTreeTest_findMin_returns_minimum_value_when_value_is_present_TestC2Ev:
+        1:   58:TEST_F(BinarySearchTreeTest, findMin_returns_minimum_value_when_value_is_present) {
+        1:   58-block  0
+------------------
+_ZN77BinarySearchTreeTest_findMin_returns_minimum_value_when_value_is_present_TestD0Ev:
+        1:   58:TEST_F(BinarySearchTreeTest, findMin_returns_minimum_value_when_value_is_present) {
+        1:   58-block  0
+------------------
+_ZN77BinarySearchTreeTest_findMin_returns_minimum_value_when_value_is_present_TestD2Ev:
+        1:   58:TEST_F(BinarySearchTreeTest, findMin_returns_minimum_value_when_value_is_present) {
+        1:   58-block  0
+------------------
+_ZN77BinarySearchTreeTest_findMin_returns_minimum_value_when_value_is_present_Test8TestBodyEv:
+        1:   58:TEST_F(BinarySearchTreeTest, findMin_returns_minimum_value_when_value_is_present) {
+        -:   59:
+        1:   60:	auto expectedMin = random();
+        1:   60-block  0
+        1:   61:	tree.insert(expectedMin);
+    $$$$$:   61-block  0
+        -:   62:
+        1:   63:	auto min = tree.findMin();
+        1:   63-block  0
+        -:   64:
+       1*:   65:	ASSERT_EQ(expectedMin, min);
+        1:   65-block  0
+        1:   65-block  1
+    %%%%%:   65-block  2
+    %%%%%:   65-block  3
+    %%%%%:   65-block  4
+    %%%%%:   65-block  5
+    $$$$$:   65-block  6
+    $$$$$:   65-block  7
+    $$$$$:   65-block  8
+    $$$$$:   65-block  9
+    $$$$$:   65-block 10
+        -:   66:}
+------------------
+        -:   67:
+        4:   68:TEST_F(BinarySearchTreeTest, findMin_returns_minimum_value_when_value_is_present_in_complex_tree) {
+        -:   69:
+        1:   70:	auto randomValue = random();
+        1:   71:	auto expectedMin = randomValue - 2;
+        1:   72:	tree.insert(randomValue - 1);
+        1:   73:	tree.insert(randomValue + 2);
+        1:   74:	tree.insert(expectedMin);
+        1:   75:	tree.insert(randomValue);
+        1:   76:	tree.insert(randomValue + 1);
+        -:   77:
+        1:   78:	auto min = tree.findMin();
+        -:   79:
+       1*:   80:	ASSERT_EQ(expectedMin, min);
+        -:   81:}
+------------------
+_ZN93BinarySearchTreeTest_findMin_returns_minimum_value_when_value_is_present_in_complex_tree_TestC2Ev:
+        1:   68:TEST_F(BinarySearchTreeTest, findMin_returns_minimum_value_when_value_is_present_in_complex_tree) {
+        1:   68-block  0
+------------------
+_ZN93BinarySearchTreeTest_findMin_returns_minimum_value_when_value_is_present_in_complex_tree_TestD0Ev:
+        1:   68:TEST_F(BinarySearchTreeTest, findMin_returns_minimum_value_when_value_is_present_in_complex_tree) {
+        1:   68-block  0
+------------------
+_ZN93BinarySearchTreeTest_findMin_returns_minimum_value_when_value_is_present_in_complex_tree_TestD2Ev:
+        1:   68:TEST_F(BinarySearchTreeTest, findMin_returns_minimum_value_when_value_is_present_in_complex_tree) {
+        1:   68-block  0
+------------------
+_ZN93BinarySearchTreeTest_findMin_returns_minimum_value_when_value_is_present_in_complex_tree_Test8TestBodyEv:
+        1:   68:TEST_F(BinarySearchTreeTest, findMin_returns_minimum_value_when_value_is_present_in_complex_tree) {
+        -:   69:
+        1:   70:	auto randomValue = random();
+        1:   70-block  0
+        1:   71:	auto expectedMin = randomValue - 2;
+        1:   72:	tree.insert(randomValue - 1);
+    $$$$$:   72-block  0
+        1:   73:	tree.insert(randomValue + 2);
+        1:   73-block  0
+    $$$$$:   73-block  1
+        1:   74:	tree.insert(expectedMin);
+        1:   74-block  0
+    $$$$$:   74-block  1
+        1:   75:	tree.insert(randomValue);
+        1:   75-block  0
+    $$$$$:   75-block  1
+        1:   76:	tree.insert(randomValue + 1);
+        1:   76-block  0
+    $$$$$:   76-block  1
+        -:   77:
+        1:   78:	auto min = tree.findMin();
+        1:   78-block  0
+        -:   79:
+       1*:   80:	ASSERT_EQ(expectedMin, min);
+        1:   80-block  0
+        1:   80-block  1
+    %%%%%:   80-block  2
+    %%%%%:   80-block  3
+    %%%%%:   80-block  4
+    %%%%%:   80-block  5
+    $$$$$:   80-block  6
+    $$$$$:   80-block  7
+    $$$$$:   80-block  8
+    $$$$$:   80-block  9
+    $$$$$:   80-block 10
+        -:   81:}
+------------------
+        -:   82:
+        4:   83:TEST_F(BinarySearchTreeTest, findMax_throws_logic_error_when_tree_is_empty) {
+        -:   84:
+       2*:   85:	ASSERT_THROW(tree.findMax(), logic_error);
+        -:   86:}
+------------------
+_ZN71BinarySearchTreeTest_findMax_throws_logic_error_when_tree_is_empty_TestC2Ev:
+        1:   83:TEST_F(BinarySearchTreeTest, findMax_throws_logic_error_when_tree_is_empty) {
+        1:   83-block  0
+------------------
+_ZN71BinarySearchTreeTest_findMax_throws_logic_error_when_tree_is_empty_TestD0Ev:
+        1:   83:TEST_F(BinarySearchTreeTest, findMax_throws_logic_error_when_tree_is_empty) {
+        1:   83-block  0
+------------------
+_ZN71BinarySearchTreeTest_findMax_throws_logic_error_when_tree_is_empty_TestD2Ev:
+        1:   83:TEST_F(BinarySearchTreeTest, findMax_throws_logic_error_when_tree_is_empty) {
+        1:   83-block  0
+------------------
+_ZN71BinarySearchTreeTest_findMax_throws_logic_error_when_tree_is_empty_Test8TestBodyEv:
+        1:   83:TEST_F(BinarySearchTreeTest, findMax_throws_logic_error_when_tree_is_empty) {
+        -:   84:
+       2*:   85:	ASSERT_THROW(tree.findMax(), logic_error);
+        1:   85-block  0
+        1:   85-block  1
+        1:   85-block  2
+        1:   85-block  3
+        1:   85-block  4
+    %%%%%:   85-block  5
+    %%%%%:   85-block  6
+    %%%%%:   85-block  7
+    %%%%%:   85-block  8
+    %%%%%:   85-block  9
+    %%%%%:   85-block 10
+        1:   85-block 11
+    $$$$$:   85-block 12
+    $$$$$:   85-block 13
+    $$$$$:   85-block 14
+    $$$$$:   85-block 15
+    $$$$$:   85-block 16
+    $$$$$:   85-block 17
+    $$$$$:   85-block 18
+    $$$$$:   85-block 19
+    $$$$$:   85-block 20
+    $$$$$:   85-block 21
+    $$$$$:   85-block 22
+    $$$$$:   85-block 23
+    $$$$$:   85-block 24
+    $$$$$:   85-block 25
+    $$$$$:   85-block 26
+    $$$$$:   85-block 27
+    $$$$$:   85-block 28
+    $$$$$:   85-block 29
+        -:   86:}
+------------------
+        -:   87:
+        4:   88:TEST_F(BinarySearchTreeTest, findMax_returns_maximum_value_when_value_is_present) {
+        -:   89:
+        1:   90:	auto expectedMax = random();
+        1:   91:	tree.insert(expectedMax);
+        -:   92:
+        1:   93:	auto max = tree.findMax();
+        -:   94:
+       1*:   95:	ASSERT_EQ(expectedMax, max);
+        -:   96:}
+------------------
+_ZN77BinarySearchTreeTest_findMax_returns_maximum_value_when_value_is_present_TestC2Ev:
+        1:   88:TEST_F(BinarySearchTreeTest, findMax_returns_maximum_value_when_value_is_present) {
+        1:   88-block  0
+------------------
+_ZN77BinarySearchTreeTest_findMax_returns_maximum_value_when_value_is_present_TestD0Ev:
+        1:   88:TEST_F(BinarySearchTreeTest, findMax_returns_maximum_value_when_value_is_present) {
+        1:   88-block  0
+------------------
+_ZN77BinarySearchTreeTest_findMax_returns_maximum_value_when_value_is_present_TestD2Ev:
+        1:   88:TEST_F(BinarySearchTreeTest, findMax_returns_maximum_value_when_value_is_present) {
+        1:   88-block  0
+------------------
+_ZN77BinarySearchTreeTest_findMax_returns_maximum_value_when_value_is_present_Test8TestBodyEv:
+        1:   88:TEST_F(BinarySearchTreeTest, findMax_returns_maximum_value_when_value_is_present) {
+        -:   89:
+        1:   90:	auto expectedMax = random();
+        1:   90-block  0
+        1:   91:	tree.insert(expectedMax);
+    $$$$$:   91-block  0
+        -:   92:
+        1:   93:	auto max = tree.findMax();
+        1:   93-block  0
+        -:   94:
+       1*:   95:	ASSERT_EQ(expectedMax, max);
+        1:   95-block  0
+        1:   95-block  1
+    %%%%%:   95-block  2
+    %%%%%:   95-block  3
+    %%%%%:   95-block  4
+    %%%%%:   95-block  5
+    $$$$$:   95-block  6
+    $$$$$:   95-block  7
+    $$$$$:   95-block  8
+    $$$$$:   95-block  9
+    $$$$$:   95-block 10
+        -:   96:}
+------------------
+        -:   97:
+        4:   98:TEST_F(BinarySearchTreeTest, findMax_returns_maximum_value_when_value_is_present_in_complex_tree) {
+        -:   99:
+        1:  100:	auto randomValue = random();
+        1:  101:	auto expectedMax = randomValue + 2;
+        1:  102:	tree.insert(randomValue - 2);
+        1:  103:	tree.insert(randomValue - 1);
+        1:  104:	tree.insert(expectedMax);
+        1:  105:	tree.insert(randomValue);
+        1:  106:	tree.insert(randomValue + 1);
+        -:  107:
+        1:  108:	auto max = tree.findMax();
+        -:  109:
+       1*:  110:	ASSERT_EQ(expectedMax, max);
+        -:  111:}
+------------------
+_ZN93BinarySearchTreeTest_findMax_returns_maximum_value_when_value_is_present_in_complex_tree_TestC2Ev:
+        1:   98:TEST_F(BinarySearchTreeTest, findMax_returns_maximum_value_when_value_is_present_in_complex_tree) {
+        1:   98-block  0
+------------------
+_ZN93BinarySearchTreeTest_findMax_returns_maximum_value_when_value_is_present_in_complex_tree_TestD0Ev:
+        1:   98:TEST_F(BinarySearchTreeTest, findMax_returns_maximum_value_when_value_is_present_in_complex_tree) {
+        1:   98-block  0
+------------------
+_ZN93BinarySearchTreeTest_findMax_returns_maximum_value_when_value_is_present_in_complex_tree_TestD2Ev:
+        1:   98:TEST_F(BinarySearchTreeTest, findMax_returns_maximum_value_when_value_is_present_in_complex_tree) {
+        1:   98-block  0
+------------------
+_ZN93BinarySearchTreeTest_findMax_returns_maximum_value_when_value_is_present_in_complex_tree_Test8TestBodyEv:
+        1:   98:TEST_F(BinarySearchTreeTest, findMax_returns_maximum_value_when_value_is_present_in_complex_tree) {
+        -:   99:
+        1:  100:	auto randomValue = random();
+        1:  100-block  0
+        1:  101:	auto expectedMax = randomValue + 2;
+        1:  102:	tree.insert(randomValue - 2);
+    $$$$$:  102-block  0
+        1:  103:	tree.insert(randomValue - 1);
+        1:  103-block  0
+    $$$$$:  103-block  1
+        1:  104:	tree.insert(expectedMax);
+        1:  104-block  0
+    $$$$$:  104-block  1
+        1:  105:	tree.insert(randomValue);
+        1:  105-block  0
+    $$$$$:  105-block  1
+        1:  106:	tree.insert(randomValue + 1);
+        1:  106-block  0
+    $$$$$:  106-block  1
+        -:  107:
+        1:  108:	auto max = tree.findMax();
+        1:  108-block  0
+        -:  109:
+       1*:  110:	ASSERT_EQ(expectedMax, max);
+        1:  110-block  0
+        1:  110-block  1
+    %%%%%:  110-block  2
+    %%%%%:  110-block  3
+    %%%%%:  110-block  4
+    %%%%%:  110-block  5
+    $$$$$:  110-block  6
+    $$$$$:  110-block  7
+    $$$$$:  110-block  8
+    $$$$$:  110-block  9
+    $$$$$:  110-block 10
+        -:  111:}
+------------------
+        -:  112:
+        4:  113:TEST_F(BinarySearchTreeTest, trying_to_remove_element_of_empty_tree_does_not_crash) {
+        -:  114:
+       1*:  115:	ASSERT_NO_THROW(tree.remove(random()));
+        -:  116:}
+------------------
+_ZN79BinarySearchTreeTest_trying_to_remove_element_of_empty_tree_does_not_crash_TestC2Ev:
+        1:  113:TEST_F(BinarySearchTreeTest, trying_to_remove_element_of_empty_tree_does_not_crash) {
+        1:  113-block  0
+------------------
+_ZN79BinarySearchTreeTest_trying_to_remove_element_of_empty_tree_does_not_crash_TestD0Ev:
+        1:  113:TEST_F(BinarySearchTreeTest, trying_to_remove_element_of_empty_tree_does_not_crash) {
+        1:  113-block  0
+------------------
+_ZN79BinarySearchTreeTest_trying_to_remove_element_of_empty_tree_does_not_crash_TestD2Ev:
+        1:  113:TEST_F(BinarySearchTreeTest, trying_to_remove_element_of_empty_tree_does_not_crash) {
+        1:  113-block  0
+------------------
+_ZN79BinarySearchTreeTest_trying_to_remove_element_of_empty_tree_does_not_crash_Test8TestBodyEv:
+        1:  113:TEST_F(BinarySearchTreeTest, trying_to_remove_element_of_empty_tree_does_not_crash) {
+        -:  114:
+       1*:  115:	ASSERT_NO_THROW(tree.remove(random()));
+        1:  115-block  0
+        1:  115-block  1
+        1:  115-block  2
+        1:  115-block  3
+        1:  115-block  4
+    %%%%%:  115-block  5
+    %%%%%:  115-block  6
+    %%%%%:  115-block  7
+    %%%%%:  115-block  8
+    %%%%%:  115-block  9
+    $$$$$:  115-block 10
+    $$$$$:  115-block 11
+    $$$$$:  115-block 12
+    $$$$$:  115-block 13
+    $$$$$:  115-block 14
+    $$$$$:  115-block 15
+    $$$$$:  115-block 16
+    $$$$$:  115-block 17
+    $$$$$:  115-block 18
+    $$$$$:  115-block 19
+    $$$$$:  115-block 20
+    $$$$$:  115-block 21
+    $$$$$:  115-block 22
+    $$$$$:  115-block 23
+    $$$$$:  115-block 24
+    $$$$$:  115-block 25
+    $$$$$:  115-block 26
+    $$$$$:  115-block 27
+    $$$$$:  115-block 28
+    $$$$$:  115-block 29
+    $$$$$:  115-block 30
+        -:  116:}
+------------------
+        -:  117:
+        4:  118:TEST_F(BinarySearchTreeTest, removes_value_from_tree) {
+        -:  119:
+        1:  120:	auto expectedValue = random();
+        1:  121:	tree.insert(expectedValue);
+        -:  122:
+        1:  123:	tree.remove(expectedValue);
+        -:  124:
+       1*:  125:	ASSERT_FALSE(tree.contains(expectedValue));
+        -:  126:}
+------------------
+_ZN49BinarySearchTreeTest_removes_value_from_tree_TestC2Ev:
+        1:  118:TEST_F(BinarySearchTreeTest, removes_value_from_tree) {
+        1:  118-block  0
+------------------
+_ZN49BinarySearchTreeTest_removes_value_from_tree_TestD0Ev:
+        1:  118:TEST_F(BinarySearchTreeTest, removes_value_from_tree) {
+        1:  118-block  0
+------------------
+_ZN49BinarySearchTreeTest_removes_value_from_tree_TestD2Ev:
+        1:  118:TEST_F(BinarySearchTreeTest, removes_value_from_tree) {
+        1:  118-block  0
+------------------
+_ZN49BinarySearchTreeTest_removes_value_from_tree_Test8TestBodyEv:
+        1:  118:TEST_F(BinarySearchTreeTest, removes_value_from_tree) {
+        -:  119:
+        1:  120:	auto expectedValue = random();
+        1:  120-block  0
+        1:  121:	tree.insert(expectedValue);
+    $$$$$:  121-block  0
+        -:  122:
+        1:  123:	tree.remove(expectedValue);
+        1:  123-block  0
+    $$$$$:  123-block  1
+        -:  124:
+       1*:  125:	ASSERT_FALSE(tree.contains(expectedValue));
+        1:  125-block  0
+        1:  125-block  1
+    %%%%%:  125-block  2
+    %%%%%:  125-block  3
+    %%%%%:  125-block  4
+    %%%%%:  125-block  5
+    %%%%%:  125-block  6
+    $$$$$:  125-block  7
+    $$$$$:  125-block  8
+    $$$$$:  125-block  9
+    $$$$$:  125-block 10
+    $$$$$:  125-block 11
+    $$$$$:  125-block 12
+    $$$$$:  125-block 13
+    $$$$$:  125-block 14
+        -:  126:}
+------------------
+        -:  127:
+        4:  128:TEST_F(BinarySearchTreeTest, removes_value_from_complex_tree_without_removing_other_values) {
+        -:  129:
+        1:  130:	auto value1 = random();
+        1:  131:	auto value2 = random();
+        1:  132:	auto value3 = random();
+        1:  133:	auto value4 = random();
+        1:  134:	auto value5 = random();
+        1:  135:	tree.insert(value1);
+        1:  136:	tree.insert(value3);
+        1:  137:	tree.insert(value5);
+        1:  138:	tree.insert(value2);
+        1:  139:	tree.insert(value4);
+        -:  140:
+        1:  141:	tree.remove(value2);
+        -:  142:
+       1*:  143:	ASSERT_FALSE(tree.contains(value2));
+       1*:  144:	ASSERT_TRUE(tree.contains(value1));
+       1*:  145:	ASSERT_TRUE(tree.contains(value3));
+       1*:  146:	ASSERT_TRUE(tree.contains(value4));
+       1*:  147:	ASSERT_TRUE(tree.contains(value5));
+        -:  148:}
+------------------
+_ZN87BinarySearchTreeTest_removes_value_from_complex_tree_without_removing_other_values_TestC2Ev:
+        1:  128:TEST_F(BinarySearchTreeTest, removes_value_from_complex_tree_without_removing_other_values) {
+        1:  128-block  0
+------------------
+_ZN87BinarySearchTreeTest_removes_value_from_complex_tree_without_removing_other_values_TestD0Ev:
+        1:  128:TEST_F(BinarySearchTreeTest, removes_value_from_complex_tree_without_removing_other_values) {
+        1:  128-block  0
+------------------
+_ZN87BinarySearchTreeTest_removes_value_from_complex_tree_without_removing_other_values_TestD2Ev:
+        1:  128:TEST_F(BinarySearchTreeTest, removes_value_from_complex_tree_without_removing_other_values) {
+        1:  128-block  0
+------------------
+_ZN87BinarySearchTreeTest_removes_value_from_complex_tree_without_removing_other_values_Test8TestBodyEv:
+        1:  128:TEST_F(BinarySearchTreeTest, removes_value_from_complex_tree_without_removing_other_values) {
+        -:  129:
+        1:  130:	auto value1 = random();
+        1:  130-block  0
+        1:  131:	auto value2 = random();
+        1:  132:	auto value3 = random();
+        1:  133:	auto value4 = random();
+        1:  134:	auto value5 = random();
+        1:  135:	tree.insert(value1);
+    $$$$$:  135-block  0
+        1:  136:	tree.insert(value3);
+        1:  136-block  0
+    $$$$$:  136-block  1
+        1:  137:	tree.insert(value5);
+        1:  137-block  0
+    $$$$$:  137-block  1
+        1:  138:	tree.insert(value2);
+        1:  138-block  0
+    $$$$$:  138-block  1
+        1:  139:	tree.insert(value4);
+        1:  139-block  0
+    $$$$$:  139-block  1
+        -:  140:
+        1:  141:	tree.remove(value2);
+        1:  141-block  0
+    $$$$$:  141-block  1
+        -:  142:
+       1*:  143:	ASSERT_FALSE(tree.contains(value2));
+        1:  143-block  0
+        1:  143-block  1
+    %%%%%:  143-block  2
+    %%%%%:  143-block  3
+    %%%%%:  143-block  4
+    %%%%%:  143-block  5
+    %%%%%:  143-block  6
+    $$$$$:  143-block  7
+    $$$$$:  143-block  8
+    $$$$$:  143-block  9
+    $$$$$:  143-block 10
+    $$$$$:  143-block 11
+    $$$$$:  143-block 12
+    $$$$$:  143-block 13
+    $$$$$:  143-block 14
+       1*:  144:	ASSERT_TRUE(tree.contains(value1));
+        1:  144-block  0
+        1:  144-block  1
+    %%%%%:  144-block  2
+    %%%%%:  144-block  3
+    %%%%%:  144-block  4
+    %%%%%:  144-block  5
+    %%%%%:  144-block  6
+    $$$$$:  144-block  7
+    $$$$$:  144-block  8
+    $$$$$:  144-block  9
+    $$$$$:  144-block 10
+    $$$$$:  144-block 11
+    $$$$$:  144-block 12
+    $$$$$:  144-block 13
+    $$$$$:  144-block 14
+       1*:  145:	ASSERT_TRUE(tree.contains(value3));
+        1:  145-block  0
+        1:  145-block  1
+    %%%%%:  145-block  2
+    %%%%%:  145-block  3
+    %%%%%:  145-block  4
+    %%%%%:  145-block  5
+    %%%%%:  145-block  6
+    $$$$$:  145-block  7
+    $$$$$:  145-block  8
+    $$$$$:  145-block  9
+    $$$$$:  145-block 10
+    $$$$$:  145-block 11
+    $$$$$:  145-block 12
+    $$$$$:  145-block 13
+    $$$$$:  145-block 14
+       1*:  146:	ASSERT_TRUE(tree.contains(value4));
+        1:  146-block  0
+        1:  146-block  1
+    %%%%%:  146-block  2
+    %%%%%:  146-block  3
+    %%%%%:  146-block  4
+    %%%%%:  146-block  5
+    %%%%%:  146-block  6
+    $$$$$:  146-block  7
+    $$$$$:  146-block  8
+    $$$$$:  146-block  9
+    $$$$$:  146-block 10
+    $$$$$:  146-block 11
+    $$$$$:  146-block 12
+    $$$$$:  146-block 13
+    $$$$$:  146-block 14
+       1*:  147:	ASSERT_TRUE(tree.contains(value5));
+        1:  147-block  0
+        1:  147-block  1
+    %%%%%:  147-block  2
+    %%%%%:  147-block  3
+    %%%%%:  147-block  4
+    %%%%%:  147-block  5
+    %%%%%:  147-block  6
+    $$$$$:  147-block  7
+    $$$$$:  147-block  8
+    $$$$$:  147-block  9
+    $$$$$:  147-block 10
+    $$$$$:  147-block 11
+    $$$$$:  147-block 12
+    $$$$$:  147-block 13
+    $$$$$:  147-block 14
+        -:  148:}
+------------------
+        -:  149:
+        4:  150:TEST_F(BinarySearchTreeTest, can_remove_value_when_value_is_not_the_smallest_value) {
+        -:  151:
+        1:  152:	auto smallerValue = size_t{1};
+        1:  153:	auto expectedValueToRemove = size_t{2};
+        1:  154:	tree.insert(smallerValue);
+        1:  155:	tree.insert(expectedValueToRemove);
+        -:  156:
+        1:  157:	tree.remove(expectedValueToRemove);
+        -:  158:
+       1*:  159:	ASSERT_FALSE(tree.contains(expectedValueToRemove));
+       1*:  160:	ASSERT_TRUE(tree.contains(smallerValue));
+        -:  161:}
+------------------
+_ZN79BinarySearchTreeTest_can_remove_value_when_value_is_not_the_smallest_value_TestC2Ev:
+        1:  150:TEST_F(BinarySearchTreeTest, can_remove_value_when_value_is_not_the_smallest_value) {
+        1:  150-block  0
+------------------
+_ZN79BinarySearchTreeTest_can_remove_value_when_value_is_not_the_smallest_value_TestD0Ev:
+        1:  150:TEST_F(BinarySearchTreeTest, can_remove_value_when_value_is_not_the_smallest_value) {
+        1:  150-block  0
+------------------
+_ZN79BinarySearchTreeTest_can_remove_value_when_value_is_not_the_smallest_value_TestD2Ev:
+        1:  150:TEST_F(BinarySearchTreeTest, can_remove_value_when_value_is_not_the_smallest_value) {
+        1:  150-block  0
+------------------
+_ZN79BinarySearchTreeTest_can_remove_value_when_value_is_not_the_smallest_value_Test8TestBodyEv:
+        1:  150:TEST_F(BinarySearchTreeTest, can_remove_value_when_value_is_not_the_smallest_value) {
+        -:  151:
+        1:  152:	auto smallerValue = size_t{1};
+        1:  153:	auto expectedValueToRemove = size_t{2};
+        1:  154:	tree.insert(smallerValue);
+        1:  154-block  0
+        1:  155:	tree.insert(expectedValueToRemove);
+        1:  155-block  0
+        -:  156:
+        1:  157:	tree.remove(expectedValueToRemove);
+        1:  157-block  0
+        -:  158:
+       1*:  159:	ASSERT_FALSE(tree.contains(expectedValueToRemove));
+        1:  159-block  0
+        1:  159-block  1
+    %%%%%:  159-block  2
+    %%%%%:  159-block  3
+    %%%%%:  159-block  4
+    %%%%%:  159-block  5
+    %%%%%:  159-block  6
+    $$$$$:  159-block  7
+    $$$$$:  159-block  8
+    $$$$$:  159-block  9
+    $$$$$:  159-block 10
+    $$$$$:  159-block 11
+    $$$$$:  159-block 12
+    $$$$$:  159-block 13
+       1*:  160:	ASSERT_TRUE(tree.contains(smallerValue));
+        1:  160-block  0
+        1:  160-block  1
+    %%%%%:  160-block  2
+    %%%%%:  160-block  3
+    %%%%%:  160-block  4
+    %%%%%:  160-block  5
+    %%%%%:  160-block  6
+    $$$$$:  160-block  7
+    $$$$$:  160-block  8
+    $$$$$:  160-block  9
+    $$$$$:  160-block 10
+    $$$$$:  160-block 11
+    $$$$$:  160-block 12
+    $$$$$:  160-block 13
+        -:  161:}
+------------------
+        -:  162:
+        4:  163:TEST_F(BinarySearchTreeTest, can_remove_value_when_value_is_the_smallest_value) {
+        -:  164:
+        1:  165:	auto biggerValue = size_t{2};
+        1:  166:	auto expectedValueToRemove = size_t{1};
+        1:  167:	tree.insert(biggerValue);
+        1:  168:	tree.insert(expectedValueToRemove);
+        -:  169:
+        1:  170:	tree.remove(expectedValueToRemove);
+        -:  171:
+       1*:  172:	ASSERT_FALSE(tree.contains(expectedValueToRemove));
+       1*:  173:	ASSERT_TRUE(tree.contains(biggerValue));
+        -:  174:}
+------------------
+_ZN75BinarySearchTreeTest_can_remove_value_when_value_is_the_smallest_value_TestC2Ev:
+        1:  163:TEST_F(BinarySearchTreeTest, can_remove_value_when_value_is_the_smallest_value) {
+        1:  163-block  0
+------------------
+_ZN75BinarySearchTreeTest_can_remove_value_when_value_is_the_smallest_value_TestD0Ev:
+        1:  163:TEST_F(BinarySearchTreeTest, can_remove_value_when_value_is_the_smallest_value) {
+        1:  163-block  0
+------------------
+_ZN75BinarySearchTreeTest_can_remove_value_when_value_is_the_smallest_value_TestD2Ev:
+        1:  163:TEST_F(BinarySearchTreeTest, can_remove_value_when_value_is_the_smallest_value) {
+        1:  163-block  0
+------------------
+_ZN75BinarySearchTreeTest_can_remove_value_when_value_is_the_smallest_value_Test8TestBodyEv:
+        1:  163:TEST_F(BinarySearchTreeTest, can_remove_value_when_value_is_the_smallest_value) {
+        -:  164:
+        1:  165:	auto biggerValue = size_t{2};
+        1:  166:	auto expectedValueToRemove = size_t{1};
+        1:  167:	tree.insert(biggerValue);
+        1:  167-block  0
+        1:  168:	tree.insert(expectedValueToRemove);
+        1:  168-block  0
+        -:  169:
+        1:  170:	tree.remove(expectedValueToRemove);
+        1:  170-block  0
+        -:  171:
+       1*:  172:	ASSERT_FALSE(tree.contains(expectedValueToRemove));
+        1:  172-block  0
+        1:  172-block  1
+    %%%%%:  172-block  2
+    %%%%%:  172-block  3
+    %%%%%:  172-block  4
+    %%%%%:  172-block  5
+    %%%%%:  172-block  6
+    $$$$$:  172-block  7
+    $$$$$:  172-block  8
+    $$$$$:  172-block  9
+    $$$$$:  172-block 10
+    $$$$$:  172-block 11
+    $$$$$:  172-block 12
+    $$$$$:  172-block 13
+       1*:  173:	ASSERT_TRUE(tree.contains(biggerValue));
+        1:  173-block  0
+        1:  173-block  1
+    %%%%%:  173-block  2
+    %%%%%:  173-block  3
+    %%%%%:  173-block  4
+    %%%%%:  173-block  5
+    %%%%%:  173-block  6
+    $$$$$:  173-block  7
+    $$$$$:  173-block  8
+    $$$$$:  173-block  9
+    $$$$$:  173-block 10
+    $$$$$:  173-block 11
+    $$$$$:  173-block 12
+    $$$$$:  173-block 13
+        -:  174:}
+------------------
+        -:  175:
+        4:  176:TEST_F(BinarySearchTreeTest, can_remove_value_when_value_has_two_children) {
+        -:  177:
+        1:  178:	auto valueToRemove = size_t{2};
+        1:  179:	auto leftChild = size_t{valueToRemove - 1};
+        1:  180:	auto rightChild = size_t{valueToRemove + 1};
+        1:  181:	tree.insert(valueToRemove);
+        1:  182:	tree.insert(leftChild);
+        1:  183:	tree.insert(rightChild);
+        -:  184:
+        1:  185:	tree.remove(valueToRemove);
+        -:  186:
+       1*:  187:	ASSERT_FALSE(tree.contains(valueToRemove));
+       1*:  188:	ASSERT_TRUE(tree.contains(leftChild));
+       1*:  189:	ASSERT_TRUE(tree.contains(rightChild));
+        -:  190:}
+------------------
+_ZN70BinarySearchTreeTest_can_remove_value_when_value_has_two_children_TestC2Ev:
+        1:  176:TEST_F(BinarySearchTreeTest, can_remove_value_when_value_has_two_children) {
+        1:  176-block  0
+------------------
+_ZN70BinarySearchTreeTest_can_remove_value_when_value_has_two_children_TestD0Ev:
+        1:  176:TEST_F(BinarySearchTreeTest, can_remove_value_when_value_has_two_children) {
+        1:  176-block  0
+------------------
+_ZN70BinarySearchTreeTest_can_remove_value_when_value_has_two_children_TestD2Ev:
+        1:  176:TEST_F(BinarySearchTreeTest, can_remove_value_when_value_has_two_children) {
+        1:  176-block  0
+------------------
+_ZN70BinarySearchTreeTest_can_remove_value_when_value_has_two_children_Test8TestBodyEv:
+        1:  176:TEST_F(BinarySearchTreeTest, can_remove_value_when_value_has_two_children) {
+        -:  177:
+        1:  178:	auto valueToRemove = size_t{2};
+        1:  179:	auto leftChild = size_t{valueToRemove - 1};
+        1:  180:	auto rightChild = size_t{valueToRemove + 1};
+        1:  181:	tree.insert(valueToRemove);
+        1:  181-block  0
+        1:  182:	tree.insert(leftChild);
+        1:  182-block  0
+        1:  183:	tree.insert(rightChild);
+        1:  183-block  0
+        -:  184:
+        1:  185:	tree.remove(valueToRemove);
+        1:  185-block  0
+        -:  186:
+       1*:  187:	ASSERT_FALSE(tree.contains(valueToRemove));
+        1:  187-block  0
+        1:  187-block  1
+    %%%%%:  187-block  2
+    %%%%%:  187-block  3
+    %%%%%:  187-block  4
+    %%%%%:  187-block  5
+    %%%%%:  187-block  6
+    $$$$$:  187-block  7
+    $$$$$:  187-block  8
+    $$$$$:  187-block  9
+    $$$$$:  187-block 10
+    $$$$$:  187-block 11
+    $$$$$:  187-block 12
+    $$$$$:  187-block 13
+       1*:  188:	ASSERT_TRUE(tree.contains(leftChild));
+        1:  188-block  0
+        1:  188-block  1
+    %%%%%:  188-block  2
+    %%%%%:  188-block  3
+    %%%%%:  188-block  4
+    %%%%%:  188-block  5
+    %%%%%:  188-block  6
+    $$$$$:  188-block  7
+    $$$$$:  188-block  8
+    $$$$$:  188-block  9
+    $$$$$:  188-block 10
+    $$$$$:  188-block 11
+    $$$$$:  188-block 12
+    $$$$$:  188-block 13
+       1*:  189:	ASSERT_TRUE(tree.contains(rightChild));
+        1:  189-block  0
+        1:  189-block  1
+    %%%%%:  189-block  2
+    %%%%%:  189-block  3
+    %%%%%:  189-block  4
+    %%%%%:  189-block  5
+    %%%%%:  189-block  6
+    $$$$$:  189-block  7
+    $$$$$:  189-block  8
+    $$$$$:  189-block  9
+    $$$$$:  189-block 10
+    $$$$$:  189-block 11
+    $$$$$:  189-block 12
+    $$$$$:  189-block 13
+        -:  190:}
+------------------
+        -:  191:
+        4:  192:TEST_F(BinarySearchTreeTest, isEmpty_returns_true_when_tree_is_empty) {
+        -:  193:
+       1*:  194:	ASSERT_TRUE(tree.isEmpty());
+        -:  195:}
+------------------
+_ZN65BinarySearchTreeTest_isEmpty_returns_true_when_tree_is_empty_TestC2Ev:
+        1:  192:TEST_F(BinarySearchTreeTest, isEmpty_returns_true_when_tree_is_empty) {
+        1:  192-block  0
+------------------
+_ZN65BinarySearchTreeTest_isEmpty_returns_true_when_tree_is_empty_TestD0Ev:
+        1:  192:TEST_F(BinarySearchTreeTest, isEmpty_returns_true_when_tree_is_empty) {
+        1:  192-block  0
+------------------
+_ZN65BinarySearchTreeTest_isEmpty_returns_true_when_tree_is_empty_TestD2Ev:
+        1:  192:TEST_F(BinarySearchTreeTest, isEmpty_returns_true_when_tree_is_empty) {
+        1:  192-block  0
+------------------
+_ZN65BinarySearchTreeTest_isEmpty_returns_true_when_tree_is_empty_Test8TestBodyEv:
+        1:  192:TEST_F(BinarySearchTreeTest, isEmpty_returns_true_when_tree_is_empty) {
+        -:  193:
+       1*:  194:	ASSERT_TRUE(tree.isEmpty());
+        1:  194-block  0
+    %%%%%:  194-block  1
+    %%%%%:  194-block  2
+    %%%%%:  194-block  3
+    %%%%%:  194-block  4
+    %%%%%:  194-block  5
+    $$$$$:  194-block  6
+    $$$$$:  194-block  7
+    $$$$$:  194-block  8
+    $$$$$:  194-block  9
+    $$$$$:  194-block 10
+    $$$$$:  194-block 11
+    $$$$$:  194-block 12
+        -:  195:}
+------------------
+        -:  196:
+        4:  197:TEST_F(BinarySearchTreeTest, isEmpty_returns_true_when_tree_is_empty_after_remove) {
+        -:  198:
+        1:  199:	auto element = random();
+        1:  200:	tree.insert(element);
+        -:  201:
+        1:  202:	tree.remove(element);
+        -:  203:
+       1*:  204:	ASSERT_TRUE(tree.isEmpty());
+        -:  205:}
+------------------
+_ZN78BinarySearchTreeTest_isEmpty_returns_true_when_tree_is_empty_after_remove_TestC2Ev:
+        1:  197:TEST_F(BinarySearchTreeTest, isEmpty_returns_true_when_tree_is_empty_after_remove) {
+        1:  197-block  0
+------------------
+_ZN78BinarySearchTreeTest_isEmpty_returns_true_when_tree_is_empty_after_remove_TestD0Ev:
+        1:  197:TEST_F(BinarySearchTreeTest, isEmpty_returns_true_when_tree_is_empty_after_remove) {
+        1:  197-block  0
+------------------
+_ZN78BinarySearchTreeTest_isEmpty_returns_true_when_tree_is_empty_after_remove_TestD2Ev:
+        1:  197:TEST_F(BinarySearchTreeTest, isEmpty_returns_true_when_tree_is_empty_after_remove) {
+        1:  197-block  0
+------------------
+_ZN78BinarySearchTreeTest_isEmpty_returns_true_when_tree_is_empty_after_remove_Test8TestBodyEv:
+        1:  197:TEST_F(BinarySearchTreeTest, isEmpty_returns_true_when_tree_is_empty_after_remove) {
+        -:  198:
+        1:  199:	auto element = random();
+        1:  199-block  0
+        1:  200:	tree.insert(element);
+    $$$$$:  200-block  0
+        -:  201:
+        1:  202:	tree.remove(element);
+        1:  202-block  0
+    $$$$$:  202-block  1
+        -:  203:
+       1*:  204:	ASSERT_TRUE(tree.isEmpty());
+        1:  204-block  0
+    %%%%%:  204-block  1
+    %%%%%:  204-block  2
+    %%%%%:  204-block  3
+    %%%%%:  204-block  4
+    %%%%%:  204-block  5
+    $$$$$:  204-block  6
+    $$$$$:  204-block  7
+    $$$$$:  204-block  8
+    $$$$$:  204-block  9
+    $$$$$:  204-block 10
+    $$$$$:  204-block 11
+    $$$$$:  204-block 12
+        -:  205:}
+------------------
+        -:  206:
+        4:  207:TEST_F(BinarySearchTreeTest, isEmpty_returns_false_when_tree_still_contains_elements) {
+        -:  208:
+        1:  209:	auto element1 = random();
+        1:  210:	auto element2 = random();
+        1:  211:	tree.insert(element1);
+        1:  212:	tree.insert(element2);
+        -:  213:
+        1:  214:	tree.remove(element1);
+        -:  215:
+       1*:  216:	ASSERT_FALSE(tree.isEmpty());
+        -:  217:}
+------------------
+_ZN81BinarySearchTreeTest_isEmpty_returns_false_when_tree_still_contains_elements_TestC2Ev:
+        1:  207:TEST_F(BinarySearchTreeTest, isEmpty_returns_false_when_tree_still_contains_elements) {
+        1:  207-block  0
+------------------
+_ZN81BinarySearchTreeTest_isEmpty_returns_false_when_tree_still_contains_elements_TestD0Ev:
+        1:  207:TEST_F(BinarySearchTreeTest, isEmpty_returns_false_when_tree_still_contains_elements) {
+        1:  207-block  0
+------------------
+_ZN81BinarySearchTreeTest_isEmpty_returns_false_when_tree_still_contains_elements_TestD2Ev:
+        1:  207:TEST_F(BinarySearchTreeTest, isEmpty_returns_false_when_tree_still_contains_elements) {
+        1:  207-block  0
+------------------
+_ZN81BinarySearchTreeTest_isEmpty_returns_false_when_tree_still_contains_elements_Test8TestBodyEv:
+        1:  207:TEST_F(BinarySearchTreeTest, isEmpty_returns_false_when_tree_still_contains_elements) {
+        -:  208:
+        1:  209:	auto element1 = random();
+        1:  209-block  0
+        1:  210:	auto element2 = random();
+        1:  211:	tree.insert(element1);
+    $$$$$:  211-block  0
+        1:  212:	tree.insert(element2);
+        1:  212-block  0
+    $$$$$:  212-block  1
+        -:  213:
+        1:  214:	tree.remove(element1);
+        1:  214-block  0
+    $$$$$:  214-block  1
+        -:  215:
+       1*:  216:	ASSERT_FALSE(tree.isEmpty());
+        1:  216-block  0
+    %%%%%:  216-block  1
+    %%%%%:  216-block  2
+    %%%%%:  216-block  3
+    %%%%%:  216-block  4
+    %%%%%:  216-block  5
+    $$$$$:  216-block  6
+    $$$$$:  216-block  7
+    $$$$$:  216-block  8
+    $$$$$:  216-block  9
+    $$$$$:  216-block 10
+    $$$$$:  216-block 11
+    $$$$$:  216-block 12
+        -:  217:}
+------------------
+        -:  218:
+        4:  219:TEST_F(BinarySearchTreeTest, makeEmpty_removes_all_elements) {
+        -:  220:
+        1:  221:	auto element1 = random();
+        1:  222:	auto element2 = random();
+        1:  223:	tree.insert(element1);
+        1:  224:	tree.insert(element2);
+        -:  225:
+        1:  226:	tree.makeEmpty();
+        -:  227:
+       1*:  228:	ASSERT_TRUE(tree.isEmpty());
+        -:  229:}
+------------------
+_ZN56BinarySearchTreeTest_makeEmpty_removes_all_elements_TestC2Ev:
+        1:  219:TEST_F(BinarySearchTreeTest, makeEmpty_removes_all_elements) {
+        1:  219-block  0
+------------------
+_ZN56BinarySearchTreeTest_makeEmpty_removes_all_elements_TestD0Ev:
+        1:  219:TEST_F(BinarySearchTreeTest, makeEmpty_removes_all_elements) {
+        1:  219-block  0
+------------------
+_ZN56BinarySearchTreeTest_makeEmpty_removes_all_elements_TestD2Ev:
+        1:  219:TEST_F(BinarySearchTreeTest, makeEmpty_removes_all_elements) {
+        1:  219-block  0
+------------------
+_ZN56BinarySearchTreeTest_makeEmpty_removes_all_elements_Test8TestBodyEv:
+        1:  219:TEST_F(BinarySearchTreeTest, makeEmpty_removes_all_elements) {
+        -:  220:
+        1:  221:	auto element1 = random();
+        1:  221-block  0
+        1:  222:	auto element2 = random();
+        1:  223:	tree.insert(element1);
+    $$$$$:  223-block  0
+        1:  224:	tree.insert(element2);
+        1:  224-block  0
+    $$$$$:  224-block  1
+        -:  225:
+        1:  226:	tree.makeEmpty();
+        1:  226-block  0
+        -:  227:
+       1*:  228:	ASSERT_TRUE(tree.isEmpty());
+    %%%%%:  228-block  0
+    %%%%%:  228-block  1
+    %%%%%:  228-block  2
+    %%%%%:  228-block  3
+    %%%%%:  228-block  4
+    $$$$$:  228-block  5
+    $$$$$:  228-block  6
+    $$$$$:  228-block  7
+    $$$$$:  228-block  8
+    $$$$$:  228-block  9
+    $$$$$:  228-block 10
+    $$$$$:  228-block 11
+        -:  229:}
+------------------
+        -:  230:
+        4:  231:TEST_F(BinarySearchTreeTest, makeEmpty_has_no_effect_on_empty_tree) {
+        -:  232:
+        1:  233:	tree.makeEmpty();
+        -:  234:
+       1*:  235:	ASSERT_TRUE(tree.isEmpty());
+        -:  236:}
+------------------
+_ZN63BinarySearchTreeTest_makeEmpty_has_no_effect_on_empty_tree_TestC2Ev:
+        1:  231:TEST_F(BinarySearchTreeTest, makeEmpty_has_no_effect_on_empty_tree) {
+        1:  231-block  0
+------------------
+_ZN63BinarySearchTreeTest_makeEmpty_has_no_effect_on_empty_tree_TestD0Ev:
+        1:  231:TEST_F(BinarySearchTreeTest, makeEmpty_has_no_effect_on_empty_tree) {
+        1:  231-block  0
+------------------
+_ZN63BinarySearchTreeTest_makeEmpty_has_no_effect_on_empty_tree_TestD2Ev:
+        1:  231:TEST_F(BinarySearchTreeTest, makeEmpty_has_no_effect_on_empty_tree) {
+        1:  231-block  0
+------------------
+_ZN63BinarySearchTreeTest_makeEmpty_has_no_effect_on_empty_tree_Test8TestBodyEv:
+        1:  231:TEST_F(BinarySearchTreeTest, makeEmpty_has_no_effect_on_empty_tree) {
+        -:  232:
+        1:  233:	tree.makeEmpty();
+        1:  233-block  0
+        -:  234:
+       1*:  235:	ASSERT_TRUE(tree.isEmpty());
+    %%%%%:  235-block  0
+    %%%%%:  235-block  1
+    %%%%%:  235-block  2
+    %%%%%:  235-block  3
+    %%%%%:  235-block  4
+    $$$$$:  235-block  5
+    $$$$$:  235-block  6
+    $$$$$:  235-block  7
+    $$$$$:  235-block  8
+    $$$$$:  235-block  9
+    $$$$$:  235-block 10
+    $$$$$:  235-block 11
+        -:  236:}
+------------------
+        -:  237:
+        4:  238:TEST_F(BinarySearchTreeTest, makeEmpty_is_idempotent) {
+        -:  239:
+        1:  240:	tree.makeEmpty();
+        1:  241:	tree.makeEmpty();
+        -:  242:
+       1*:  243:	ASSERT_TRUE(tree.isEmpty());
+        -:  244:}
+------------------
+_ZN49BinarySearchTreeTest_makeEmpty_is_idempotent_TestC2Ev:
+        1:  238:TEST_F(BinarySearchTreeTest, makeEmpty_is_idempotent) {
+        1:  238-block  0
+------------------
+_ZN49BinarySearchTreeTest_makeEmpty_is_idempotent_TestD0Ev:
+        1:  238:TEST_F(BinarySearchTreeTest, makeEmpty_is_idempotent) {
+        1:  238-block  0
+------------------
+_ZN49BinarySearchTreeTest_makeEmpty_is_idempotent_TestD2Ev:
+        1:  238:TEST_F(BinarySearchTreeTest, makeEmpty_is_idempotent) {
+        1:  238-block  0
+------------------
+_ZN49BinarySearchTreeTest_makeEmpty_is_idempotent_Test8TestBodyEv:
+        1:  238:TEST_F(BinarySearchTreeTest, makeEmpty_is_idempotent) {
+        -:  239:
+        1:  240:	tree.makeEmpty();
+        1:  240-block  0
+        1:  241:	tree.makeEmpty();
+        -:  242:
+       1*:  243:	ASSERT_TRUE(tree.isEmpty());
+    %%%%%:  243-block  0
+    %%%%%:  243-block  1
+    %%%%%:  243-block  2
+    %%%%%:  243-block  3
+    %%%%%:  243-block  4
+    $$$$$:  243-block  5
+    $$$$$:  243-block  6
+    $$$$$:  243-block  7
+    $$$$$:  243-block  8
+    $$$$$:  243-block  9
+    $$$$$:  243-block 10
+    $$$$$:  243-block 11
+        -:  244:}
+------------------
+        -:  245:
+        4:  246:TEST_F(BinarySearchTreeTest, copy_constructor_copies_other_tree_content) {
+        -:  247:
+        1:  248:	auto treeExpectedElements = {
+        1:  249:		static_cast<int>(random()),
+        1:  250:		static_cast<int>(random()),
+        1:  251:		static_cast<int>(random()),
+        1:  252:		static_cast<int>(random())
+        1:  253:	};
+        1:  254:	auto tree1 = BinarySearchTree<int>{};
+        5:  255:	for (const auto& element : treeExpectedElements) {
+        4:  256:		tree1.insert(element);
+        -:  257:	}
+        -:  258:
+        1:  259:	auto tree2 = tree1;
+        -:  260:
+        5:  261:	for (const auto& expectedElement: treeExpectedElements) {
+       4*:  262:		ASSERT_TRUE(tree2.contains(expectedElement));
+        -:  263:	}
+        -:  264:}
+------------------
+_ZN68BinarySearchTreeTest_copy_constructor_copies_other_tree_content_TestC2Ev:
+        1:  246:TEST_F(BinarySearchTreeTest, copy_constructor_copies_other_tree_content) {
+        1:  246-block  0
+------------------
+_ZN68BinarySearchTreeTest_copy_constructor_copies_other_tree_content_TestD0Ev:
+        1:  246:TEST_F(BinarySearchTreeTest, copy_constructor_copies_other_tree_content) {
+        1:  246-block  0
+------------------
+_ZN68BinarySearchTreeTest_copy_constructor_copies_other_tree_content_TestD2Ev:
+        1:  246:TEST_F(BinarySearchTreeTest, copy_constructor_copies_other_tree_content) {
+        1:  246-block  0
+------------------
+_ZN68BinarySearchTreeTest_copy_constructor_copies_other_tree_content_Test8TestBodyEv:
+        1:  246:TEST_F(BinarySearchTreeTest, copy_constructor_copies_other_tree_content) {
+        -:  247:
+        1:  248:	auto treeExpectedElements = {
+        1:  249:		static_cast<int>(random()),
+        1:  249-block  0
+        1:  250:		static_cast<int>(random()),
+        1:  251:		static_cast<int>(random()),
+        1:  252:		static_cast<int>(random())
+        1:  253:	};
+        1:  254:	auto tree1 = BinarySearchTree<int>{};
+    $$$$$:  254-block  0
+        5:  255:	for (const auto& element : treeExpectedElements) {
+        5:  255-block  0
+        4:  255-block  1
+        4:  256:		tree1.insert(element);
+        4:  256-block  0
+        -:  257:	}
+        -:  258:
+        1:  259:	auto tree2 = tree1;
+        1:  259-block  0
+    $$$$$:  259-block  1
+        -:  260:
+        5:  261:	for (const auto& expectedElement: treeExpectedElements) {
+        1:  261-block  0
+        5:  261-block  1
+        4:  261-block  2
+       4*:  262:		ASSERT_TRUE(tree2.contains(expectedElement));
+        4:  262-block  0
+        4:  262-block  1
+    %%%%%:  262-block  2
+    %%%%%:  262-block  3
+    %%%%%:  262-block  4
+    %%%%%:  262-block  5
+    %%%%%:  262-block  6
+    $$$$$:  262-block  7
+    $$$$$:  262-block  8
+    $$$$$:  262-block  9
+    $$$$$:  262-block 10
+    $$$$$:  262-block 11
+    $$$$$:  262-block 12
+    $$$$$:  262-block 13
+        -:  263:	}
+        -:  264:}
+------------------
+        -:  265:
+        4:  266:TEST_F(BinarySearchTreeTest, assignment_operator_copies_other_tree_content) {
+        -:  267:
+        1:  268:	auto treeExpectedElements = {
+        1:  269:		static_cast<size_t>(random()),
+        2:  270:		static_cast<size_t>(random()),
+        2:  271:		static_cast<size_t>(random()),
+        2:  272:		static_cast<size_t>(random())
+        1:  273:	};
+        1:  274:	auto tree1 = BinarySearchTree<size_t>{};
+        5:  275:	for (const auto& element : treeExpectedElements) {
+        4:  276:		tree1.insert(element);
+        -:  277:	}
+        -:  278:
+        1:  279:	tree = tree1;
+        -:  280:
+        5:  281:	for (const auto& expectedElement: treeExpectedElements) {
+       4*:  282:		ASSERT_TRUE(tree.contains(expectedElement));
+        -:  283:	}
+        -:  284:}
+------------------
+_ZN71BinarySearchTreeTest_assignment_operator_copies_other_tree_content_TestC2Ev:
+        1:  266:TEST_F(BinarySearchTreeTest, assignment_operator_copies_other_tree_content) {
+        1:  266-block  0
+------------------
+_ZN71BinarySearchTreeTest_assignment_operator_copies_other_tree_content_TestD0Ev:
+        1:  266:TEST_F(BinarySearchTreeTest, assignment_operator_copies_other_tree_content) {
+        1:  266-block  0
+------------------
+_ZN71BinarySearchTreeTest_assignment_operator_copies_other_tree_content_TestD2Ev:
+        1:  266:TEST_F(BinarySearchTreeTest, assignment_operator_copies_other_tree_content) {
+        1:  266-block  0
+------------------
+_ZN71BinarySearchTreeTest_assignment_operator_copies_other_tree_content_Test8TestBodyEv:
+        1:  266:TEST_F(BinarySearchTreeTest, assignment_operator_copies_other_tree_content) {
+        -:  267:
+        1:  268:	auto treeExpectedElements = {
+        1:  269:		static_cast<size_t>(random()),
+        1:  269-block  0
+        2:  270:		static_cast<size_t>(random()),
+        2:  271:		static_cast<size_t>(random()),
+        2:  272:		static_cast<size_t>(random())
+        1:  273:	};
+        1:  274:	auto tree1 = BinarySearchTree<size_t>{};
+    $$$$$:  274-block  0
+        5:  275:	for (const auto& element : treeExpectedElements) {
+        5:  275-block  0
+        4:  275-block  1
+        4:  276:		tree1.insert(element);
+        4:  276-block  0
+        -:  277:	}
+        -:  278:
+        1:  279:	tree = tree1;
+        1:  279-block  0
+        -:  280:
+        5:  281:	for (const auto& expectedElement: treeExpectedElements) {
+        1:  281-block  0
+        5:  281-block  1
+        4:  281-block  2
+       4*:  282:		ASSERT_TRUE(tree.contains(expectedElement));
+        4:  282-block  0
+        4:  282-block  1
+    %%%%%:  282-block  2
+    %%%%%:  282-block  3
+    %%%%%:  282-block  4
+    %%%%%:  282-block  5
+    %%%%%:  282-block  6
+    $$$$$:  282-block  7
+    $$$$$:  282-block  8
+    $$$$$:  282-block  9
+    $$$$$:  282-block 10
+    $$$$$:  282-block 11
+    $$$$$:  282-block 12
+    $$$$$:  282-block 13
+        -:  283:	}
+        -:  284:}
+------------------
+        -:  285:
+        4:  286:TEST_F(BinarySearchTreeTest,
+        -:  287:       assignment_operator_removes_previously_inserted_element_before_copying_content_of_other_tree) {
+        -:  288:
+        1:  289:	auto expectedElement = random();
+        1:  290:	auto tree1 = BinarySearchTree<size_t>{};
+        1:  291:	tree1.insert(expectedElement);
+        1:  292:	auto unexpectedElement = random();
+        1:  293:	tree.insert(unexpectedElement);
+        -:  294:
+        1:  295:	tree = tree1;
+        -:  296:
+       1*:  297:	ASSERT_FALSE(tree.contains(unexpectedElement));
+        -:  298:}
+------------------
+_ZN118BinarySearchTreeTest_assignment_operator_removes_previously_inserted_element_before_copying_content_of_other_tree_TestC2Ev:
+        1:  286:TEST_F(BinarySearchTreeTest,
+        1:  286-block  0
+------------------
+_ZN118BinarySearchTreeTest_assignment_operator_removes_previously_inserted_element_before_copying_content_of_other_tree_TestD0Ev:
+        1:  286:TEST_F(BinarySearchTreeTest,
+        1:  286-block  0
+------------------
+_ZN118BinarySearchTreeTest_assignment_operator_removes_previously_inserted_element_before_copying_content_of_other_tree_TestD2Ev:
+        1:  286:TEST_F(BinarySearchTreeTest,
+        1:  286-block  0
+------------------
+_ZN118BinarySearchTreeTest_assignment_operator_removes_previously_inserted_element_before_copying_content_of_other_tree_Test8TestBodyEv:
+        1:  286:TEST_F(BinarySearchTreeTest,
+        -:  287:       assignment_operator_removes_previously_inserted_element_before_copying_content_of_other_tree) {
+        -:  288:
+        1:  289:	auto expectedElement = random();
+        1:  289-block  0
+        1:  290:	auto tree1 = BinarySearchTree<size_t>{};
+    $$$$$:  290-block  0
+        1:  291:	tree1.insert(expectedElement);
+    $$$$$:  291-block  0
+        1:  292:	auto unexpectedElement = random();
+        1:  292-block  0
+        1:  293:	tree.insert(unexpectedElement);
+    $$$$$:  293-block  0
+        -:  294:
+        1:  295:	tree = tree1;
+        1:  295-block  0
+        -:  296:
+       1*:  297:	ASSERT_FALSE(tree.contains(unexpectedElement));
+        1:  297-block  0
+        1:  297-block  1
+    %%%%%:  297-block  2
+    %%%%%:  297-block  3
+    %%%%%:  297-block  4
+    %%%%%:  297-block  5
+    %%%%%:  297-block  6
+    $$$$$:  297-block  7
+    $$$$$:  297-block  8
+    $$$$$:  297-block  9
+    $$$$$:  297-block 10
+    $$$$$:  297-block 11
+    $$$$$:  297-block 12
+    $$$$$:  297-block 13
+    $$$$$:  297-block 14
+        -:  298:}
+------------------
+        -:  299:
+        4:  300:TEST_F(BinarySearchTreeTest, prints_tree_in_symmetric_order) {
+        -:  301:
+        1:  302:	auto expectedNode1 = size_t{7};
+        1:  303:	auto expectedNode2 = size_t{2};
+        1:  304:	auto expectedNode3 = size_t{8};
+        1:  305:	auto expectedNode4 = size_t{1};
+        1:  306:	auto expectedNode5 = size_t{4};
+        1:  307:	auto expectedNode6 = size_t{3};
+        1:  308:	auto expectedNode7 = size_t{5};
+        1:  309:	tree.insert(expectedNode1);
+        1:  310:	tree.insert(expectedNode2);
+        1:  311:	tree.insert(expectedNode3);
+        1:  312:	tree.insert(expectedNode4);
+        1:  313:	tree.insert(expectedNode5);
+        1:  314:	tree.insert(expectedNode6);
+        1:  315:	tree.insert(expectedNode7);
+        2:  316:	auto expectedTreeInSymmetricOrder = to_string(expectedNode4) + ";" +
+        4:  317:		to_string(expectedNode2) + ";" +
+        4:  318:		to_string(expectedNode6) + ";" +
+        4:  319:		to_string(expectedNode5) + ";" +
+        4:  320:		to_string(expectedNode7) + ";" +
+        4:  321:		to_string(expectedNode1) + ";" +
+        2:  322:		to_string(expectedNode3) + ";";
+        1:  323:	std::ostringstream output;
+        -:  324:
+        1:  325:	tree.printTreeInSymmetricOrder(output);
+        -:  326:
+       2*:  327:	ASSERT_EQ(expectedTreeInSymmetricOrder, output.str());
+        -:  328:}
+------------------
+_ZN56BinarySearchTreeTest_prints_tree_in_symmetric_order_TestC2Ev:
+        1:  300:TEST_F(BinarySearchTreeTest, prints_tree_in_symmetric_order) {
+        1:  300-block  0
+------------------
+_ZN56BinarySearchTreeTest_prints_tree_in_symmetric_order_TestD0Ev:
+        1:  300:TEST_F(BinarySearchTreeTest, prints_tree_in_symmetric_order) {
+        1:  300-block  0
+------------------
+_ZN56BinarySearchTreeTest_prints_tree_in_symmetric_order_TestD2Ev:
+        1:  300:TEST_F(BinarySearchTreeTest, prints_tree_in_symmetric_order) {
+        1:  300-block  0
+------------------
+_ZN56BinarySearchTreeTest_prints_tree_in_symmetric_order_Test8TestBodyEv:
+        1:  300:TEST_F(BinarySearchTreeTest, prints_tree_in_symmetric_order) {
+        -:  301:
+        1:  302:	auto expectedNode1 = size_t{7};
+        1:  303:	auto expectedNode2 = size_t{2};
+        1:  304:	auto expectedNode3 = size_t{8};
+        1:  305:	auto expectedNode4 = size_t{1};
+        1:  306:	auto expectedNode5 = size_t{4};
+        1:  307:	auto expectedNode6 = size_t{3};
+        1:  308:	auto expectedNode7 = size_t{5};
+        1:  309:	tree.insert(expectedNode1);
+        1:  309-block  0
+        1:  310:	tree.insert(expectedNode2);
+        1:  310-block  0
+        1:  311:	tree.insert(expectedNode3);
+        1:  311-block  0
+        1:  312:	tree.insert(expectedNode4);
+        1:  312-block  0
+        1:  313:	tree.insert(expectedNode5);
+        1:  313-block  0
+        1:  314:	tree.insert(expectedNode6);
+        1:  314-block  0
+        1:  315:	tree.insert(expectedNode7);
+        1:  315-block  0
+        2:  316:	auto expectedTreeInSymmetricOrder = to_string(expectedNode4) + ";" +
+        1:  316-block  0
+        1:  316-block  1
+        1:  316-block  2
+    $$$$$:  316-block  3
+    $$$$$:  316-block  4
+    $$$$$:  316-block  5
+        4:  317:		to_string(expectedNode2) + ";" +
+        1:  317-block  0
+        1:  317-block  1
+        1:  317-block  2
+    $$$$$:  317-block  3
+    $$$$$:  317-block  4
+    $$$$$:  317-block  5
+        4:  318:		to_string(expectedNode6) + ";" +
+        1:  318-block  0
+        1:  318-block  1
+        1:  318-block  2
+    $$$$$:  318-block  3
+    $$$$$:  318-block  4
+    $$$$$:  318-block  5
+        4:  319:		to_string(expectedNode5) + ";" +
+        1:  319-block  0
+        1:  319-block  1
+        1:  319-block  2
+    $$$$$:  319-block  3
+    $$$$$:  319-block  4
+    $$$$$:  319-block  5
+        4:  320:		to_string(expectedNode7) + ";" +
+        1:  320-block  0
+        1:  320-block  1
+        1:  320-block  2
+    $$$$$:  320-block  3
+    $$$$$:  320-block  4
+    $$$$$:  320-block  5
+        4:  321:		to_string(expectedNode1) + ";" +
+        1:  321-block  0
+        1:  321-block  1
+        1:  321-block  2
+    $$$$$:  321-block  3
+    $$$$$:  321-block  4
+    $$$$$:  321-block  5
+        2:  322:		to_string(expectedNode3) + ";";
+        1:  322-block  0
+        1:  322-block  1
+    $$$$$:  322-block  2
+    $$$$$:  322-block  3
+        1:  323:	std::ostringstream output;
+    $$$$$:  323-block  0
+        -:  324:
+        1:  325:	tree.printTreeInSymmetricOrder(output);
+        1:  325-block  0
+        -:  326:
+       2*:  327:	ASSERT_EQ(expectedTreeInSymmetricOrder, output.str());
+        1:  327-block  0
+        1:  327-block  1
+    %%%%%:  327-block  2
+    %%%%%:  327-block  3
+    %%%%%:  327-block  4
+    %%%%%:  327-block  5
+    $$$$$:  327-block  6
+    $$$$$:  327-block  7
+    $$$$$:  327-block  8
+    $$$$$:  327-block  9
+    $$$$$:  327-block 10
+    $$$$$:  327-block 11
+        -:  328:}
+------------------
+        -:  329:
+        4:  330:TEST_F(BinarySearchTreeTest, prints_tree_in_pre_order) {
+        -:  331:
+        1:  332:	auto expectedNode1 = size_t{7};
+        1:  333:	auto expectedNode2 = size_t{2};
+        1:  334:	auto expectedNode3 = size_t{8};
+        1:  335:	auto expectedNode4 = size_t{1};
+        1:  336:	auto expectedNode5 = size_t{4};
+        1:  337:	auto expectedNode6 = size_t{3};
+        1:  338:	auto expectedNode7 = size_t{5};
+        1:  339:	tree.insert(expectedNode1);
+        1:  340:	tree.insert(expectedNode2);
+        1:  341:	tree.insert(expectedNode3);
+        1:  342:	tree.insert(expectedNode4);
+        1:  343:	tree.insert(expectedNode5);
+        1:  344:	tree.insert(expectedNode6);
+        1:  345:	tree.insert(expectedNode7);
+        2:  346:	auto expectedTreeInPreOrder = to_string(expectedNode1) + ";" +
+        4:  347:		to_string(expectedNode2) + ";" +
+        4:  348:		to_string(expectedNode4) + ";" +
+        4:  349:		to_string(expectedNode5) + ";" +
+        4:  350:		to_string(expectedNode6) + ";" +
+        4:  351:		to_string(expectedNode7) + ";" +
+        2:  352:		to_string(expectedNode3) + ";";
+        1:  353:	std::ostringstream output;
+        -:  354:
+        1:  355:	tree.printTreeInPreOrder(output);
+        -:  356:
+       2*:  357:	ASSERT_EQ(expectedTreeInPreOrder, output.str());
+        -:  358:}
+------------------
+_ZN50BinarySearchTreeTest_prints_tree_in_pre_order_TestC2Ev:
+        1:  330:TEST_F(BinarySearchTreeTest, prints_tree_in_pre_order) {
+        1:  330-block  0
+------------------
+_ZN50BinarySearchTreeTest_prints_tree_in_pre_order_TestD0Ev:
+        1:  330:TEST_F(BinarySearchTreeTest, prints_tree_in_pre_order) {
+        1:  330-block  0
+------------------
+_ZN50BinarySearchTreeTest_prints_tree_in_pre_order_TestD2Ev:
+        1:  330:TEST_F(BinarySearchTreeTest, prints_tree_in_pre_order) {
+        1:  330-block  0
+------------------
+_ZN50BinarySearchTreeTest_prints_tree_in_pre_order_Test8TestBodyEv:
+        1:  330:TEST_F(BinarySearchTreeTest, prints_tree_in_pre_order) {
+        -:  331:
+        1:  332:	auto expectedNode1 = size_t{7};
+        1:  333:	auto expectedNode2 = size_t{2};
+        1:  334:	auto expectedNode3 = size_t{8};
+        1:  335:	auto expectedNode4 = size_t{1};
+        1:  336:	auto expectedNode5 = size_t{4};
+        1:  337:	auto expectedNode6 = size_t{3};
+        1:  338:	auto expectedNode7 = size_t{5};
+        1:  339:	tree.insert(expectedNode1);
+        1:  339-block  0
+        1:  340:	tree.insert(expectedNode2);
+        1:  340-block  0
+        1:  341:	tree.insert(expectedNode3);
+        1:  341-block  0
+        1:  342:	tree.insert(expectedNode4);
+        1:  342-block  0
+        1:  343:	tree.insert(expectedNode5);
+        1:  343-block  0
+        1:  344:	tree.insert(expectedNode6);
+        1:  344-block  0
+        1:  345:	tree.insert(expectedNode7);
+        1:  345-block  0
+        2:  346:	auto expectedTreeInPreOrder = to_string(expectedNode1) + ";" +
+        1:  346-block  0
+        1:  346-block  1
+        1:  346-block  2
+    $$$$$:  346-block  3
+    $$$$$:  346-block  4
+    $$$$$:  346-block  5
+        4:  347:		to_string(expectedNode2) + ";" +
+        1:  347-block  0
+        1:  347-block  1
+        1:  347-block  2
+    $$$$$:  347-block  3
+    $$$$$:  347-block  4
+    $$$$$:  347-block  5
+        4:  348:		to_string(expectedNode4) + ";" +
+        1:  348-block  0
+        1:  348-block  1
+        1:  348-block  2
+    $$$$$:  348-block  3
+    $$$$$:  348-block  4
+    $$$$$:  348-block  5
+        4:  349:		to_string(expectedNode5) + ";" +
+        1:  349-block  0
+        1:  349-block  1
+        1:  349-block  2
+    $$$$$:  349-block  3
+    $$$$$:  349-block  4
+    $$$$$:  349-block  5
+        4:  350:		to_string(expectedNode6) + ";" +
+        1:  350-block  0
+        1:  350-block  1
+        1:  350-block  2
+    $$$$$:  350-block  3
+    $$$$$:  350-block  4
+    $$$$$:  350-block  5
+        4:  351:		to_string(expectedNode7) + ";" +
+        1:  351-block  0
+        1:  351-block  1
+        1:  351-block  2
+    $$$$$:  351-block  3
+    $$$$$:  351-block  4
+    $$$$$:  351-block  5
+        2:  352:		to_string(expectedNode3) + ";";
+        1:  352-block  0
+        1:  352-block  1
+    $$$$$:  352-block  2
+    $$$$$:  352-block  3
+        1:  353:	std::ostringstream output;
+    $$$$$:  353-block  0
+        -:  354:
+        1:  355:	tree.printTreeInPreOrder(output);
+        1:  355-block  0
+        -:  356:
+       2*:  357:	ASSERT_EQ(expectedTreeInPreOrder, output.str());
+        1:  357-block  0
+        1:  357-block  1
+    %%%%%:  357-block  2
+    %%%%%:  357-block  3
+    %%%%%:  357-block  4
+    %%%%%:  357-block  5
+    $$$$$:  357-block  6
+    $$$$$:  357-block  7
+    $$$$$:  357-block  8
+    $$$$$:  357-block  9
+    $$$$$:  357-block 10
+    $$$$$:  357-block 11
+        -:  358:}
+------------------
+        -:  359:
+        4:  360:TEST_F(BinarySearchTreeTest, prints_tree_in_post_order) {
+        -:  361:
+        1:  362:	auto expectedNode1 = size_t{7};
+        1:  363:	auto expectedNode2 = size_t{2};
+        1:  364:	auto expectedNode3 = size_t{8};
+        1:  365:	auto expectedNode4 = size_t{1};
+        1:  366:	auto expectedNode5 = size_t{4};
+        1:  367:	auto expectedNode6 = size_t{3};
+        1:  368:	auto expectedNode7 = size_t{5};
+        1:  369:	tree.insert(expectedNode1);
+        1:  370:	tree.insert(expectedNode2);
+        1:  371:	tree.insert(expectedNode3);
+        1:  372:	tree.insert(expectedNode4);
+        1:  373:	tree.insert(expectedNode5);
+        1:  374:	tree.insert(expectedNode6);
+        1:  375:	tree.insert(expectedNode7);
+        2:  376:	auto expectedTreeInPostOrder = to_string(expectedNode4) + ";" +
+        4:  377:		to_string(expectedNode6) + ";" +
+        4:  378:		to_string(expectedNode7) + ";" +
+        4:  379:		to_string(expectedNode5) + ";" +
+        4:  380:		to_string(expectedNode2) + ";" +
+        4:  381:		to_string(expectedNode3) + ";" +
+        2:  382:		to_string(expectedNode1) + ";";
+        1:  383:	std::ostringstream output;
+        -:  384:
+        1:  385:	tree.printTreeInPostOrder(output);
+        -:  386:
+       2*:  387:	ASSERT_EQ(expectedTreeInPostOrder, output.str());
+        -:  388:}
+------------------
+_ZN51BinarySearchTreeTest_prints_tree_in_post_order_TestC2Ev:
+        1:  360:TEST_F(BinarySearchTreeTest, prints_tree_in_post_order) {
+        1:  360-block  0
+------------------
+_ZN51BinarySearchTreeTest_prints_tree_in_post_order_TestD0Ev:
+        1:  360:TEST_F(BinarySearchTreeTest, prints_tree_in_post_order) {
+        1:  360-block  0
+------------------
+_ZN51BinarySearchTreeTest_prints_tree_in_post_order_TestD2Ev:
+        1:  360:TEST_F(BinarySearchTreeTest, prints_tree_in_post_order) {
+        1:  360-block  0
+------------------
+_ZN51BinarySearchTreeTest_prints_tree_in_post_order_Test8TestBodyEv:
+        1:  360:TEST_F(BinarySearchTreeTest, prints_tree_in_post_order) {
+        -:  361:
+        1:  362:	auto expectedNode1 = size_t{7};
+        1:  363:	auto expectedNode2 = size_t{2};
+        1:  364:	auto expectedNode3 = size_t{8};
+        1:  365:	auto expectedNode4 = size_t{1};
+        1:  366:	auto expectedNode5 = size_t{4};
+        1:  367:	auto expectedNode6 = size_t{3};
+        1:  368:	auto expectedNode7 = size_t{5};
+        1:  369:	tree.insert(expectedNode1);
+        1:  369-block  0
+        1:  370:	tree.insert(expectedNode2);
+        1:  370-block  0
+        1:  371:	tree.insert(expectedNode3);
+        1:  371-block  0
+        1:  372:	tree.insert(expectedNode4);
+        1:  372-block  0
+        1:  373:	tree.insert(expectedNode5);
+        1:  373-block  0
+        1:  374:	tree.insert(expectedNode6);
+        1:  374-block  0
+        1:  375:	tree.insert(expectedNode7);
+        1:  375-block  0
+        2:  376:	auto expectedTreeInPostOrder = to_string(expectedNode4) + ";" +
+        1:  376-block  0
+        1:  376-block  1
+        1:  376-block  2
+    $$$$$:  376-block  3
+    $$$$$:  376-block  4
+    $$$$$:  376-block  5
+        4:  377:		to_string(expectedNode6) + ";" +
+        1:  377-block  0
+        1:  377-block  1
+        1:  377-block  2
+    $$$$$:  377-block  3
+    $$$$$:  377-block  4
+    $$$$$:  377-block  5
+        4:  378:		to_string(expectedNode7) + ";" +
+        1:  378-block  0
+        1:  378-block  1
+        1:  378-block  2
+    $$$$$:  378-block  3
+    $$$$$:  378-block  4
+    $$$$$:  378-block  5
+        4:  379:		to_string(expectedNode5) + ";" +
+        1:  379-block  0
+        1:  379-block  1
+        1:  379-block  2
+    $$$$$:  379-block  3
+    $$$$$:  379-block  4
+    $$$$$:  379-block  5
+        4:  380:		to_string(expectedNode2) + ";" +
+        1:  380-block  0
+        1:  380-block  1
+        1:  380-block  2
+    $$$$$:  380-block  3
+    $$$$$:  380-block  4
+    $$$$$:  380-block  5
+        4:  381:		to_string(expectedNode3) + ";" +
+        1:  381-block  0
+        1:  381-block  1
+        1:  381-block  2
+    $$$$$:  381-block  3
+    $$$$$:  381-block  4
+    $$$$$:  381-block  5
+        2:  382:		to_string(expectedNode1) + ";";
+        1:  382-block  0
+        1:  382-block  1
+    $$$$$:  382-block  2
+    $$$$$:  382-block  3
+        1:  383:	std::ostringstream output;
+    $$$$$:  383-block  0
+        -:  384:
+        1:  385:	tree.printTreeInPostOrder(output);
+        1:  385-block  0
+        -:  386:
+       2*:  387:	ASSERT_EQ(expectedTreeInPostOrder, output.str());
+        1:  387-block  0
+        1:  387-block  1
+    %%%%%:  387-block  2
+    %%%%%:  387-block  3
+    %%%%%:  387-block  4
+    %%%%%:  387-block  5
+    $$$$$:  387-block  6
+    $$$$$:  387-block  7
+    $$$$$:  387-block  8
+    $$$$$:  387-block  9
+    $$$$$:  387-block 10
+    $$$$$:  387-block 11
+        -:  388:}
+------------------
+        -:  389:
+        4:  390:TEST_F(BinarySearchTreeTest, inserts_value_in_tree) {
+        -:  391:
+        1:  392:	auto expectedValue = static_cast<size_t>(random());
+        -:  393:
+        1:  394:	tree.insert(expectedValue);
+        -:  395:
+       1*:  396:	ASSERT_TRUE(tree.contains(expectedValue));
+        -:  397:}
+------------------
+_ZN47BinarySearchTreeTest_inserts_value_in_tree_TestC2Ev:
+        1:  390:TEST_F(BinarySearchTreeTest, inserts_value_in_tree) {
+        1:  390-block  0
+------------------
+_ZN47BinarySearchTreeTest_inserts_value_in_tree_TestD0Ev:
+        1:  390:TEST_F(BinarySearchTreeTest, inserts_value_in_tree) {
+        1:  390-block  0
+------------------
+_ZN47BinarySearchTreeTest_inserts_value_in_tree_TestD2Ev:
+        1:  390:TEST_F(BinarySearchTreeTest, inserts_value_in_tree) {
+        1:  390-block  0
+------------------
+_ZN47BinarySearchTreeTest_inserts_value_in_tree_Test8TestBodyEv:
+        1:  390:TEST_F(BinarySearchTreeTest, inserts_value_in_tree) {
+        -:  391:
+        1:  392:	auto expectedValue = static_cast<size_t>(random());
+        1:  392-block  0
+        -:  393:
+        1:  394:	tree.insert(expectedValue);
+        -:  395:
+       1*:  396:	ASSERT_TRUE(tree.contains(expectedValue));
+        1:  396-block  0
+        1:  396-block  1
+    %%%%%:  396-block  2
+    %%%%%:  396-block  3
+    %%%%%:  396-block  4
+    %%%%%:  396-block  5
+    %%%%%:  396-block  6
+    $$$$$:  396-block  7
+    $$$$$:  396-block  8
+    $$$$$:  396-block  9
+    $$$$$:  396-block 10
+    $$$$$:  396-block 11
+    $$$$$:  396-block 12
+    $$$$$:  396-block 13
+        -:  397:}
+------------------
+        -:  398:
+        4:  399:TEST_F(BinarySearchTreeTest, trying_to_insert_a_value_that_already_exists_throws_logic_error) {
+        -:  400:
+        1:  401:	auto expectedValue = static_cast<size_t>(random());
+        -:  402:
+        1:  403:	tree.insert(expectedValue);
+        -:  404:
+       2*:  405:	ASSERT_THROW(tree.insert(expectedValue), logic_error);
+        -:  406:}

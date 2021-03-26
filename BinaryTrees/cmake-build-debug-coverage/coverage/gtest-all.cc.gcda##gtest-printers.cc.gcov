@@ -1,0 +1,1359 @@
+        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/lib/googletest/googletest/src/gtest-printers.cc
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
+        -:    0:Runs:1
+        -:    1:// Copyright 2007, Google Inc.
+        -:    2:// All rights reserved.
+        -:    3://
+        -:    4:// Redistribution and use in source and binary forms, with or without
+        -:    5:// modification, are permitted provided that the following conditions are
+        -:    6:// met:
+        -:    7://
+        -:    8://     * Redistributions of source code must retain the above copyright
+        -:    9:// notice, this list of conditions and the following disclaimer.
+        -:   10://     * Redistributions in binary form must reproduce the above
+        -:   11:// copyright notice, this list of conditions and the following disclaimer
+        -:   12:// in the documentation and/or other materials provided with the
+        -:   13:// distribution.
+        -:   14://     * Neither the name of Google Inc. nor the names of its
+        -:   15:// contributors may be used to endorse or promote products derived from
+        -:   16:// this software without specific prior written permission.
+        -:   17://
+        -:   18:// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+        -:   19:// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+        -:   20:// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+        -:   21:// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+        -:   22:// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+        -:   23:// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+        -:   24:// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+        -:   25:// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+        -:   26:// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+        -:   27:// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        -:   28:// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        -:   29:
+        -:   30:
+        -:   31:// Google Test - The Google C++ Testing and Mocking Framework
+        -:   32://
+        -:   33:// This file implements a universal value printer that can print a
+        -:   34:// value of any type T:
+        -:   35://
+        -:   36://   void ::testing::internal::UniversalPrinter<T>::Print(value, ostream_ptr);
+        -:   37://
+        -:   38:// It uses the << operator when possible, and prints the bytes in the
+        -:   39:// object otherwise.  A user can override its behavior for a class
+        -:   40:// type Foo by defining either operator<<(::std::ostream&, const Foo&)
+        -:   41:// or void PrintTo(const Foo&, ::std::ostream*) in the namespace that
+        -:   42:// defines Foo.
+        -:   43:
+        -:   44:#include "gtest/gtest-printers.h"
+        -:   45:
+        -:   46:#include <stdio.h>
+        -:   47:
+        -:   48:#include <cctype>
+        -:   49:#include <cstdint>
+        -:   50:#include <cwchar>
+        -:   51:#include <ostream>  // NOLINT
+        -:   52:#include <string>
+        -:   53:#include <type_traits>
+        -:   54:
+        -:   55:#include "gtest/internal/gtest-port.h"
+        -:   56:#include "src/gtest-internal-inl.h"
+        -:   57:
+        -:   58:namespace testing {
+        -:   59:
+        -:   60:namespace {
+        -:   61:
+        -:   62:using ::std::ostream;
+        -:   63:
+        -:   64:// Prints a segment of bytes in the given object.
+        -:   65:GTEST_ATTRIBUTE_NO_SANITIZE_MEMORY_
+        -:   66:GTEST_ATTRIBUTE_NO_SANITIZE_ADDRESS_
+        -:   67:GTEST_ATTRIBUTE_NO_SANITIZE_HWADDRESS_
+        -:   68:GTEST_ATTRIBUTE_NO_SANITIZE_THREAD_
+    #####:   69:void PrintByteSegmentInObjectTo(const unsigned char* obj_bytes, size_t start,
+        -:   70:                                size_t count, ostream* os) {
+    #####:   71:  char text[5] = "";
+    #####:   72:  for (size_t i = 0; i != count; i++) {
+    %%%%%:   72-block  0
+    %%%%%:   72-block  1
+    %%%%%:   72-block  2
+    #####:   73:    const size_t j = start + i;
+    #####:   74:    if (i != 0) {
+    %%%%%:   74-block  0
+        -:   75:      // Organizes the bytes into groups of 2 for easy parsing by
+        -:   76:      // human.
+    #####:   77:      if ((j % 2) == 0)
+    %%%%%:   77-block  0
+    #####:   78:        *os << ' ';
+    %%%%%:   78-block  0
+        -:   79:      else
+    #####:   80:        *os << '-';
+    %%%%%:   80-block  0
+        -:   81:    }
+    #####:   82:    GTEST_SNPRINTF_(text, sizeof(text), "%02X", obj_bytes[j]);
+    #####:   83:    *os << text;
+    %%%%%:   83-block  0
+        -:   84:  }
+    #####:   85:}
+    %%%%%:   85-block  0
+        -:   86:
+        -:   87:// Prints the bytes in the given value to the given ostream.
+    #####:   88:void PrintBytesInObjectToImpl(const unsigned char* obj_bytes, size_t count,
+        -:   89:                              ostream* os) {
+        -:   90:  // Tells the user how big the object is.
+    #####:   91:  *os << count << "-byte object <";
+    %%%%%:   91-block  0
+        -:   92:
+    #####:   93:  const size_t kThreshold = 132;
+    #####:   94:  const size_t kChunkSize = 64;
+        -:   95:  // If the object size is bigger than kThreshold, we'll have to omit
+        -:   96:  // some details by printing only the first and the last kChunkSize
+        -:   97:  // bytes.
+    #####:   98:  if (count < kThreshold) {
+    #####:   99:    PrintByteSegmentInObjectTo(obj_bytes, 0, count, os);
+    %%%%%:   99-block  0
+        -:  100:  } else {
+    #####:  101:    PrintByteSegmentInObjectTo(obj_bytes, 0, kChunkSize, os);
+    %%%%%:  101-block  0
+    #####:  102:    *os << " ... ";
+        -:  103:    // Rounds up to 2-byte boundary.
+    #####:  104:    const size_t resume_pos = (count - kChunkSize + 1)/2*2;
+    #####:  105:    PrintByteSegmentInObjectTo(obj_bytes, resume_pos, count - resume_pos, os);
+        -:  106:  }
+    #####:  107:  *os << ">";
+    %%%%%:  107-block  0
+    #####:  108:}
+        -:  109:
+        -:  110:// Helpers for widening a character to char32_t. Since the standard does not
+        -:  111:// specify if char / wchar_t is signed or unsigned, it is important to first
+        -:  112:// convert it to the unsigned type of the same width before widening it to
+        -:  113:// char32_t.
+        -:  114:template <typename CharType>
+    #####:  115:char32_t ToChar32(CharType in) {
+        -:  116:  return static_cast<char32_t>(
+    #####:  117:      static_cast<typename std::make_unsigned<CharType>::type>(in));
+        -:  118:}
+------------------
+_ZN7testing12_GLOBAL__N_18ToChar32IaEEDiT_:
+    #####:  115:char32_t ToChar32(CharType in) {
+        -:  116:  return static_cast<char32_t>(
+    #####:  117:      static_cast<typename std::make_unsigned<CharType>::type>(in));
+    %%%%%:  117-block  0
+        -:  118:}
+------------------
+_ZN7testing12_GLOBAL__N_18ToChar32IhEEDiT_:
+    #####:  115:char32_t ToChar32(CharType in) {
+        -:  116:  return static_cast<char32_t>(
+    #####:  117:      static_cast<typename std::make_unsigned<CharType>::type>(in));
+    %%%%%:  117-block  0
+        -:  118:}
+------------------
+_ZN7testing12_GLOBAL__N_18ToChar32IDiEEDiT_:
+    #####:  115:char32_t ToChar32(CharType in) {
+        -:  116:  return static_cast<char32_t>(
+    #####:  117:      static_cast<typename std::make_unsigned<CharType>::type>(in));
+    %%%%%:  117-block  0
+        -:  118:}
+------------------
+_ZN7testing12_GLOBAL__N_18ToChar32IwEEDiT_:
+    #####:  115:char32_t ToChar32(CharType in) {
+        -:  116:  return static_cast<char32_t>(
+    #####:  117:      static_cast<typename std::make_unsigned<CharType>::type>(in));
+    %%%%%:  117-block  0
+        -:  118:}
+------------------
+_ZN7testing12_GLOBAL__N_18ToChar32IDsEEDiT_:
+    #####:  115:char32_t ToChar32(CharType in) {
+        -:  116:  return static_cast<char32_t>(
+    #####:  117:      static_cast<typename std::make_unsigned<CharType>::type>(in));
+    %%%%%:  117-block  0
+        -:  118:}
+------------------
+_ZN7testing12_GLOBAL__N_18ToChar32IcEEDiT_:
+    #####:  115:char32_t ToChar32(CharType in) {
+        -:  116:  return static_cast<char32_t>(
+    #####:  117:      static_cast<typename std::make_unsigned<CharType>::type>(in));
+    %%%%%:  117-block  0
+        -:  118:}
+------------------
+        -:  119:
+        -:  120:}  // namespace
+        -:  121:
+        -:  122:namespace internal {
+        -:  123:
+        -:  124:// Delegates to PrintBytesInObjectToImpl() to print the bytes in the
+        -:  125:// given object.  The delegation simplifies the implementation, which
+        -:  126:// uses the << operator and thus is easier done outside of the
+        -:  127:// ::testing::internal namespace, which contains a << operator that
+        -:  128:// sometimes conflicts with the one in STL.
+    #####:  129:void PrintBytesInObjectTo(const unsigned char* obj_bytes, size_t count,
+        -:  130:                          ostream* os) {
+    #####:  131:  PrintBytesInObjectToImpl(obj_bytes, count, os);
+    %%%%%:  131-block  0
+    #####:  132:}
+        -:  133:
+        -:  134:// Depending on the value of a char (or wchar_t), we print it in one
+        -:  135:// of three formats:
+        -:  136://   - as is if it's a printable ASCII (e.g. 'a', '2', ' '),
+        -:  137://   - as a hexadecimal escape sequence (e.g. '\x7F'), or
+        -:  138://   - as a special escape sequence (e.g. '\r', '\n').
+        -:  139:enum CharFormat {
+        -:  140:  kAsIs,
+        -:  141:  kHexEscape,
+        -:  142:  kSpecialEscape
+        -:  143:};
+        -:  144:
+        -:  145:// Returns true if c is a printable ASCII character.  We test the
+        -:  146:// value of c directly instead of calling isprint(), which is buggy on
+        -:  147:// Windows Mobile.
+    #####:  148:inline bool IsPrintableAscii(char32_t c) { return 0x20 <= c && c <= 0x7E; }
+    %%%%%:  148-block  0
+    %%%%%:  148-block  1
+    %%%%%:  148-block  2
+    %%%%%:  148-block  3
+    %%%%%:  148-block  4
+        -:  149:
+        -:  150:// Prints c (of type char, char8_t, char16_t, char32_t, or wchar_t) as a
+        -:  151:// character literal without the quotes, escaping it when necessary; returns how
+        -:  152:// c was formatted.
+        -:  153:template <typename Char>
+    #####:  154:static CharFormat PrintAsCharLiteralTo(Char c, ostream* os) {
+    #####:  155:  const char32_t u_c = ToChar32(c);
+    #####:  156:  switch (u_c) {
+    #####:  157:    case L'\0':
+    #####:  158:      *os << "\\0";
+    #####:  159:      break;
+    #####:  160:    case L'\'':
+    #####:  161:      *os << "\\'";
+    #####:  162:      break;
+    #####:  163:    case L'\\':
+    #####:  164:      *os << "\\\\";
+    #####:  165:      break;
+    #####:  166:    case L'\a':
+    #####:  167:      *os << "\\a";
+    #####:  168:      break;
+    #####:  169:    case L'\b':
+    #####:  170:      *os << "\\b";
+    #####:  171:      break;
+    #####:  172:    case L'\f':
+    #####:  173:      *os << "\\f";
+    #####:  174:      break;
+    #####:  175:    case L'\n':
+    #####:  176:      *os << "\\n";
+    #####:  177:      break;
+    #####:  178:    case L'\r':
+    #####:  179:      *os << "\\r";
+    #####:  180:      break;
+    #####:  181:    case L'\t':
+    #####:  182:      *os << "\\t";
+    #####:  183:      break;
+    #####:  184:    case L'\v':
+    #####:  185:      *os << "\\v";
+    #####:  186:      break;
+    #####:  187:    default:
+    #####:  188:      if (IsPrintableAscii(u_c)) {
+    #####:  189:        *os << static_cast<char>(c);
+    #####:  190:        return kAsIs;
+        -:  191:      } else {
+    #####:  192:        ostream::fmtflags flags = os->flags();
+    #####:  193:        *os << "\\x" << std::hex << std::uppercase << static_cast<int>(u_c);
+    #####:  194:        os->flags(flags);
+    #####:  195:        return kHexEscape;
+        -:  196:      }
+        -:  197:  }
+    #####:  198:  return kSpecialEscape;
+        -:  199:}
+------------------
+_ZN7testing8internalL20PrintAsCharLiteralToIwEENS0_10CharFormatET_PSo:
+    #####:  154:static CharFormat PrintAsCharLiteralTo(Char c, ostream* os) {
+    #####:  155:  const char32_t u_c = ToChar32(c);
+    %%%%%:  155-block  0
+    #####:  156:  switch (u_c) {
+    #####:  157:    case L'\0':
+    #####:  158:      *os << "\\0";
+    %%%%%:  158-block  0
+    #####:  159:      break;
+    #####:  160:    case L'\'':
+    #####:  161:      *os << "\\'";
+    %%%%%:  161-block  0
+    #####:  162:      break;
+    #####:  163:    case L'\\':
+    #####:  164:      *os << "\\\\";
+    %%%%%:  164-block  0
+    #####:  165:      break;
+    #####:  166:    case L'\a':
+    #####:  167:      *os << "\\a";
+    %%%%%:  167-block  0
+    #####:  168:      break;
+    #####:  169:    case L'\b':
+    #####:  170:      *os << "\\b";
+    %%%%%:  170-block  0
+    #####:  171:      break;
+    #####:  172:    case L'\f':
+    #####:  173:      *os << "\\f";
+    %%%%%:  173-block  0
+    #####:  174:      break;
+    #####:  175:    case L'\n':
+    #####:  176:      *os << "\\n";
+    %%%%%:  176-block  0
+    #####:  177:      break;
+    #####:  178:    case L'\r':
+    #####:  179:      *os << "\\r";
+    %%%%%:  179-block  0
+    #####:  180:      break;
+    #####:  181:    case L'\t':
+    #####:  182:      *os << "\\t";
+    %%%%%:  182-block  0
+    #####:  183:      break;
+    #####:  184:    case L'\v':
+    #####:  185:      *os << "\\v";
+    %%%%%:  185-block  0
+    #####:  186:      break;
+    #####:  187:    default:
+    #####:  188:      if (IsPrintableAscii(u_c)) {
+    %%%%%:  188-block  0
+    #####:  189:        *os << static_cast<char>(c);
+    %%%%%:  189-block  0
+    #####:  190:        return kAsIs;
+        -:  191:      } else {
+    #####:  192:        ostream::fmtflags flags = os->flags();
+    %%%%%:  192-block  0
+    #####:  193:        *os << "\\x" << std::hex << std::uppercase << static_cast<int>(u_c);
+    #####:  194:        os->flags(flags);
+    #####:  195:        return kHexEscape;
+        -:  196:      }
+        -:  197:  }
+    #####:  198:  return kSpecialEscape;
+    %%%%%:  198-block  0
+        -:  199:}
+------------------
+_ZN7testing8internalL20PrintAsCharLiteralToIaEENS0_10CharFormatET_PSo:
+    #####:  154:static CharFormat PrintAsCharLiteralTo(Char c, ostream* os) {
+    #####:  155:  const char32_t u_c = ToChar32(c);
+    %%%%%:  155-block  0
+    #####:  156:  switch (u_c) {
+    #####:  157:    case L'\0':
+    #####:  158:      *os << "\\0";
+    %%%%%:  158-block  0
+    #####:  159:      break;
+    #####:  160:    case L'\'':
+    #####:  161:      *os << "\\'";
+    %%%%%:  161-block  0
+    #####:  162:      break;
+    #####:  163:    case L'\\':
+    #####:  164:      *os << "\\\\";
+    %%%%%:  164-block  0
+    #####:  165:      break;
+    #####:  166:    case L'\a':
+    #####:  167:      *os << "\\a";
+    %%%%%:  167-block  0
+    #####:  168:      break;
+    #####:  169:    case L'\b':
+    #####:  170:      *os << "\\b";
+    %%%%%:  170-block  0
+    #####:  171:      break;
+    #####:  172:    case L'\f':
+    #####:  173:      *os << "\\f";
+    %%%%%:  173-block  0
+    #####:  174:      break;
+    #####:  175:    case L'\n':
+    #####:  176:      *os << "\\n";
+    %%%%%:  176-block  0
+    #####:  177:      break;
+    #####:  178:    case L'\r':
+    #####:  179:      *os << "\\r";
+    %%%%%:  179-block  0
+    #####:  180:      break;
+    #####:  181:    case L'\t':
+    #####:  182:      *os << "\\t";
+    %%%%%:  182-block  0
+    #####:  183:      break;
+    #####:  184:    case L'\v':
+    #####:  185:      *os << "\\v";
+    %%%%%:  185-block  0
+    #####:  186:      break;
+    #####:  187:    default:
+    #####:  188:      if (IsPrintableAscii(u_c)) {
+    %%%%%:  188-block  0
+    #####:  189:        *os << static_cast<char>(c);
+    %%%%%:  189-block  0
+    #####:  190:        return kAsIs;
+        -:  191:      } else {
+    #####:  192:        ostream::fmtflags flags = os->flags();
+    %%%%%:  192-block  0
+    #####:  193:        *os << "\\x" << std::hex << std::uppercase << static_cast<int>(u_c);
+    #####:  194:        os->flags(flags);
+    #####:  195:        return kHexEscape;
+        -:  196:      }
+        -:  197:  }
+    #####:  198:  return kSpecialEscape;
+    %%%%%:  198-block  0
+        -:  199:}
+------------------
+_ZN7testing8internalL20PrintAsCharLiteralToIhEENS0_10CharFormatET_PSo:
+    #####:  154:static CharFormat PrintAsCharLiteralTo(Char c, ostream* os) {
+    #####:  155:  const char32_t u_c = ToChar32(c);
+    %%%%%:  155-block  0
+    #####:  156:  switch (u_c) {
+    #####:  157:    case L'\0':
+    #####:  158:      *os << "\\0";
+    %%%%%:  158-block  0
+    #####:  159:      break;
+    #####:  160:    case L'\'':
+    #####:  161:      *os << "\\'";
+    %%%%%:  161-block  0
+    #####:  162:      break;
+    #####:  163:    case L'\\':
+    #####:  164:      *os << "\\\\";
+    %%%%%:  164-block  0
+    #####:  165:      break;
+    #####:  166:    case L'\a':
+    #####:  167:      *os << "\\a";
+    %%%%%:  167-block  0
+    #####:  168:      break;
+    #####:  169:    case L'\b':
+    #####:  170:      *os << "\\b";
+    %%%%%:  170-block  0
+    #####:  171:      break;
+    #####:  172:    case L'\f':
+    #####:  173:      *os << "\\f";
+    %%%%%:  173-block  0
+    #####:  174:      break;
+    #####:  175:    case L'\n':
+    #####:  176:      *os << "\\n";
+    %%%%%:  176-block  0
+    #####:  177:      break;
+    #####:  178:    case L'\r':
+    #####:  179:      *os << "\\r";
+    %%%%%:  179-block  0
+    #####:  180:      break;
+    #####:  181:    case L'\t':
+    #####:  182:      *os << "\\t";
+    %%%%%:  182-block  0
+    #####:  183:      break;
+    #####:  184:    case L'\v':
+    #####:  185:      *os << "\\v";
+    %%%%%:  185-block  0
+    #####:  186:      break;
+    #####:  187:    default:
+    #####:  188:      if (IsPrintableAscii(u_c)) {
+    %%%%%:  188-block  0
+    #####:  189:        *os << static_cast<char>(c);
+    %%%%%:  189-block  0
+    #####:  190:        return kAsIs;
+        -:  191:      } else {
+    #####:  192:        ostream::fmtflags flags = os->flags();
+    %%%%%:  192-block  0
+    #####:  193:        *os << "\\x" << std::hex << std::uppercase << static_cast<int>(u_c);
+    #####:  194:        os->flags(flags);
+    #####:  195:        return kHexEscape;
+        -:  196:      }
+        -:  197:  }
+    #####:  198:  return kSpecialEscape;
+    %%%%%:  198-block  0
+        -:  199:}
+------------------
+_ZN7testing8internalL20PrintAsCharLiteralToIDiEENS0_10CharFormatET_PSo:
+    #####:  154:static CharFormat PrintAsCharLiteralTo(Char c, ostream* os) {
+    #####:  155:  const char32_t u_c = ToChar32(c);
+    %%%%%:  155-block  0
+    #####:  156:  switch (u_c) {
+    #####:  157:    case L'\0':
+    #####:  158:      *os << "\\0";
+    %%%%%:  158-block  0
+    #####:  159:      break;
+    #####:  160:    case L'\'':
+    #####:  161:      *os << "\\'";
+    %%%%%:  161-block  0
+    #####:  162:      break;
+    #####:  163:    case L'\\':
+    #####:  164:      *os << "\\\\";
+    %%%%%:  164-block  0
+    #####:  165:      break;
+    #####:  166:    case L'\a':
+    #####:  167:      *os << "\\a";
+    %%%%%:  167-block  0
+    #####:  168:      break;
+    #####:  169:    case L'\b':
+    #####:  170:      *os << "\\b";
+    %%%%%:  170-block  0
+    #####:  171:      break;
+    #####:  172:    case L'\f':
+    #####:  173:      *os << "\\f";
+    %%%%%:  173-block  0
+    #####:  174:      break;
+    #####:  175:    case L'\n':
+    #####:  176:      *os << "\\n";
+    %%%%%:  176-block  0
+    #####:  177:      break;
+    #####:  178:    case L'\r':
+    #####:  179:      *os << "\\r";
+    %%%%%:  179-block  0
+    #####:  180:      break;
+    #####:  181:    case L'\t':
+    #####:  182:      *os << "\\t";
+    %%%%%:  182-block  0
+    #####:  183:      break;
+    #####:  184:    case L'\v':
+    #####:  185:      *os << "\\v";
+    %%%%%:  185-block  0
+    #####:  186:      break;
+    #####:  187:    default:
+    #####:  188:      if (IsPrintableAscii(u_c)) {
+    %%%%%:  188-block  0
+    #####:  189:        *os << static_cast<char>(c);
+    %%%%%:  189-block  0
+    #####:  190:        return kAsIs;
+        -:  191:      } else {
+    #####:  192:        ostream::fmtflags flags = os->flags();
+    %%%%%:  192-block  0
+    #####:  193:        *os << "\\x" << std::hex << std::uppercase << static_cast<int>(u_c);
+    #####:  194:        os->flags(flags);
+    #####:  195:        return kHexEscape;
+        -:  196:      }
+        -:  197:  }
+    #####:  198:  return kSpecialEscape;
+    %%%%%:  198-block  0
+        -:  199:}
+------------------
+        -:  200:
+        -:  201:// Prints a char32_t c as if it's part of a string literal, escaping it when
+        -:  202:// necessary; returns how c was formatted.
+    #####:  203:static CharFormat PrintAsStringLiteralTo(char32_t c, ostream* os) {
+    #####:  204:  switch (c) {
+    %%%%%:  204-block  0
+    #####:  205:    case L'\'':
+    #####:  206:      *os << "'";
+    %%%%%:  206-block  0
+    #####:  207:      return kAsIs;
+    #####:  208:    case L'"':
+    #####:  209:      *os << "\\\"";
+    %%%%%:  209-block  0
+    #####:  210:      return kSpecialEscape;
+    #####:  211:    default:
+    #####:  212:      return PrintAsCharLiteralTo(c, os);
+    %%%%%:  212-block  0
+        -:  213:  }
+        -:  214:}
+        -:  215:
+    #####:  216:static const char* GetCharWidthPrefix(char) {
+    #####:  217:  return "";
+    %%%%%:  217-block  0
+        -:  218:}
+        -:  219:
+    #####:  220:static const char* GetCharWidthPrefix(signed char) {
+    #####:  221:  return "";
+    %%%%%:  221-block  0
+        -:  222:}
+        -:  223:
+    #####:  224:static const char* GetCharWidthPrefix(unsigned char) {
+    #####:  225:  return "";
+    %%%%%:  225-block  0
+        -:  226:}
+        -:  227:
+        -:  228:#ifdef __cpp_char8_t
+        -:  229:static const char* GetCharWidthPrefix(char8_t) {
+        -:  230:  return "u8";
+        -:  231:}
+        -:  232:#endif
+        -:  233:
+    #####:  234:static const char* GetCharWidthPrefix(char16_t) {
+    #####:  235:  return "u";
+    %%%%%:  235-block  0
+        -:  236:}
+        -:  237:
+    #####:  238:static const char* GetCharWidthPrefix(char32_t) {
+    #####:  239:  return "U";
+    %%%%%:  239-block  0
+        -:  240:}
+        -:  241:
+    #####:  242:static const char* GetCharWidthPrefix(wchar_t) {
+    #####:  243:  return "L";
+    %%%%%:  243-block  0
+        -:  244:}
+        -:  245:
+        -:  246:// Prints a char c as if it's part of a string literal, escaping it when
+        -:  247:// necessary; returns how c was formatted.
+    #####:  248:static CharFormat PrintAsStringLiteralTo(char c, ostream* os) {
+    #####:  249:  return PrintAsStringLiteralTo(ToChar32(c), os);
+    %%%%%:  249-block  0
+        -:  250:}
+        -:  251:
+        -:  252:#ifdef __cpp_char8_t
+        -:  253:static CharFormat PrintAsStringLiteralTo(char8_t c, ostream* os) {
+        -:  254:  return PrintAsStringLiteralTo(ToChar32(c), os);
+        -:  255:}
+        -:  256:#endif
+        -:  257:
+    #####:  258:static CharFormat PrintAsStringLiteralTo(char16_t c, ostream* os) {
+    #####:  259:  return PrintAsStringLiteralTo(ToChar32(c), os);
+    %%%%%:  259-block  0
+        -:  260:}
+        -:  261:
+    #####:  262:static CharFormat PrintAsStringLiteralTo(wchar_t c, ostream* os) {
+    #####:  263:  return PrintAsStringLiteralTo(ToChar32(c), os);
+    %%%%%:  263-block  0
+        -:  264:}
+        -:  265:
+        -:  266:// Prints a character c (of type char, char8_t, char16_t, char32_t, or wchar_t)
+        -:  267:// and its code. '\0' is printed as "'\\0'", other unprintable characters are
+        -:  268:// also properly escaped using the standard C++ escape sequence.
+        -:  269:template <typename Char>
+    #####:  270:void PrintCharAndCodeTo(Char c, ostream* os) {
+        -:  271:  // First, print c as a literal in the most readable form we can find.
+    #####:  272:  *os << GetCharWidthPrefix(c) << "'";
+    #####:  273:  const CharFormat format = PrintAsCharLiteralTo(c, os);
+    #####:  274:  *os << "'";
+        -:  275:
+        -:  276:  // To aid user debugging, we also print c's code in decimal, unless
+        -:  277:  // it's 0 (in which case c was printed as '\\0', making the code
+        -:  278:  // obvious).
+    #####:  279:  if (c == 0)
+    #####:  280:    return;
+    #####:  281:  *os << " (" << static_cast<int>(c);
+        -:  282:
+        -:  283:  // For more convenience, we print c's code again in hexadecimal,
+        -:  284:  // unless c was already printed in the form '\x##' or the code is in
+        -:  285:  // [1, 9].
+    #####:  286:  if (format == kHexEscape || (1 <= c && c <= 9)) {
+        -:  287:    // Do nothing.
+        -:  288:  } else {
+    #####:  289:    *os << ", 0x" << String::FormatHexInt(static_cast<int>(c));
+        -:  290:  }
+    #####:  291:  *os << ")";
+        -:  292:}
+------------------
+_ZN7testing8internal18PrintCharAndCodeToIwEEvT_PSo:
+    #####:  270:void PrintCharAndCodeTo(Char c, ostream* os) {
+        -:  271:  // First, print c as a literal in the most readable form we can find.
+    #####:  272:  *os << GetCharWidthPrefix(c) << "'";
+    %%%%%:  272-block  0
+    #####:  273:  const CharFormat format = PrintAsCharLiteralTo(c, os);
+    #####:  274:  *os << "'";
+        -:  275:
+        -:  276:  // To aid user debugging, we also print c's code in decimal, unless
+        -:  277:  // it's 0 (in which case c was printed as '\\0', making the code
+        -:  278:  // obvious).
+    #####:  279:  if (c == 0)
+    #####:  280:    return;
+    %%%%%:  280-block  0
+    #####:  281:  *os << " (" << static_cast<int>(c);
+    %%%%%:  281-block  0
+        -:  282:
+        -:  283:  // For more convenience, we print c's code again in hexadecimal,
+        -:  284:  // unless c was already printed in the form '\x##' or the code is in
+        -:  285:  // [1, 9].
+    #####:  286:  if (format == kHexEscape || (1 <= c && c <= 9)) {
+    %%%%%:  286-block  0
+    %%%%%:  286-block  1
+        -:  287:    // Do nothing.
+        -:  288:  } else {
+    #####:  289:    *os << ", 0x" << String::FormatHexInt(static_cast<int>(c));
+    %%%%%:  289-block  0
+    %%%%%:  289-block  1
+    $$$$$:  289-block  2
+        -:  290:  }
+    #####:  291:  *os << ")";
+    %%%%%:  291-block  0
+        -:  292:}
+------------------
+_ZN7testing8internal18PrintCharAndCodeToIaEEvT_PSo:
+    #####:  270:void PrintCharAndCodeTo(Char c, ostream* os) {
+        -:  271:  // First, print c as a literal in the most readable form we can find.
+    #####:  272:  *os << GetCharWidthPrefix(c) << "'";
+    %%%%%:  272-block  0
+    #####:  273:  const CharFormat format = PrintAsCharLiteralTo(c, os);
+    #####:  274:  *os << "'";
+        -:  275:
+        -:  276:  // To aid user debugging, we also print c's code in decimal, unless
+        -:  277:  // it's 0 (in which case c was printed as '\\0', making the code
+        -:  278:  // obvious).
+    #####:  279:  if (c == 0)
+    #####:  280:    return;
+    %%%%%:  280-block  0
+    #####:  281:  *os << " (" << static_cast<int>(c);
+    %%%%%:  281-block  0
+        -:  282:
+        -:  283:  // For more convenience, we print c's code again in hexadecimal,
+        -:  284:  // unless c was already printed in the form '\x##' or the code is in
+        -:  285:  // [1, 9].
+    #####:  286:  if (format == kHexEscape || (1 <= c && c <= 9)) {
+    %%%%%:  286-block  0
+    %%%%%:  286-block  1
+        -:  287:    // Do nothing.
+        -:  288:  } else {
+    #####:  289:    *os << ", 0x" << String::FormatHexInt(static_cast<int>(c));
+    %%%%%:  289-block  0
+    %%%%%:  289-block  1
+    $$$$$:  289-block  2
+        -:  290:  }
+    #####:  291:  *os << ")";
+    %%%%%:  291-block  0
+        -:  292:}
+------------------
+_ZN7testing8internal18PrintCharAndCodeToIhEEvT_PSo:
+    #####:  270:void PrintCharAndCodeTo(Char c, ostream* os) {
+        -:  271:  // First, print c as a literal in the most readable form we can find.
+    #####:  272:  *os << GetCharWidthPrefix(c) << "'";
+    %%%%%:  272-block  0
+    #####:  273:  const CharFormat format = PrintAsCharLiteralTo(c, os);
+    #####:  274:  *os << "'";
+        -:  275:
+        -:  276:  // To aid user debugging, we also print c's code in decimal, unless
+        -:  277:  // it's 0 (in which case c was printed as '\\0', making the code
+        -:  278:  // obvious).
+    #####:  279:  if (c == 0)
+    #####:  280:    return;
+    %%%%%:  280-block  0
+    #####:  281:  *os << " (" << static_cast<int>(c);
+    %%%%%:  281-block  0
+        -:  282:
+        -:  283:  // For more convenience, we print c's code again in hexadecimal,
+        -:  284:  // unless c was already printed in the form '\x##' or the code is in
+        -:  285:  // [1, 9].
+    #####:  286:  if (format == kHexEscape || (1 <= c && c <= 9)) {
+    %%%%%:  286-block  0
+    %%%%%:  286-block  1
+        -:  287:    // Do nothing.
+        -:  288:  } else {
+    #####:  289:    *os << ", 0x" << String::FormatHexInt(static_cast<int>(c));
+    %%%%%:  289-block  0
+    %%%%%:  289-block  1
+    $$$$$:  289-block  2
+        -:  290:  }
+    #####:  291:  *os << ")";
+    %%%%%:  291-block  0
+        -:  292:}
+------------------
+        -:  293:
+    #####:  294:void PrintTo(unsigned char c, ::std::ostream* os) { PrintCharAndCodeTo(c, os); }
+    %%%%%:  294-block  0
+    #####:  295:void PrintTo(signed char c, ::std::ostream* os) { PrintCharAndCodeTo(c, os); }
+    %%%%%:  295-block  0
+        -:  296:
+        -:  297:// Prints a wchar_t as a symbol if it is printable or as its internal
+        -:  298:// code otherwise and also as its code.  L'\0' is printed as "L'\\0'".
+    #####:  299:void PrintTo(wchar_t wc, ostream* os) { PrintCharAndCodeTo(wc, os); }
+    %%%%%:  299-block  0
+        -:  300:
+        -:  301:// TODO(dcheng): Consider making this delegate to PrintCharAndCodeTo() as well.
+    #####:  302:void PrintTo(char32_t c, ::std::ostream* os) {
+    #####:  303:  *os << std::hex << "U+" << std::uppercase << std::setfill('0') << std::setw(4)
+    %%%%%:  303-block  0
+    #####:  304:      << static_cast<uint32_t>(c);
+    #####:  305:}
+        -:  306:
+        -:  307:// Prints the given array of characters to the ostream.  CharType must be either
+        -:  308:// char, char8_t, char16_t, char32_t, or wchar_t.
+        -:  309:// The array starts at begin, the length is len, it may include '\0' characters
+        -:  310:// and may not be NUL-terminated.
+        -:  311:template <typename CharType>
+        -:  312:GTEST_ATTRIBUTE_NO_SANITIZE_MEMORY_
+        -:  313:GTEST_ATTRIBUTE_NO_SANITIZE_ADDRESS_
+        -:  314:GTEST_ATTRIBUTE_NO_SANITIZE_HWADDRESS_
+        -:  315:GTEST_ATTRIBUTE_NO_SANITIZE_THREAD_
+    #####:  316:static CharFormat PrintCharsAsStringTo(
+        -:  317:    const CharType* begin, size_t len, ostream* os) {
+    #####:  318:  const char* const quote_prefix = GetCharWidthPrefix(*begin);
+    #####:  319:  *os << quote_prefix << "\"";
+    #####:  320:  bool is_previous_hex = false;
+    #####:  321:  CharFormat print_format = kAsIs;
+    #####:  322:  for (size_t index = 0; index < len; ++index) {
+    #####:  323:    const CharType cur = begin[index];
+    #####:  324:    if (is_previous_hex && IsXDigit(cur)) {
+        -:  325:      // Previous character is of '\x..' form and this character can be
+        -:  326:      // interpreted as another hexadecimal digit in its number. Break string to
+        -:  327:      // disambiguate.
+    #####:  328:      *os << "\" " << quote_prefix << "\"";
+        -:  329:    }
+    #####:  330:    is_previous_hex = PrintAsStringLiteralTo(cur, os) == kHexEscape;
+        -:  331:    // Remember if any characters required hex escaping.
+    #####:  332:    if (is_previous_hex) {
+    #####:  333:      print_format = kHexEscape;
+        -:  334:    }
+        -:  335:  }
+    #####:  336:  *os << "\"";
+    #####:  337:  return print_format;
+        -:  338:}
+------------------
+_ZN7testing8internalL20PrintCharsAsStringToIwEENS0_10CharFormatEPKT_mPSo:
+    #####:  316:static CharFormat PrintCharsAsStringTo(
+        -:  317:    const CharType* begin, size_t len, ostream* os) {
+    #####:  318:  const char* const quote_prefix = GetCharWidthPrefix(*begin);
+    %%%%%:  318-block  0
+    #####:  319:  *os << quote_prefix << "\"";
+    #####:  320:  bool is_previous_hex = false;
+    #####:  321:  CharFormat print_format = kAsIs;
+    #####:  322:  for (size_t index = 0; index < len; ++index) {
+    %%%%%:  322-block  0
+    %%%%%:  322-block  1
+    #####:  323:    const CharType cur = begin[index];
+    #####:  324:    if (is_previous_hex && IsXDigit(cur)) {
+    %%%%%:  324-block  0
+    %%%%%:  324-block  1
+    %%%%%:  324-block  2
+    %%%%%:  324-block  3
+    %%%%%:  324-block  4
+        -:  325:      // Previous character is of '\x..' form and this character can be
+        -:  326:      // interpreted as another hexadecimal digit in its number. Break string to
+        -:  327:      // disambiguate.
+    #####:  328:      *os << "\" " << quote_prefix << "\"";
+    %%%%%:  328-block  0
+        -:  329:    }
+    #####:  330:    is_previous_hex = PrintAsStringLiteralTo(cur, os) == kHexEscape;
+    %%%%%:  330-block  0
+        -:  331:    // Remember if any characters required hex escaping.
+    #####:  332:    if (is_previous_hex) {
+    #####:  333:      print_format = kHexEscape;
+    %%%%%:  333-block  0
+        -:  334:    }
+        -:  335:  }
+    #####:  336:  *os << "\"";
+    %%%%%:  336-block  0
+    #####:  337:  return print_format;
+        -:  338:}
+------------------
+_ZN7testing8internalL20PrintCharsAsStringToIDiEENS0_10CharFormatEPKT_mPSo:
+    #####:  316:static CharFormat PrintCharsAsStringTo(
+        -:  317:    const CharType* begin, size_t len, ostream* os) {
+    #####:  318:  const char* const quote_prefix = GetCharWidthPrefix(*begin);
+    %%%%%:  318-block  0
+    #####:  319:  *os << quote_prefix << "\"";
+    #####:  320:  bool is_previous_hex = false;
+    #####:  321:  CharFormat print_format = kAsIs;
+    #####:  322:  for (size_t index = 0; index < len; ++index) {
+    %%%%%:  322-block  0
+    %%%%%:  322-block  1
+    #####:  323:    const CharType cur = begin[index];
+    #####:  324:    if (is_previous_hex && IsXDigit(cur)) {
+    %%%%%:  324-block  0
+    %%%%%:  324-block  1
+    %%%%%:  324-block  2
+    %%%%%:  324-block  3
+    %%%%%:  324-block  4
+        -:  325:      // Previous character is of '\x..' form and this character can be
+        -:  326:      // interpreted as another hexadecimal digit in its number. Break string to
+        -:  327:      // disambiguate.
+    #####:  328:      *os << "\" " << quote_prefix << "\"";
+    %%%%%:  328-block  0
+        -:  329:    }
+    #####:  330:    is_previous_hex = PrintAsStringLiteralTo(cur, os) == kHexEscape;
+    %%%%%:  330-block  0
+        -:  331:    // Remember if any characters required hex escaping.
+    #####:  332:    if (is_previous_hex) {
+    #####:  333:      print_format = kHexEscape;
+    %%%%%:  333-block  0
+        -:  334:    }
+        -:  335:  }
+    #####:  336:  *os << "\"";
+    %%%%%:  336-block  0
+    #####:  337:  return print_format;
+        -:  338:}
+------------------
+_ZN7testing8internalL20PrintCharsAsStringToIDsEENS0_10CharFormatEPKT_mPSo:
+    #####:  316:static CharFormat PrintCharsAsStringTo(
+        -:  317:    const CharType* begin, size_t len, ostream* os) {
+    #####:  318:  const char* const quote_prefix = GetCharWidthPrefix(*begin);
+    %%%%%:  318-block  0
+    #####:  319:  *os << quote_prefix << "\"";
+    #####:  320:  bool is_previous_hex = false;
+    #####:  321:  CharFormat print_format = kAsIs;
+    #####:  322:  for (size_t index = 0; index < len; ++index) {
+    %%%%%:  322-block  0
+    %%%%%:  322-block  1
+    #####:  323:    const CharType cur = begin[index];
+    #####:  324:    if (is_previous_hex && IsXDigit(cur)) {
+    %%%%%:  324-block  0
+    %%%%%:  324-block  1
+    %%%%%:  324-block  2
+    %%%%%:  324-block  3
+    %%%%%:  324-block  4
+        -:  325:      // Previous character is of '\x..' form and this character can be
+        -:  326:      // interpreted as another hexadecimal digit in its number. Break string to
+        -:  327:      // disambiguate.
+    #####:  328:      *os << "\" " << quote_prefix << "\"";
+    %%%%%:  328-block  0
+        -:  329:    }
+    #####:  330:    is_previous_hex = PrintAsStringLiteralTo(cur, os) == kHexEscape;
+    %%%%%:  330-block  0
+        -:  331:    // Remember if any characters required hex escaping.
+    #####:  332:    if (is_previous_hex) {
+    #####:  333:      print_format = kHexEscape;
+    %%%%%:  333-block  0
+        -:  334:    }
+        -:  335:  }
+    #####:  336:  *os << "\"";
+    %%%%%:  336-block  0
+    #####:  337:  return print_format;
+        -:  338:}
+------------------
+_ZN7testing8internalL20PrintCharsAsStringToIcEENS0_10CharFormatEPKT_mPSo:
+    #####:  316:static CharFormat PrintCharsAsStringTo(
+        -:  317:    const CharType* begin, size_t len, ostream* os) {
+    #####:  318:  const char* const quote_prefix = GetCharWidthPrefix(*begin);
+    %%%%%:  318-block  0
+    #####:  319:  *os << quote_prefix << "\"";
+    #####:  320:  bool is_previous_hex = false;
+    #####:  321:  CharFormat print_format = kAsIs;
+    #####:  322:  for (size_t index = 0; index < len; ++index) {
+    %%%%%:  322-block  0
+    %%%%%:  322-block  1
+    #####:  323:    const CharType cur = begin[index];
+    #####:  324:    if (is_previous_hex && IsXDigit(cur)) {
+    %%%%%:  324-block  0
+    %%%%%:  324-block  1
+    %%%%%:  324-block  2
+    %%%%%:  324-block  3
+    %%%%%:  324-block  4
+        -:  325:      // Previous character is of '\x..' form and this character can be
+        -:  326:      // interpreted as another hexadecimal digit in its number. Break string to
+        -:  327:      // disambiguate.
+    #####:  328:      *os << "\" " << quote_prefix << "\"";
+    %%%%%:  328-block  0
+        -:  329:    }
+    #####:  330:    is_previous_hex = PrintAsStringLiteralTo(cur, os) == kHexEscape;
+    %%%%%:  330-block  0
+        -:  331:    // Remember if any characters required hex escaping.
+    #####:  332:    if (is_previous_hex) {
+    #####:  333:      print_format = kHexEscape;
+    %%%%%:  333-block  0
+        -:  334:    }
+        -:  335:  }
+    #####:  336:  *os << "\"";
+    %%%%%:  336-block  0
+    #####:  337:  return print_format;
+        -:  338:}
+------------------
+        -:  339:
+        -:  340:// Prints a (const) char/wchar_t array of 'len' elements, starting at address
+        -:  341:// 'begin'.  CharType must be either char or wchar_t.
+        -:  342:template <typename CharType>
+        -:  343:GTEST_ATTRIBUTE_NO_SANITIZE_MEMORY_
+        -:  344:GTEST_ATTRIBUTE_NO_SANITIZE_ADDRESS_
+        -:  345:GTEST_ATTRIBUTE_NO_SANITIZE_HWADDRESS_
+        -:  346:GTEST_ATTRIBUTE_NO_SANITIZE_THREAD_
+    #####:  347:static void UniversalPrintCharArray(
+        -:  348:    const CharType* begin, size_t len, ostream* os) {
+        -:  349:  // The code
+        -:  350:  //   const char kFoo[] = "foo";
+        -:  351:  // generates an array of 4, not 3, elements, with the last one being '\0'.
+        -:  352:  //
+        -:  353:  // Therefore when printing a char array, we don't print the last element if
+        -:  354:  // it's '\0', such that the output matches the string literal as it's
+        -:  355:  // written in the source code.
+    #####:  356:  if (len > 0 && begin[len - 1] == '\0') {
+    #####:  357:    PrintCharsAsStringTo(begin, len - 1, os);
+    #####:  358:    return;
+        -:  359:  }
+        -:  360:
+        -:  361:  // If, however, the last element in the array is not '\0', e.g.
+        -:  362:  //    const char kFoo[] = { 'f', 'o', 'o' };
+        -:  363:  // we must print the entire array.  We also print a message to indicate
+        -:  364:  // that the array is not NUL-terminated.
+    #####:  365:  PrintCharsAsStringTo(begin, len, os);
+    #####:  366:  *os << " (no terminating NUL)";
+        -:  367:}
+------------------
+_ZN7testing8internalL23UniversalPrintCharArrayIwEEvPKT_mPSo:
+    #####:  347:static void UniversalPrintCharArray(
+        -:  348:    const CharType* begin, size_t len, ostream* os) {
+        -:  349:  // The code
+        -:  350:  //   const char kFoo[] = "foo";
+        -:  351:  // generates an array of 4, not 3, elements, with the last one being '\0'.
+        -:  352:  //
+        -:  353:  // Therefore when printing a char array, we don't print the last element if
+        -:  354:  // it's '\0', such that the output matches the string literal as it's
+        -:  355:  // written in the source code.
+    #####:  356:  if (len > 0 && begin[len - 1] == '\0') {
+    %%%%%:  356-block  0
+    %%%%%:  356-block  1
+    #####:  357:    PrintCharsAsStringTo(begin, len - 1, os);
+    %%%%%:  357-block  0
+    #####:  358:    return;
+        -:  359:  }
+        -:  360:
+        -:  361:  // If, however, the last element in the array is not '\0', e.g.
+        -:  362:  //    const char kFoo[] = { 'f', 'o', 'o' };
+        -:  363:  // we must print the entire array.  We also print a message to indicate
+        -:  364:  // that the array is not NUL-terminated.
+    #####:  365:  PrintCharsAsStringTo(begin, len, os);
+    %%%%%:  365-block  0
+    #####:  366:  *os << " (no terminating NUL)";
+        -:  367:}
+------------------
+_ZN7testing8internalL23UniversalPrintCharArrayIDiEEvPKT_mPSo:
+    #####:  347:static void UniversalPrintCharArray(
+        -:  348:    const CharType* begin, size_t len, ostream* os) {
+        -:  349:  // The code
+        -:  350:  //   const char kFoo[] = "foo";
+        -:  351:  // generates an array of 4, not 3, elements, with the last one being '\0'.
+        -:  352:  //
+        -:  353:  // Therefore when printing a char array, we don't print the last element if
+        -:  354:  // it's '\0', such that the output matches the string literal as it's
+        -:  355:  // written in the source code.
+    #####:  356:  if (len > 0 && begin[len - 1] == '\0') {
+    %%%%%:  356-block  0
+    %%%%%:  356-block  1
+    #####:  357:    PrintCharsAsStringTo(begin, len - 1, os);
+    %%%%%:  357-block  0
+    #####:  358:    return;
+        -:  359:  }
+        -:  360:
+        -:  361:  // If, however, the last element in the array is not '\0', e.g.
+        -:  362:  //    const char kFoo[] = { 'f', 'o', 'o' };
+        -:  363:  // we must print the entire array.  We also print a message to indicate
+        -:  364:  // that the array is not NUL-terminated.
+    #####:  365:  PrintCharsAsStringTo(begin, len, os);
+    %%%%%:  365-block  0
+    #####:  366:  *os << " (no terminating NUL)";
+        -:  367:}
+------------------
+_ZN7testing8internalL23UniversalPrintCharArrayIDsEEvPKT_mPSo:
+    #####:  347:static void UniversalPrintCharArray(
+        -:  348:    const CharType* begin, size_t len, ostream* os) {
+        -:  349:  // The code
+        -:  350:  //   const char kFoo[] = "foo";
+        -:  351:  // generates an array of 4, not 3, elements, with the last one being '\0'.
+        -:  352:  //
+        -:  353:  // Therefore when printing a char array, we don't print the last element if
+        -:  354:  // it's '\0', such that the output matches the string literal as it's
+        -:  355:  // written in the source code.
+    #####:  356:  if (len > 0 && begin[len - 1] == '\0') {
+    %%%%%:  356-block  0
+    %%%%%:  356-block  1
+    #####:  357:    PrintCharsAsStringTo(begin, len - 1, os);
+    %%%%%:  357-block  0
+    #####:  358:    return;
+        -:  359:  }
+        -:  360:
+        -:  361:  // If, however, the last element in the array is not '\0', e.g.
+        -:  362:  //    const char kFoo[] = { 'f', 'o', 'o' };
+        -:  363:  // we must print the entire array.  We also print a message to indicate
+        -:  364:  // that the array is not NUL-terminated.
+    #####:  365:  PrintCharsAsStringTo(begin, len, os);
+    %%%%%:  365-block  0
+    #####:  366:  *os << " (no terminating NUL)";
+        -:  367:}
+------------------
+_ZN7testing8internalL23UniversalPrintCharArrayIcEEvPKT_mPSo:
+    #####:  347:static void UniversalPrintCharArray(
+        -:  348:    const CharType* begin, size_t len, ostream* os) {
+        -:  349:  // The code
+        -:  350:  //   const char kFoo[] = "foo";
+        -:  351:  // generates an array of 4, not 3, elements, with the last one being '\0'.
+        -:  352:  //
+        -:  353:  // Therefore when printing a char array, we don't print the last element if
+        -:  354:  // it's '\0', such that the output matches the string literal as it's
+        -:  355:  // written in the source code.
+    #####:  356:  if (len > 0 && begin[len - 1] == '\0') {
+    %%%%%:  356-block  0
+    %%%%%:  356-block  1
+    #####:  357:    PrintCharsAsStringTo(begin, len - 1, os);
+    %%%%%:  357-block  0
+    #####:  358:    return;
+        -:  359:  }
+        -:  360:
+        -:  361:  // If, however, the last element in the array is not '\0', e.g.
+        -:  362:  //    const char kFoo[] = { 'f', 'o', 'o' };
+        -:  363:  // we must print the entire array.  We also print a message to indicate
+        -:  364:  // that the array is not NUL-terminated.
+    #####:  365:  PrintCharsAsStringTo(begin, len, os);
+    %%%%%:  365-block  0
+    #####:  366:  *os << " (no terminating NUL)";
+        -:  367:}
+------------------
+        -:  368:
+        -:  369:// Prints a (const) char array of 'len' elements, starting at address 'begin'.
+    #####:  370:void UniversalPrintArray(const char* begin, size_t len, ostream* os) {
+    #####:  371:  UniversalPrintCharArray(begin, len, os);
+    %%%%%:  371-block  0
+    #####:  372:}
+        -:  373:
+        -:  374:#ifdef __cpp_char8_t
+        -:  375:// Prints a (const) char8_t array of 'len' elements, starting at address
+        -:  376:// 'begin'.
+        -:  377:void UniversalPrintArray(const char8_t* begin, size_t len, ostream* os) {
+        -:  378:  UniversalPrintCharArray(begin, len, os);
+        -:  379:}
+        -:  380:#endif
+        -:  381:
+        -:  382:// Prints a (const) char16_t array of 'len' elements, starting at address
+        -:  383:// 'begin'.
+    #####:  384:void UniversalPrintArray(const char16_t* begin, size_t len, ostream* os) {
+    #####:  385:  UniversalPrintCharArray(begin, len, os);
+    %%%%%:  385-block  0
+    #####:  386:}
+        -:  387:
+        -:  388:// Prints a (const) char32_t array of 'len' elements, starting at address
+        -:  389:// 'begin'.
+    #####:  390:void UniversalPrintArray(const char32_t* begin, size_t len, ostream* os) {
+    #####:  391:  UniversalPrintCharArray(begin, len, os);
+    %%%%%:  391-block  0
+    #####:  392:}
+        -:  393:
+        -:  394:// Prints a (const) wchar_t array of 'len' elements, starting at address
+        -:  395:// 'begin'.
+    #####:  396:void UniversalPrintArray(const wchar_t* begin, size_t len, ostream* os) {
+    #####:  397:  UniversalPrintCharArray(begin, len, os);
+    %%%%%:  397-block  0
+    #####:  398:}
+        -:  399:
+        -:  400:namespace {
+        -:  401:
+        -:  402:// Prints a null-terminated C-style string to the ostream.
+        -:  403:template <typename Char>
+    #####:  404:void PrintCStringTo(const Char* s, ostream* os) {
+    #####:  405:  if (s == nullptr) {
+    #####:  406:    *os << "NULL";
+        -:  407:  } else {
+    #####:  408:    *os << ImplicitCast_<const void*>(s) << " pointing to ";
+    #####:  409:    PrintCharsAsStringTo(s, std::char_traits<Char>::length(s), os);
+        -:  410:  }
+    #####:  411:}
+------------------
+_ZN7testing8internal12_GLOBAL__N_114PrintCStringToIwEEvPKT_PSo:
+    #####:  404:void PrintCStringTo(const Char* s, ostream* os) {
+    #####:  405:  if (s == nullptr) {
+    %%%%%:  405-block  0
+    #####:  406:    *os << "NULL";
+    %%%%%:  406-block  0
+        -:  407:  } else {
+    #####:  408:    *os << ImplicitCast_<const void*>(s) << " pointing to ";
+    %%%%%:  408-block  0
+    #####:  409:    PrintCharsAsStringTo(s, std::char_traits<Char>::length(s), os);
+        -:  410:  }
+    #####:  411:}
+------------------
+_ZN7testing8internal12_GLOBAL__N_114PrintCStringToIDiEEvPKT_PSo:
+    #####:  404:void PrintCStringTo(const Char* s, ostream* os) {
+    #####:  405:  if (s == nullptr) {
+    %%%%%:  405-block  0
+    #####:  406:    *os << "NULL";
+    %%%%%:  406-block  0
+        -:  407:  } else {
+    #####:  408:    *os << ImplicitCast_<const void*>(s) << " pointing to ";
+    %%%%%:  408-block  0
+    #####:  409:    PrintCharsAsStringTo(s, std::char_traits<Char>::length(s), os);
+        -:  410:  }
+    #####:  411:}
+------------------
+_ZN7testing8internal12_GLOBAL__N_114PrintCStringToIDsEEvPKT_PSo:
+    #####:  404:void PrintCStringTo(const Char* s, ostream* os) {
+    #####:  405:  if (s == nullptr) {
+    %%%%%:  405-block  0
+    #####:  406:    *os << "NULL";
+    %%%%%:  406-block  0
+        -:  407:  } else {
+    #####:  408:    *os << ImplicitCast_<const void*>(s) << " pointing to ";
+    %%%%%:  408-block  0
+    #####:  409:    PrintCharsAsStringTo(s, std::char_traits<Char>::length(s), os);
+        -:  410:  }
+    #####:  411:}
+------------------
+_ZN7testing8internal12_GLOBAL__N_114PrintCStringToIcEEvPKT_PSo:
+    #####:  404:void PrintCStringTo(const Char* s, ostream* os) {
+    #####:  405:  if (s == nullptr) {
+    %%%%%:  405-block  0
+    #####:  406:    *os << "NULL";
+    %%%%%:  406-block  0
+        -:  407:  } else {
+    #####:  408:    *os << ImplicitCast_<const void*>(s) << " pointing to ";
+    %%%%%:  408-block  0
+    #####:  409:    PrintCharsAsStringTo(s, std::char_traits<Char>::length(s), os);
+        -:  410:  }
+    #####:  411:}
+------------------
+        -:  412:
+        -:  413:}  // anonymous namespace
+        -:  414:
+    #####:  415:void PrintTo(const char* s, ostream* os) { PrintCStringTo(s, os); }
+    %%%%%:  415-block  0
+        -:  416:
+        -:  417:#ifdef __cpp_char8_t
+        -:  418:void PrintTo(const char8_t* s, ostream* os) { PrintCStringTo(s, os); }
+        -:  419:#endif
+        -:  420:
+    #####:  421:void PrintTo(const char16_t* s, ostream* os) { PrintCStringTo(s, os); }
+    %%%%%:  421-block  0
+        -:  422:
+    #####:  423:void PrintTo(const char32_t* s, ostream* os) { PrintCStringTo(s, os); }
+    %%%%%:  423-block  0
+        -:  424:
+        -:  425:// MSVC compiler can be configured to define whar_t as a typedef
+        -:  426:// of unsigned short. Defining an overload for const wchar_t* in that case
+        -:  427:// would cause pointers to unsigned shorts be printed as wide strings,
+        -:  428:// possibly accessing more memory than intended and causing invalid
+        -:  429:// memory accesses. MSVC defines _NATIVE_WCHAR_T_DEFINED symbol when
+        -:  430:// wchar_t is implemented as a native type.
+        -:  431:#if !defined(_MSC_VER) || defined(_NATIVE_WCHAR_T_DEFINED)
+        -:  432:// Prints the given wide C string to the ostream.
+    #####:  433:void PrintTo(const wchar_t* s, ostream* os) { PrintCStringTo(s, os); }
+    %%%%%:  433-block  0
+        -:  434:#endif  // wchar_t is native
+        -:  435:
+        -:  436:namespace {
+        -:  437:
+    #####:  438:bool ContainsUnprintableControlCodes(const char* str, size_t length) {
+    #####:  439:  const unsigned char *s = reinterpret_cast<const unsigned char *>(str);
+        -:  440:
+    #####:  441:  for (size_t i = 0; i < length; i++) {
+    %%%%%:  441-block  0
+    %%%%%:  441-block  1
+    %%%%%:  441-block  2
+    #####:  442:    unsigned char ch = *s++;
+    #####:  443:    if (std::iscntrl(ch)) {
+    %%%%%:  443-block  0
+    #####:  444:        switch (ch) {
+    %%%%%:  444-block  0
+    #####:  445:        case '\t':
+        -:  446:        case '\n':
+        -:  447:        case '\r':
+    #####:  448:          break;
+    %%%%%:  448-block  0
+    #####:  449:        default:
+    #####:  450:          return true;
+    %%%%%:  450-block  0
+        -:  451:        }
+        -:  452:      }
+        -:  453:  }
+    #####:  454:  return false;
+    %%%%%:  454-block  0
+        -:  455:}
+        -:  456:
+    #####:  457:bool IsUTF8TrailByte(unsigned char t) { return 0x80 <= t && t<= 0xbf; }
+    %%%%%:  457-block  0
+    %%%%%:  457-block  1
+    %%%%%:  457-block  2
+    %%%%%:  457-block  3
+    %%%%%:  457-block  4
+        -:  458:
+    #####:  459:bool IsValidUTF8(const char* str, size_t length) {
+    #####:  460:  const unsigned char *s = reinterpret_cast<const unsigned char *>(str);
+        -:  461:
+    #####:  462:  for (size_t i = 0; i < length;) {
+    %%%%%:  462-block  0
+    %%%%%:  462-block  1
+    %%%%%:  462-block  2
+    #####:  463:    unsigned char lead = s[i++];
+        -:  464:
+    #####:  465:    if (lead <= 0x7f) {
+    %%%%%:  465-block  0
+    #####:  466:      continue;  // single-byte character (ASCII) 0..7F
+    %%%%%:  466-block  0
+        -:  467:    }
+    #####:  468:    if (lead < 0xc2) {
+    %%%%%:  468-block  0
+    #####:  469:      return false;  // trail byte or non-shortest form
+    %%%%%:  469-block  0
+    #####:  470:    } else if (lead <= 0xdf && (i + 1) <= length && IsUTF8TrailByte(s[i])) {
+    %%%%%:  470-block  0
+    %%%%%:  470-block  1
+    %%%%%:  470-block  2
+    %%%%%:  470-block  3
+    %%%%%:  470-block  4
+    %%%%%:  470-block  5
+    #####:  471:      ++i;  // 2-byte character
+    %%%%%:  471-block  0
+    #####:  472:    } else if (0xe0 <= lead && lead <= 0xef && (i + 2) <= length &&
+    %%%%%:  472-block  0
+    %%%%%:  472-block  1
+    #####:  473:               IsUTF8TrailByte(s[i]) &&
+    %%%%%:  473-block  0
+    #####:  474:               IsUTF8TrailByte(s[i + 1]) &&
+    %%%%%:  474-block  0
+    %%%%%:  474-block  1
+        -:  475:               // check for non-shortest form and surrogate
+    #####:  476:               (lead != 0xe0 || s[i] >= 0xa0) &&
+    %%%%%:  476-block  0
+    %%%%%:  476-block  1
+    %%%%%:  476-block  2
+    %%%%%:  476-block  3
+    %%%%%:  476-block  4
+    %%%%%:  476-block  5
+    #####:  477:               (lead != 0xed || s[i] < 0xa0)) {
+    %%%%%:  477-block  0
+    #####:  478:      i += 2;  // 3-byte character
+    %%%%%:  478-block  0
+    #####:  479:    } else if (0xf0 <= lead && lead <= 0xf4 && (i + 3) <= length &&
+    %%%%%:  479-block  0
+    %%%%%:  479-block  1
+    #####:  480:               IsUTF8TrailByte(s[i]) &&
+    %%%%%:  480-block  0
+    #####:  481:               IsUTF8TrailByte(s[i + 1]) &&
+    %%%%%:  481-block  0
+    #####:  482:               IsUTF8TrailByte(s[i + 2]) &&
+    %%%%%:  482-block  0
+    %%%%%:  482-block  1
+        -:  483:               // check for non-shortest form
+    #####:  484:               (lead != 0xf0 || s[i] >= 0x90) &&
+    %%%%%:  484-block  0
+    %%%%%:  484-block  1
+    %%%%%:  484-block  2
+    %%%%%:  484-block  3
+    %%%%%:  484-block  4
+    %%%%%:  484-block  5
+    #####:  485:               (lead != 0xf4 || s[i] < 0x90)) {
+    %%%%%:  485-block  0
+    #####:  486:      i += 3;  // 4-byte character
+    %%%%%:  486-block  0
+        -:  487:    } else {
+    #####:  488:      return false;
+    %%%%%:  488-block  0
+        -:  489:    }
+        -:  490:  }
+    #####:  491:  return true;
+    %%%%%:  491-block  0
+        -:  492:}
+        -:  493:
+    #####:  494:void ConditionalPrintAsText(const char* str, size_t length, ostream* os) {
+    #####:  495:  if (!ContainsUnprintableControlCodes(str, length) &&
+    %%%%%:  495-block  0
+    %%%%%:  495-block  1
+    %%%%%:  495-block  2
+    %%%%%:  495-block  3
+    #####:  496:      IsValidUTF8(str, length)) {
+    %%%%%:  496-block  0
+    #####:  497:    *os << "\n    As Text: \"" << str << "\"";
+    %%%%%:  497-block  0
+        -:  498:  }
+    #####:  499:}
+        -:  500:
+        -:  501:}  // anonymous namespace
+        -:  502:
+    #####:  503:void PrintStringTo(const ::std::string& s, ostream* os) {
+    #####:  504:  if (PrintCharsAsStringTo(s.data(), s.size(), os) == kHexEscape) {
+    %%%%%:  504-block  0
+    #####:  505:    if (GTEST_FLAG(print_utf8)) {
+    %%%%%:  505-block  0
+    #####:  506:      ConditionalPrintAsText(s.data(), s.size(), os);
+    %%%%%:  506-block  0
+        -:  507:    }
+        -:  508:  }
+    #####:  509:}
+        -:  510:
+        -:  511:#ifdef __cpp_char8_t
+        -:  512:void PrintU8StringTo(const ::std::u8string& s, ostream* os) {
+        -:  513:  PrintCharsAsStringTo(s.data(), s.size(), os);
+        -:  514:}
+        -:  515:#endif
+        -:  516:
+    #####:  517:void PrintU16StringTo(const ::std::u16string& s, ostream* os) {
+    #####:  518:  PrintCharsAsStringTo(s.data(), s.size(), os);
+    %%%%%:  518-block  0
+    #####:  519:}
+        -:  520:
+    #####:  521:void PrintU32StringTo(const ::std::u32string& s, ostream* os) {
+    #####:  522:  PrintCharsAsStringTo(s.data(), s.size(), os);
+    %%%%%:  522-block  0
+    #####:  523:}
+        -:  524:
+        -:  525:#if GTEST_HAS_STD_WSTRING
+    #####:  526:void PrintWideStringTo(const ::std::wstring& s, ostream* os) {
+    #####:  527:  PrintCharsAsStringTo(s.data(), s.size(), os);
+    %%%%%:  527-block  0
+    #####:  528:}
+        -:  529:#endif  // GTEST_HAS_STD_WSTRING
+        -:  530:
+        -:  531:}  // namespace internal
+        -:  532:
+        -:  533:}  // namespace testing

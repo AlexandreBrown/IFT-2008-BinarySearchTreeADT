@@ -1,0 +1,227 @@
+        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/lib/googletest/googletest/include/gtest/internal/gtest-filepath.h
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
+        -:    0:Runs:1
+        -:    1:// Copyright 2008, Google Inc.
+        -:    2:// All rights reserved.
+        -:    3://
+        -:    4:// Redistribution and use in source and binary forms, with or without
+        -:    5:// modification, are permitted provided that the following conditions are
+        -:    6:// met:
+        -:    7://
+        -:    8://     * Redistributions of source code must retain the above copyright
+        -:    9:// notice, this list of conditions and the following disclaimer.
+        -:   10://     * Redistributions in binary form must reproduce the above
+        -:   11:// copyright notice, this list of conditions and the following disclaimer
+        -:   12:// in the documentation and/or other materials provided with the
+        -:   13:// distribution.
+        -:   14://     * Neither the name of Google Inc. nor the names of its
+        -:   15:// contributors may be used to endorse or promote products derived from
+        -:   16:// this software without specific prior written permission.
+        -:   17://
+        -:   18:// THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+        -:   19:// "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+        -:   20:// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+        -:   21:// A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+        -:   22:// OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+        -:   23:// SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+        -:   24:// LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+        -:   25:// DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+        -:   26:// THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+        -:   27:// (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+        -:   28:// OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        -:   29://
+        -:   30:// Google Test filepath utilities
+        -:   31://
+        -:   32:// This header file declares classes and functions used internally by
+        -:   33:// Google Test.  They are subject to change without notice.
+        -:   34://
+        -:   35:// This file is #included in gtest/internal/gtest-internal.h.
+        -:   36:// Do not include this header file separately!
+        -:   37:
+        -:   38:// GOOGLETEST_CM0001 DO NOT DELETE
+        -:   39:
+        -:   40:#ifndef GOOGLETEST_INCLUDE_GTEST_INTERNAL_GTEST_FILEPATH_H_
+        -:   41:#define GOOGLETEST_INCLUDE_GTEST_INTERNAL_GTEST_FILEPATH_H_
+        -:   42:
+        -:   43:#include "gtest/internal/gtest-string.h"
+        -:   44:
+        -:   45:GTEST_DISABLE_MSC_WARNINGS_PUSH_(4251 \
+        -:   46:/* class A needs to have dll-interface to be used by clients of class B */)
+        -:   47:
+        -:   48:namespace testing {
+        -:   49:namespace internal {
+        -:   50:
+        -:   51:// FilePath - a class for file and directory pathname manipulation which
+        -:   52:// handles platform-specific conventions (like the pathname separator).
+        -:   53:// Used for helper functions for naming files in a directory for xml output.
+        -:   54:// Except for Set methods, all methods are const or static, which provides an
+        -:   55:// "immutable value object" -- useful for peace of mind.
+        -:   56:// A FilePath with a value ending in a path separator ("like/this/") represents
+        -:   57:// a directory, otherwise it is assumed to represent a file. In either case,
+        -:   58:// it may or may not represent an actual file or directory in the file system.
+        -:   59:// Names are NOT checked for syntax correctness -- no checking for illegal
+        -:   60:// characters, malformed paths, etc.
+        -:   61:
+        -:   62:class GTEST_API_ FilePath {
+        -:   63: public:
+        1:   64:  FilePath() : pathname_("") { }
+        1:   64-block  0
+        1:   64-block  1
+    $$$$$:   64-block  2
+    #####:   65:  FilePath(const FilePath& rhs) : pathname_(rhs.pathname_) { }
+    %%%%%:   65-block  0
+        -:   66:
+        1:   67:  explicit FilePath(const std::string& pathname) : pathname_(pathname) {
+        1:   67-block  0
+    $$$$$:   67-block  1
+        1:   68:    Normalize();
+        1:   69:  }
+        1:   69-block  0
+        -:   70:
+    #####:   71:  FilePath& operator=(const FilePath& rhs) {
+    #####:   72:    Set(rhs);
+    %%%%%:   72-block  0
+    #####:   73:    return *this;
+        -:   74:  }
+        -:   75:
+        1:   76:  void Set(const FilePath& rhs) {
+        1:   77:    pathname_ = rhs.pathname_;
+        1:   77-block  0
+        1:   78:  }
+        -:   79:
+    #####:   80:  const std::string& string() const { return pathname_; }
+    %%%%%:   80-block  0
+    #####:   81:  const char* c_str() const { return pathname_.c_str(); }
+    %%%%%:   81-block  0
+        -:   82:
+        -:   83:  // Returns the current working directory, or "" if unsuccessful.
+        -:   84:  static FilePath GetCurrentDir();
+        -:   85:
+        -:   86:  // Given directory = "dir", base_name = "test", number = 0,
+        -:   87:  // extension = "xml", returns "dir/test.xml". If number is greater
+        -:   88:  // than zero (e.g., 12), returns "dir/test_12.xml".
+        -:   89:  // On Windows platform, uses \ as the separator rather than /.
+        -:   90:  static FilePath MakeFileName(const FilePath& directory,
+        -:   91:                               const FilePath& base_name,
+        -:   92:                               int number,
+        -:   93:                               const char* extension);
+        -:   94:
+        -:   95:  // Given directory = "dir", relative_path = "test.xml",
+        -:   96:  // returns "dir/test.xml".
+        -:   97:  // On Windows, uses \ as the separator rather than /.
+        -:   98:  static FilePath ConcatPaths(const FilePath& directory,
+        -:   99:                              const FilePath& relative_path);
+        -:  100:
+        -:  101:  // Returns a pathname for a file that does not currently exist. The pathname
+        -:  102:  // will be directory/base_name.extension or
+        -:  103:  // directory/base_name_<number>.extension if directory/base_name.extension
+        -:  104:  // already exists. The number will be incremented until a pathname is found
+        -:  105:  // that does not already exist.
+        -:  106:  // Examples: 'dir/foo_test.xml' or 'dir/foo_test_1.xml'.
+        -:  107:  // There could be a race condition if two or more processes are calling this
+        -:  108:  // function at the same time -- they could both pick the same filename.
+        -:  109:  static FilePath GenerateUniqueFileName(const FilePath& directory,
+        -:  110:                                         const FilePath& base_name,
+        -:  111:                                         const char* extension);
+        -:  112:
+        -:  113:  // Returns true if and only if the path is "".
+       30:  114:  bool IsEmpty() const { return pathname_.empty(); }
+       30:  114-block  0
+        -:  115:
+        -:  116:  // If input name has a trailing separator character, removes it and returns
+        -:  117:  // the name, otherwise return the name string unmodified.
+        -:  118:  // On Windows platform, uses \ as the separator, other platforms use /.
+        -:  119:  FilePath RemoveTrailingPathSeparator() const;
+        -:  120:
+        -:  121:  // Returns a copy of the FilePath with the directory part removed.
+        -:  122:  // Example: FilePath("path/to/file").RemoveDirectoryName() returns
+        -:  123:  // FilePath("file"). If there is no directory part ("just_a_file"), it returns
+        -:  124:  // the FilePath unmodified. If there is no file part ("just_a_dir/") it
+        -:  125:  // returns an empty FilePath ("").
+        -:  126:  // On Windows platform, '\' is the path separator, otherwise it is '/'.
+        -:  127:  FilePath RemoveDirectoryName() const;
+        -:  128:
+        -:  129:  // RemoveFileName returns the directory path with the filename removed.
+        -:  130:  // Example: FilePath("path/to/file").RemoveFileName() returns "path/to/".
+        -:  131:  // If the FilePath is "a_file" or "/a_file", RemoveFileName returns
+        -:  132:  // FilePath("./") or, on Windows, FilePath(".\\"). If the filepath does
+        -:  133:  // not have a file, like "just/a/dir/", it returns the FilePath unmodified.
+        -:  134:  // On Windows platform, '\' is the path separator, otherwise it is '/'.
+        -:  135:  FilePath RemoveFileName() const;
+        -:  136:
+        -:  137:  // Returns a copy of the FilePath with the case-insensitive extension removed.
+        -:  138:  // Example: FilePath("dir/file.exe").RemoveExtension("EXE") returns
+        -:  139:  // FilePath("dir/file"). If a case-insensitive extension is not
+        -:  140:  // found, returns a copy of the original FilePath.
+        -:  141:  FilePath RemoveExtension(const char* extension) const;
+        -:  142:
+        -:  143:  // Creates directories so that path exists. Returns true if successful or if
+        -:  144:  // the directories already exist; returns false if unable to create
+        -:  145:  // directories for any reason. Will also return false if the FilePath does
+        -:  146:  // not represent a directory (that is, it doesn't end with a path separator).
+        -:  147:  bool CreateDirectoriesRecursively() const;
+        -:  148:
+        -:  149:  // Create the directory so that path exists. Returns true if successful or
+        -:  150:  // if the directory already exists; returns false if unable to create the
+        -:  151:  // directory for any reason, including if the parent directory does not
+        -:  152:  // exist. Not named "CreateDirectory" because that's a macro on Windows.
+        -:  153:  bool CreateFolder() const;
+        -:  154:
+        -:  155:  // Returns true if FilePath describes something in the file-system,
+        -:  156:  // either a file, directory, or whatever, and that something exists.
+        -:  157:  bool FileOrDirectoryExists() const;
+        -:  158:
+        -:  159:  // Returns true if pathname describes a directory in the file-system
+        -:  160:  // that exists.
+        -:  161:  bool DirectoryExists() const;
+        -:  162:
+        -:  163:  // Returns true if FilePath ends with a path separator, which indicates that
+        -:  164:  // it is intended to represent a directory. Returns false otherwise.
+        -:  165:  // This does NOT check that a directory (or file) actually exists.
+        -:  166:  bool IsDirectory() const;
+        -:  167:
+        -:  168:  // Returns true if pathname describes a root directory. (Windows has one
+        -:  169:  // root directory per disk drive.)
+        -:  170:  bool IsRootDirectory() const;
+        -:  171:
+        -:  172:  // Returns true if pathname describes an absolute path.
+        -:  173:  bool IsAbsolutePath() const;
+        -:  174:
+        -:  175: private:
+        -:  176:  // Replaces multiple consecutive separators with a single separator.
+        -:  177:  // For example, "bar///foo" becomes "bar/foo". Does not eliminate other
+        -:  178:  // redundancies that might be in a pathname involving "." or "..".
+        -:  179:  //
+        -:  180:  // A pathname with multiple consecutive separators may occur either through
+        -:  181:  // user error or as a result of some scripts or APIs that generate a pathname
+        -:  182:  // with a trailing separator. On other platforms the same API or script
+        -:  183:  // may NOT generate a pathname with a trailing "/". Then elsewhere that
+        -:  184:  // pathname may have another "/" and pathname components added to it,
+        -:  185:  // without checking for the separator already being there.
+        -:  186:  // The script language and operating system may allow paths like "foo//bar"
+        -:  187:  // but some of the functions in FilePath will not handle that correctly. In
+        -:  188:  // particular, RemoveTrailingPathSeparator() only removes one separator, and
+        -:  189:  // it is called in CreateDirectoriesRecursively() assuming that it will change
+        -:  190:  // a pathname from directory syntax (trailing separator) to filename syntax.
+        -:  191:  //
+        -:  192:  // On Windows this method also replaces the alternate path separator '/' with
+        -:  193:  // the primary path separator '\\', so that for example "bar\\/\\foo" becomes
+        -:  194:  // "bar\\foo".
+        -:  195:
+        -:  196:  void Normalize();
+        -:  197:
+        -:  198:  // Returns a pointer to the last occurence of a valid path separator in
+        -:  199:  // the FilePath. On Windows, for example, both '/' and '\' are valid path
+        -:  200:  // separators. Returns NULL if no path separator was found.
+        -:  201:  const char* FindLastPathSeparator() const;
+        -:  202:
+        -:  203:  std::string pathname_;
+        -:  204:};  // class FilePath
+        -:  205:
+        -:  206:}  // namespace internal
+        -:  207:}  // namespace testing
+        -:  208:
+        -:  209:GTEST_DISABLE_MSC_WARNINGS_POP_()  //  4251
+        -:  210:
+        -:  211:#endif  // GOOGLETEST_INCLUDE_GTEST_INTERNAL_GTEST_FILEPATH_H_
