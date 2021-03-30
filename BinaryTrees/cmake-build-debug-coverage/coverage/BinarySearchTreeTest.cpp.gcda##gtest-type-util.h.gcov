@@ -1,6 +1,6 @@
-        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/lib/googletest/googletest/include/gtest/internal/gtest-type-util.h
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
+        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/lib/googletest/googletest/include/gtest/internal/gtest-type-util.h
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Copyright 2008 Google Inc.
         -:    2:// All Rights Reserved.

@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/9/bits/allocator.h
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
         -:    0:Runs:1
         -:    1:// Allocators -*- C++ -*-
         -:    2:
@@ -139,7 +139,7 @@
         -:  135:      // _GLIBCXX_RESOLVE_LIB_DEFECTS
         -:  136:      // 3035. std::allocator's constructors should be constexpr
         -:  137:      _GLIBCXX20_CONSTEXPR
-      72*:  138:      allocator() _GLIBCXX_NOTHROW { }
+     100*:  138:      allocator() _GLIBCXX_NOTHROW { }
 ------------------
 _ZNSaISt10_List_nodeISt4pairIcPKcEEEC2Ev:
     #####:  138:      allocator() _GLIBCXX_NOTHROW { }
@@ -166,8 +166,8 @@ _ZNSaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev:
         1:  138-block  0
 ------------------
 _ZNSaIN7testing14TestPartResultEEC2Ev:
-       31:  138:      allocator() _GLIBCXX_NOTHROW { }
-       31:  138-block  0
+       44:  138:      allocator() _GLIBCXX_NOTHROW { }
+       44:  138-block  0
 ------------------
 _ZNSaIPN7testing8internal30ParameterizedTestSuiteInfoBaseEEC2Ev:
         1:  138:      allocator() _GLIBCXX_NOTHROW { }
@@ -186,16 +186,16 @@ _ZNSaIN7testing8internal9TraceInfoEEC2Ev:
     %%%%%:  138-block  0
 ------------------
 _ZNSaIN7testing12TestPropertyEEC2Ev:
-       31:  138:      allocator() _GLIBCXX_NOTHROW { }
-       31:  138-block  0
+       44:  138:      allocator() _GLIBCXX_NOTHROW { }
+       44:  138-block  0
 ------------------
 _ZNSaIPN7testing8TestInfoEEC2Ev:
-        1:  138:      allocator() _GLIBCXX_NOTHROW { }
-        1:  138-block  0
-------------------
-_ZNSaIiEC2Ev:
         2:  138:      allocator() _GLIBCXX_NOTHROW { }
         2:  138-block  0
+------------------
+_ZNSaIiEC2Ev:
+        3:  138:      allocator() _GLIBCXX_NOTHROW { }
+        3:  138-block  0
 ------------------
 _ZNSaIPN7testing17TestEventListenerEEC2Ev:
         1:  138:      allocator() _GLIBCXX_NOTHROW { }
@@ -261,15 +261,15 @@ _ZNSaIN7testing8internal13edit_distance8EditTypeEEC2ERKS3_:
         -:  150:	_GLIBCXX20_CONSTEXPR
         -:  151:	allocator(const allocator<_Tp1>&) _GLIBCXX_NOTHROW { }
         -:  152:
-      76*:  153:      ~allocator() _GLIBCXX_NOTHROW { }
+     104*:  153:      ~allocator() _GLIBCXX_NOTHROW { }
 ------------------
 _ZNSaISt10_List_nodeISt4pairIcPKcEEED2Ev:
     #####:  153:      ~allocator() _GLIBCXX_NOTHROW { }
     %%%%%:  153-block  0
 ------------------
 _ZNSaIN7testing14TestPartResultEED2Ev:
-       31:  153:      ~allocator() _GLIBCXX_NOTHROW { }
-       31:  153-block  0
+       44:  153:      ~allocator() _GLIBCXX_NOTHROW { }
+       44:  153-block  0
 ------------------
 _ZNSaIPN7testing8internal30ParameterizedTestSuiteInfoBaseEED2Ev:
         1:  153:      ~allocator() _GLIBCXX_NOTHROW { }
@@ -308,16 +308,16 @@ _ZNSaIN7testing8internal9TraceInfoEED2Ev:
     %%%%%:  153-block  0
 ------------------
 _ZNSaIN7testing12TestPropertyEED2Ev:
-       31:  153:      ~allocator() _GLIBCXX_NOTHROW { }
-       31:  153-block  0
+       44:  153:      ~allocator() _GLIBCXX_NOTHROW { }
+       44:  153-block  0
 ------------------
 _ZNSaIPN7testing8TestInfoEED2Ev:
-        1:  153:      ~allocator() _GLIBCXX_NOTHROW { }
-        1:  153-block  0
-------------------
-_ZNSaIiED2Ev:
         2:  153:      ~allocator() _GLIBCXX_NOTHROW { }
         2:  153-block  0
+------------------
+_ZNSaIiED2Ev:
+        3:  153:      ~allocator() _GLIBCXX_NOTHROW { }
+        3:  153-block  0
 ------------------
 _ZNSaIPN7testing17TestEventListenerEED2Ev:
         1:  153:      ~allocator() _GLIBCXX_NOTHROW { }

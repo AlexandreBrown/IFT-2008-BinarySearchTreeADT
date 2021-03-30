@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/9/chrono
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
         -:    0:Runs:1
         -:    1:// <chrono> -*- C++ -*-
         -:    2:
@@ -150,12 +150,12 @@
         -:  146:      {
         -:  147:	template<typename _Rep, typename _Period>
         -:  148:	  static constexpr _ToDur
-       62:  149:	  __cast(const duration<_Rep, _Period>& __d)
+       66:  149:	  __cast(const duration<_Rep, _Period>& __d)
         -:  150:	  {
         -:  151:	    typedef typename _ToDur::rep			__to_rep;
         -:  152:	    return _ToDur(static_cast<__to_rep>(
-       62:  153:	      static_cast<_CR>(__d.count()) / static_cast<_CR>(_CF::den)));
-       62:  153-block  0
+       66:  153:	      static_cast<_CR>(__d.count()) / static_cast<_CR>(_CF::den)));
+       66:  153-block  0
         -:  154:	  }
         -:  155:      };
         -:  156:
@@ -164,12 +164,12 @@
         -:  159:      {
         -:  160:	template<typename _Rep, typename _Period>
         -:  161:	  static constexpr _ToDur
-       31:  162:	  __cast(const duration<_Rep, _Period>& __d)
+       33:  162:	  __cast(const duration<_Rep, _Period>& __d)
         -:  163:	  {
         -:  164:	    typedef typename _ToDur::rep			__to_rep;
         -:  165:	    return _ToDur(static_cast<__to_rep>(
-       31:  166:	      static_cast<_CR>(__d.count()) * static_cast<_CR>(_CF::num)));
-       31:  166-block  0
+       33:  166:	      static_cast<_CR>(__d.count()) * static_cast<_CR>(_CF::num)));
+       33:  166-block  0
         -:  167:	  }
         -:  168:      };
         -:  169:
@@ -194,7 +194,7 @@
         -:  188:    /// duration_cast
         -:  189:    template<typename _ToDur, typename _Rep, typename _Period>
         -:  190:      constexpr __enable_if_is_duration<_ToDur>
-       93:  191:      duration_cast(const duration<_Rep, _Period>& __d)
+       99:  191:      duration_cast(const duration<_Rep, _Period>& __d)
         -:  192:      {
         -:  193:	typedef typename _ToDur::period				__to_period;
         -:  194:	typedef typename _ToDur::rep				__to_rep;
@@ -203,11 +203,11 @@
         -:  197:	  							__cr;
         -:  198:	typedef  __duration_cast_impl<_ToDur, __cf, __cr,
         -:  199:				      __cf::num == 1, __cf::den == 1> __dc;
-       93:  200:	return __dc::__cast(__d);
+       99:  200:	return __dc::__cast(__d);
         -:  201:      }
 ------------------
 _ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000000000EEEElS2_ILl1ELl1EEEENSt9enable_ifIXsrNS_13__is_durationIT_EE5valueES8_E4typeERKNS1_IT0_T1_EE:
-       31:  191:      duration_cast(const duration<_Rep, _Period>& __d)
+       33:  191:      duration_cast(const duration<_Rep, _Period>& __d)
         -:  192:      {
         -:  193:	typedef typename _ToDur::period				__to_period;
         -:  194:	typedef typename _ToDur::rep				__to_rep;
@@ -216,12 +216,12 @@ _ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000000000EEEElS2_ILl1E
         -:  197:	  							__cr;
         -:  198:	typedef  __duration_cast_impl<_ToDur, __cf, __cr,
         -:  199:				      __cf::num == 1, __cf::den == 1> __dc;
-       31:  200:	return __dc::__cast(__d);
-       31:  200-block  0
+       33:  200:	return __dc::__cast(__d);
+       33:  200-block  0
         -:  201:      }
 ------------------
 _ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000EEEElS2_ILl1ELl1000000000EEEENSt9enable_ifIXsrNS_13__is_durationIT_EE5valueES8_E4typeERKNS1_IT0_T1_EE:
-       62:  191:      duration_cast(const duration<_Rep, _Period>& __d)
+       66:  191:      duration_cast(const duration<_Rep, _Period>& __d)
         -:  192:      {
         -:  193:	typedef typename _ToDur::period				__to_period;
         -:  194:	typedef typename _ToDur::rep				__to_rep;
@@ -230,8 +230,8 @@ _ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000EEEElS2_ILl1ELl1000
         -:  197:	  							__cr;
         -:  198:	typedef  __duration_cast_impl<_ToDur, __cf, __cr,
         -:  199:				      __cf::num == 1, __cf::den == 1> __dc;
-       62:  200:	return __dc::__cast(__d);
-       62:  200-block  0
+       66:  200:	return __dc::__cast(__d);
+       66:  200-block  0
         -:  201:      }
 ------------------
         -:  202:
@@ -363,20 +363,20 @@ _ZNSt6chrono13duration_castINS_8durationIlSt5ratioILl1ELl1000EEEElS2_ILl1ELl1000
         -:  328:	template<typename _Rep2, typename = _Require<
         -:  329:		 is_convertible<const _Rep2&, rep>,
         -:  330:		 __or_<__is_float<rep>, __not_<__is_float<_Rep2>>>>>
-      186:  331:	  constexpr explicit duration(const _Rep2& __rep)
-      186:  332:	  : __r(static_cast<rep>(__rep)) { }
+      198:  331:	  constexpr explicit duration(const _Rep2& __rep)
+      198:  332:	  : __r(static_cast<rep>(__rep)) { }
 ------------------
 _ZNSt6chrono8durationIlSt5ratioILl1ELl1000EEEC2IlvEERKT_:
-       62:  331:	  constexpr explicit duration(const _Rep2& __rep)
-       62:  332:	  : __r(static_cast<rep>(__rep)) { }
+       66:  331:	  constexpr explicit duration(const _Rep2& __rep)
+       66:  332:	  : __r(static_cast<rep>(__rep)) { }
 ------------------
 _ZNSt6chrono8durationIlSt5ratioILl1ELl1EEEC2IlvEERKT_:
-       31:  331:	  constexpr explicit duration(const _Rep2& __rep)
-       31:  332:	  : __r(static_cast<rep>(__rep)) { }
+       33:  331:	  constexpr explicit duration(const _Rep2& __rep)
+       33:  332:	  : __r(static_cast<rep>(__rep)) { }
 ------------------
 _ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC1IlvEERKT_:
-       93:  331:	  constexpr explicit duration(const _Rep2& __rep)
-       93:  332:	  : __r(static_cast<rep>(__rep)) { }
+       99:  331:	  constexpr explicit duration(const _Rep2& __rep)
+       99:  332:	  : __r(static_cast<rep>(__rep)) { }
 ------------------
         -:  333:
         -:  334:	template<typename _Rep2, typename _Period2, typename = _Require<
@@ -391,23 +391,23 @@ _ZNSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEC1IlvEERKT_:
         -:  343:
         -:  344:	// 20.11.5.2 observer
         -:  345:	constexpr rep
-      279:  346:	count() const
-      279:  347:	{ return __r; }
+      297:  346:	count() const
+      297:  347:	{ return __r; }
 ------------------
 _ZNKSt6chrono8durationIlSt5ratioILl1ELl1000EEE5countEv:
-       62:  346:	count() const
-       62:  347:	{ return __r; }
-       62:  347-block  0
+       66:  346:	count() const
+       66:  347:	{ return __r; }
+       66:  347-block  0
 ------------------
 _ZNKSt6chrono8durationIlSt5ratioILl1ELl1EEE5countEv:
-       31:  346:	count() const
-       31:  347:	{ return __r; }
-       31:  347-block  0
+       33:  346:	count() const
+       33:  347:	{ return __r; }
+       33:  347-block  0
 ------------------
 _ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv:
-      186:  346:	count() const
-      186:  347:	{ return __r; }
-      186:  347-block  0
+      198:  346:	count() const
+      198:  347:	{ return __r; }
+      198:  347-block  0
 ------------------
         -:  348:
         -:  349:	// 20.11.5.3 arithmetic
@@ -524,14 +524,14 @@ _ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv:
         -:  460:	     typename _Rep2, typename _Period2>
         -:  461:      constexpr typename common_type<duration<_Rep1, _Period1>,
         -:  462:				     duration<_Rep2, _Period2>>::type
-       62:  463:      operator-(const duration<_Rep1, _Period1>& __lhs,
+       66:  463:      operator-(const duration<_Rep1, _Period1>& __lhs,
         -:  464:		const duration<_Rep2, _Period2>& __rhs)
         -:  465:      {
         -:  466:	typedef duration<_Rep1, _Period1>			__dur1;
         -:  467:	typedef duration<_Rep2, _Period2>			__dur2;
         -:  468:	typedef typename common_type<__dur1,__dur2>::type	__cd;
-       62:  469:	return __cd(__cd(__lhs).count() - __cd(__rhs).count());
-       62:  469-block  0
+       66:  469:	return __cd(__cd(__lhs).count() - __cd(__rhs).count());
+       66:  469-block  0
         -:  470:      }
         -:  471:
         -:  472:    // SFINAE helper to obtain common_type<_Rep1, _Rep2> only if _Rep2
@@ -698,19 +698,19 @@ _ZNKSt6chrono8durationIlSt5ratioILl1ELl1000000000EEE5countEv:
         -:  633:	constexpr time_point() : __d(duration::zero())
         -:  634:	{ }
         -:  635:
-       62:  636:	constexpr explicit time_point(const duration& __dur)
-       62:  637:	: __d(__dur)
-       62:  638:	{ }
+       66:  636:	constexpr explicit time_point(const duration& __dur)
+       66:  637:	: __d(__dur)
+       66:  638:	{ }
 ------------------
 _ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEEC2ERKS6_:
-       31:  636:	constexpr explicit time_point(const duration& __dur)
-       31:  637:	: __d(__dur)
-       31:  638:	{ }
+       33:  636:	constexpr explicit time_point(const duration& __dur)
+       33:  637:	: __d(__dur)
+       33:  638:	{ }
 ------------------
 _ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEEC2ERKS6_:
-       31:  636:	constexpr explicit time_point(const duration& __dur)
-       31:  637:	: __d(__dur)
-       31:  638:	{ }
+       33:  636:	constexpr explicit time_point(const duration& __dur)
+       33:  637:	: __d(__dur)
+       33:  638:	{ }
 ------------------
         -:  639:
         -:  640:	// conversions
@@ -722,23 +722,23 @@ _ZNSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEE
         -:  646:
         -:  647:	// observer
         -:  648:	constexpr duration
-      155:  649:	time_since_epoch() const
-      155:  650:	{ return __d; }
+      165:  649:	time_since_epoch() const
+      165:  650:	{ return __d; }
 ------------------
 _ZNKSt6chrono10time_pointINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv:
-       62:  649:	time_since_epoch() const
-       62:  650:	{ return __d; }
-       62:  650-block  0
+       66:  649:	time_since_epoch() const
+       66:  650:	{ return __d; }
+       66:  650-block  0
 ------------------
 _ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1EEEEE16time_since_epochEv:
-       31:  649:	time_since_epoch() const
-       31:  650:	{ return __d; }
-       31:  650-block  0
+       33:  649:	time_since_epoch() const
+       33:  650:	{ return __d; }
+       33:  650-block  0
 ------------------
 _ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEEE16time_since_epochEv:
-       62:  649:	time_since_epoch() const
-       62:  650:	{ return __d; }
-       62:  650-block  0
+       66:  649:	time_since_epoch() const
+       66:  650:	{ return __d; }
+       66:  650-block  0
 ------------------
         -:  651:
         -:  652:	// arithmetic
@@ -773,13 +773,13 @@ _ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl100
         -:  681:    template<typename _ToDur, typename _Clock, typename _Dur>
         -:  682:      constexpr typename enable_if<__is_duration<_ToDur>::value,
         -:  683:				   time_point<_Clock, _ToDur>>::type
-       31:  684:      time_point_cast(const time_point<_Clock, _Dur>& __t)
+       33:  684:      time_point_cast(const time_point<_Clock, _Dur>& __t)
         -:  685:      {
         -:  686:	typedef time_point<_Clock, _ToDur> 			__time_point;
-       31:  687:	return __time_point(duration_cast<_ToDur>(__t.time_since_epoch()));
-       31:  687-block  0
-       31:  687-block  1
-       31:  687-block  2
+       33:  687:	return __time_point(duration_cast<_ToDur>(__t.time_since_epoch()));
+       33:  687-block  0
+       33:  687-block  1
+       33:  687-block  2
         -:  688:      }
         -:  689:
         -:  690:#if __cplusplus > 201402L
@@ -854,21 +854,21 @@ _ZNKSt6chrono10time_pointINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl100
         -:  759:
         -:  760:    template<typename _Clock, typename _Dur1, typename _Dur2>
         -:  761:      constexpr typename common_type<_Dur1, _Dur2>::type
-       62:  762:      operator-(const time_point<_Clock, _Dur1>& __lhs,
+       66:  762:      operator-(const time_point<_Clock, _Dur1>& __lhs,
         -:  763:		const time_point<_Clock, _Dur2>& __rhs)
-       62:  764:      { return __lhs.time_since_epoch() - __rhs.time_since_epoch(); }
+       66:  764:      { return __lhs.time_since_epoch() - __rhs.time_since_epoch(); }
 ------------------
 _ZNSt6chronomiINS_3_V212system_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE:
-       31:  762:      operator-(const time_point<_Clock, _Dur1>& __lhs,
+       33:  762:      operator-(const time_point<_Clock, _Dur1>& __lhs,
         -:  763:		const time_point<_Clock, _Dur2>& __rhs)
-       31:  764:      { return __lhs.time_since_epoch() - __rhs.time_since_epoch(); }
-       31:  764-block  0
+       33:  764:      { return __lhs.time_since_epoch() - __rhs.time_since_epoch(); }
+       33:  764-block  0
 ------------------
 _ZNSt6chronomiINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEES6_EENSt11common_typeIJT0_T1_EE4typeERKNS_10time_pointIT_S8_EERKNSC_ISD_S9_EE:
-       31:  762:      operator-(const time_point<_Clock, _Dur1>& __lhs,
+       33:  762:      operator-(const time_point<_Clock, _Dur1>& __lhs,
         -:  763:		const time_point<_Clock, _Dur2>& __rhs)
-       31:  764:      { return __lhs.time_since_epoch() - __rhs.time_since_epoch(); }
-       31:  764-block  0
+       33:  764:      { return __lhs.time_since_epoch() - __rhs.time_since_epoch(); }
+       33:  764-block  0
 ------------------
         -:  765:
         -:  766:    template<typename _Clock, typename _Dur1, typename _Dur2>
@@ -958,12 +958,12 @@ _ZNSt6chronomiINS_3_V212steady_clockENS_8durationIlSt5ratioILl1ELl1000000000EEEE
         -:  850:      }
         -:  851:
         -:  852:      static time_point
-       31:  853:      from_time_t(std::time_t __t) noexcept
+       33:  853:      from_time_t(std::time_t __t) noexcept
         -:  854:      {
         -:  855:	typedef chrono::time_point<system_clock, seconds>	__from;
         -:  856:	return time_point_cast<system_clock::duration>
-       31:  857:	       (__from(chrono::seconds(__t)));
-       31:  857-block  0
+       33:  857:	       (__from(chrono::seconds(__t)));
+       33:  857-block  0
         -:  858:      }
         -:  859:    };
         -:  860:

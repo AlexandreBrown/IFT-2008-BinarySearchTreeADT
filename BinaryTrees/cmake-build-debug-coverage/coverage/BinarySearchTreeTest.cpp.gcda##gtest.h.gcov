@@ -1,6 +1,6 @@
-        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/lib/googletest/googletest/include/gtest/gtest.h
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
+        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/lib/googletest/googletest/include/gtest/gtest.h
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Copyright 2005, Google Inc.
         -:    2:// All rights reserved.
@@ -306,14 +306,14 @@
         -:  302:  // the argument is implicitly convertible to AssertionResult. In that case
         -:  303:  // we want AssertionResult's copy constructor to be used.
         -:  304:  template <typename T>
-       39:  305:  explicit AssertionResult(
+       40:  305:  explicit AssertionResult(
         -:  306:      const T& success,
         -:  307:      typename std::enable_if<
         -:  308:          !std::is_convertible<T, AssertionResult>::value>::type*
         -:  309:      /*enabler*/
         -:  310:      = nullptr)
-       39:  311:      : success_(success) {}
-       39:  311-block  0
+       40:  311:      : success_(success) {}
+       40:  311-block  0
         -:  312:
         -:  313:#if defined(_MSC_VER) && (_MSC_VER < 1910 || _MSC_VER >= 1920)
         -:  314:  GTEST_DISABLE_MSC_WARNINGS_POP_()
@@ -326,8 +326,8 @@
         -:  321:  }
         -:  322:
         -:  323:  // Returns true if and only if the assertion succeeded.
-       39:  324:  operator bool() const { return success_; }  // NOLINT
-       39:  324-block  0
+       40:  324:  operator bool() const { return success_; }  // NOLINT
+       40:  324-block  0
         -:  325:
         -:  326:  // Returns the assertion's negation. Used with EXPECT/ASSERT_FALSE.
         -:  327:  AssertionResult operator!() const;
@@ -1559,7 +1559,7 @@ _ZN7testing8internal18CmpHelperEQFailureINSt7__cxx1112basic_stringIcSt11char_tra
     $$$$$: 1529-block  6
         -: 1530:}
 ------------------
-_ZN7testing8internal18CmpHelperEQFailureIlmEENS_15AssertionResultEPKcS4_RKT_RKT0_:
+_ZN7testing8internal18CmpHelperEQFailureImmEENS_15AssertionResultEPKcS4_RKT_RKT0_:
     #####: 1522:AssertionResult CmpHelperEQFailure(const char* lhs_expression,
         -: 1523:                                   const char* rhs_expression,
         -: 1524:                                   const T1& lhs, const T2& rhs) {
@@ -1613,7 +1613,7 @@ _ZN7testing8internal11CmpHelperEQINSt7__cxx1112basic_stringIcSt11char_traitsIcES
     %%%%%: 1549-block  0
         -: 1550:}
 ------------------
-_ZN7testing8internal11CmpHelperEQIlmEENS_15AssertionResultEPKcS4_RKT_RKT0_:
+_ZN7testing8internal11CmpHelperEQImmEENS_15AssertionResultEPKcS4_RKT_RKT0_:
         4: 1541:AssertionResult CmpHelperEQ(const char* lhs_expression,
         -: 1542:                            const char* rhs_expression,
         -: 1543:                            const T1& lhs,

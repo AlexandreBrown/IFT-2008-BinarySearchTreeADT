@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/9/bits/stl_algo.h
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
         -:    0:Runs:1
         -:    1:// Algorithm implementation -*- C++ -*-
         -:    2:
@@ -113,13 +113,13 @@
         -:  109:  /// This is an overload used by find algos for the RAI case.
         -:  110:  template<typename _RandomAccessIterator, typename _Predicate>
         -:  111:    _RandomAccessIterator
-      29*:  112:    __find_if(_RandomAccessIterator __first, _RandomAccessIterator __last,
+      41*:  112:    __find_if(_RandomAccessIterator __first, _RandomAccessIterator __last,
         -:  113:	      _Predicate __pred, random_access_iterator_tag)
         -:  114:    {
         -:  115:      typename iterator_traits<_RandomAccessIterator>::difference_type
-      29*:  116:	__trip_count = (__last - __first) >> 2;
+      41*:  116:	__trip_count = (__last - __first) >> 2;
         -:  117:
-      29*:  118:      for (; __trip_count > 0; --__trip_count)
+      41*:  118:      for (; __trip_count > 0; --__trip_count)
         -:  119:	{
     #####:  120:	  if (__pred(__first))
     #####:  121:	    return __first;
@@ -138,36 +138,36 @@
     #####:  134:	  ++__first;
         -:  135:	}
         -:  136:
-      29*:  137:      switch (__last - __first)
+      41*:  137:      switch (__last - __first)
         -:  138:	{
     #####:  139:	case 3:
     #####:  140:	  if (__pred(__first))
     #####:  141:	    return __first;
     #####:  142:	  ++__first;
-    #####:  143:	case 2:
-    #####:  144:	  if (__pred(__first))
-    #####:  145:	    return __first;
+       9*:  143:	case 2:
+       9*:  144:	  if (__pred(__first))
+       9*:  145:	    return __first;
     #####:  146:	  ++__first;
-      28*:  147:	case 1:
-      28*:  148:	  if (__pred(__first))
-      28*:  149:	    return __first;
-    #####:  150:	  ++__first;
-       1*:  151:	case 0:
+      31*:  147:	case 1:
+      31*:  148:	  if (__pred(__first))
+      30*:  149:	    return __first;
+       1*:  150:	  ++__first;
+       2*:  151:	case 0:
         -:  152:	default:
-       1*:  153:	  return __last;
+       2*:  153:	  return __last;
         -:  154:	}
         -:  155:    }
 ------------------
 _ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN7testing9TestSuiteESt6vectorIS5_SaIS5_EEEEENS1_5__ops10_Iter_predINS3_8internal15TestSuiteNameIsEEEET_SH_SH_T0_St26random_access_iterator_tag:
-       29:  112:    __find_if(_RandomAccessIterator __first, _RandomAccessIterator __last,
+       41:  112:    __find_if(_RandomAccessIterator __first, _RandomAccessIterator __last,
         -:  113:	      _Predicate __pred, random_access_iterator_tag)
         -:  114:    {
         -:  115:      typename iterator_traits<_RandomAccessIterator>::difference_type
-       29:  116:	__trip_count = (__last - __first) >> 2;
-       29:  116-block  0
+       41:  116:	__trip_count = (__last - __first) >> 2;
+       41:  116-block  0
         -:  117:
-      29*:  118:      for (; __trip_count > 0; --__trip_count)
-       29:  118-block  0
+      41*:  118:      for (; __trip_count > 0; --__trip_count)
+       41:  118-block  0
         -:  119:	{
     #####:  120:	  if (__pred(__first))
     %%%%%:  120-block  0
@@ -195,8 +195,8 @@ _ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN7testing9T
     %%%%%:  134-block  0
         -:  135:	}
         -:  136:
-       29:  137:      switch (__last - __first)
-       29:  137-block  0
+       41:  137:      switch (__last - __first)
+       41:  137-block  0
         -:  138:	{
     #####:  139:	case 3:
     #####:  140:	  if (__pred(__first))
@@ -205,24 +205,24 @@ _ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN7testing9T
     %%%%%:  141-block  0
     #####:  142:	  ++__first;
     %%%%%:  142-block  0
-    #####:  143:	case 2:
-    #####:  144:	  if (__pred(__first))
-    %%%%%:  144-block  0
-    #####:  145:	    return __first;
-    %%%%%:  145-block  0
+        9:  143:	case 2:
+        9:  144:	  if (__pred(__first))
+        9:  144-block  0
+        9:  145:	    return __first;
+        9:  145-block  0
     #####:  146:	  ++__first;
     %%%%%:  146-block  0
-       28:  147:	case 1:
-       28:  148:	  if (__pred(__first))
-       28:  148-block  0
-       28:  149:	    return __first;
-       28:  149-block  0
-    #####:  150:	  ++__first;
-    %%%%%:  150-block  0
-        1:  151:	case 0:
+       31:  147:	case 1:
+       31:  148:	  if (__pred(__first))
+       31:  148-block  0
+       30:  149:	    return __first;
+       30:  149-block  0
+        1:  150:	  ++__first;
+        1:  150-block  0
+        2:  151:	case 0:
         -:  152:	default:
-        1:  153:	  return __last;
-        1:  153-block  0
+        2:  153:	  return __last;
+        2:  153-block  0
         -:  154:	}
         -:  155:    }
 ------------------
@@ -365,21 +365,21 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7testing12TestPropertyESt6vector
         -:  156:
         -:  157:  template<typename _Iterator, typename _Predicate>
         -:  158:    inline _Iterator
-      29*:  159:    __find_if(_Iterator __first, _Iterator __last, _Predicate __pred)
+      41*:  159:    __find_if(_Iterator __first, _Iterator __last, _Predicate __pred)
         -:  160:    {
     #####:  161:      return __find_if(__first, __last, __pred,
-      29*:  162:		       std::__iterator_category(__first));
+      41*:  162:		       std::__iterator_category(__first));
         -:  163:    }
 ------------------
 _ZSt9__find_ifISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN7testing9TestSuiteESt6vectorIS5_SaIS5_EEEEENS1_5__ops10_Iter_predINS3_8internal15TestSuiteNameIsEEEET_SH_SH_T0_:
-       29:  159:    __find_if(_Iterator __first, _Iterator __last, _Predicate __pred)
+       41:  159:    __find_if(_Iterator __first, _Iterator __last, _Predicate __pred)
         -:  160:    {
         -:  161:      return __find_if(__first, __last, __pred,
-       29:  162:		       std::__iterator_category(__first));
-       29:  162-block  0
-       29:  162-block  1
-       29:  162-block  2
-       29:  162-block  3
+       41:  162:		       std::__iterator_category(__first));
+       41:  162-block  0
+       41:  162-block  1
+       41:  162-block  2
+       41:  162-block  3
     $$$$$:  162-block  4
     $$$$$:  162-block  5
     $$$$$:  162-block  6
@@ -4124,14 +4124,14 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7testing12TestPropertyESt6vector
         -: 3867:  */
         -: 3868:  template<typename _InputIterator, typename _Function>
         -: 3869:    _Function
-       69: 3870:    for_each(_InputIterator __first, _InputIterator __last, _Function __f)
+       97: 3870:    for_each(_InputIterator __first, _InputIterator __last, _Function __f)
         -: 3871:    {
         -: 3872:      // concept requirements
         -: 3873:      __glibcxx_function_requires(_InputIteratorConcept<_InputIterator>)
         -: 3874:      __glibcxx_requires_valid_range(__first, __last);
-      69*: 3875:      for (; __first != __last; ++__first)
-      61*: 3876:	__f(*__first);
-        8: 3877:      return __f; // N.B. [alg.foreach] says std::move(f) but it's redundant.
+      97*: 3875:      for (; __first != __last; ++__first)
+      87*: 3876:	__f(*__first);
+       10: 3877:      return __f; // N.B. [alg.foreach] says std::move(f) but it's redundant.
         -: 3878:    }
 ------------------
 _ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPKPN7testing11EnvironmentESt6vectorIS4_SaIS4_EEEEPFvS4_EET0_T_SE_SD_:
@@ -4163,29 +4163,29 @@ _ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPKPN7testing17TestEventListenerESt6
         -: 3878:    }
 ------------------
 _ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPKPN7testing8TestInfoESt6vectorIS4_SaIS4_EEEEPFvS4_EET0_T_SE_SD_:
-       60: 3870:    for_each(_InputIterator __first, _InputIterator __last, _Function __f)
+       86: 3870:    for_each(_InputIterator __first, _InputIterator __last, _Function __f)
         -: 3871:    {
         -: 3872:      // concept requirements
         -: 3873:      __glibcxx_function_requires(_InputIteratorConcept<_InputIterator>)
         -: 3874:      __glibcxx_requires_valid_range(__first, __last);
-       60: 3875:      for (; __first != __last; ++__first)
-       60: 3875-block  0
-       58: 3876:	__f(*__first);
-       58: 3876-block  0
-        2: 3877:      return __f; // N.B. [alg.foreach] says std::move(f) but it's redundant.
-        2: 3877-block  0
+       86: 3875:      for (; __first != __last; ++__first)
+       86: 3875-block  0
+       82: 3876:	__f(*__first);
+       82: 3876-block  0
+        4: 3877:      return __f; // N.B. [alg.foreach] says std::move(f) but it's redundant.
+        4: 3877-block  0
         -: 3878:    }
 ------------------
 _ZSt8for_eachIN9__gnu_cxx17__normal_iteratorIPKPN7testing9TestSuiteESt6vectorIS4_SaIS4_EEEEPFvS4_EET0_T_SE_SD_:
-        4: 3870:    for_each(_InputIterator __first, _InputIterator __last, _Function __f)
+        6: 3870:    for_each(_InputIterator __first, _InputIterator __last, _Function __f)
         -: 3871:    {
         -: 3872:      // concept requirements
         -: 3873:      __glibcxx_function_requires(_InputIteratorConcept<_InputIterator>)
         -: 3874:      __glibcxx_requires_valid_range(__first, __last);
-        4: 3875:      for (; __first != __last; ++__first)
-        4: 3875-block  0
-        2: 3876:	__f(*__first);
-        2: 3876-block  0
+        6: 3875:      for (; __first != __last; ++__first)
+        6: 3875-block  0
+        4: 3876:	__f(*__first);
+        4: 3876-block  0
         2: 3877:      return __f; // N.B. [alg.foreach] says std::move(f) but it's redundant.
         2: 3877-block  0
         -: 3878:    }
@@ -4280,7 +4280,7 @@ _ZSt8for_eachISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN7testing11E
         -: 3951:  */
         -: 3952:  template<typename _InputIterator, typename _Predicate>
         -: 3953:    inline _InputIterator
-      29*: 3954:    find_if(_InputIterator __first, _InputIterator __last,
+      41*: 3954:    find_if(_InputIterator __first, _InputIterator __last,
         -: 3955:	    _Predicate __pred)
         -: 3956:    {
         -: 3957:      // concept requirements
@@ -4290,7 +4290,7 @@ _ZSt8for_eachISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPPN7testing11E
         -: 3961:      __glibcxx_requires_valid_range(__first, __last);
         -: 3962:
     #####: 3963:      return std::__find_if(__first, __last,
-      29*: 3964:			    __gnu_cxx::__ops::__pred_iter(__pred));
+      41*: 3964:			    __gnu_cxx::__ops::__pred_iter(__pred));
         -: 3965:    }
         -: 3966:
         -: 3967:  /**

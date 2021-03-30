@@ -47,8 +47,8 @@
 					<DistClean command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="BinaryTree">
-				<Option output="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/BinaryTree" prefix_auto="0" extension_auto="0"/>
+			<Target title="BinaryTrees">
+				<Option output="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/BinaryTrees" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -65,14 +65,14 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 BinaryTree"/>
+					<Build command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 BinaryTrees"/>
 					<CompileFile command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
-			<Target title="BinaryTree/fast">
-				<Option output="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/BinaryTree" prefix_auto="0" extension_auto="0"/>
+			<Target title="BinaryTrees/fast">
+				<Option output="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/BinaryTrees" prefix_auto="0" extension_auto="0"/>
 				<Option working_dir="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
@@ -89,17 +89,7 @@
 					<Add directory="/usr/include"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 BinaryTree/fast"/>
-					<CompileFile command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="test">
-				<Option working_dir="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 test"/>
+					<Build command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 BinaryTrees/fast"/>
 					<CompileFile command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
@@ -170,6 +160,16 @@
 				</Compiler>
 				<MakeCommands>
 					<Build command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 BinaryTrees_test/fast"/>
+					<CompileFile command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="test">
+				<Option working_dir="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 test"/>
 					<CompileFile command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
 					<Clean command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
 					<DistClean command="/usr/bin/make -j24 -f &quot;/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008\ Algorithmes\ et\ structures\ de\ données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/Makefile&quot;  VERBOSE=1 clean"/>
@@ -398,22 +398,43 @@
 		<Unit filename="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/lib/googletest/googletest/src/gtest_main.cc">
 			<Option target="gtest_main"/>
 		</Unit>
+		<Unit filename="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/src/main/AvlNode.h">
+			<Option target="BinaryTrees"/>
+			<Option target="BinaryTrees_test"/>
+		</Unit>
+		<Unit filename="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/src/main/AvlTree.h">
+			<Option target="BinaryTrees"/>
+			<Option target="BinaryTrees_test"/>
+		</Unit>
+		<Unit filename="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/src/main/AvlTree.tpp">
+			<Option target="BinaryTrees"/>
+			<Option target="BinaryTrees_test"/>
+		</Unit>
 		<Unit filename="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/src/main/BinaryNode.h">
-			<Option target="BinaryTree"/>
+			<Option target="BinaryTrees"/>
 			<Option target="BinaryTrees_test"/>
 		</Unit>
 		<Unit filename="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/src/main/BinarySearchTree.h">
-			<Option target="BinaryTree"/>
+			<Option target="BinaryTrees"/>
 			<Option target="BinaryTrees_test"/>
 		</Unit>
 		<Unit filename="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/src/main/BinarySearchTree.tpp">
-			<Option target="BinaryTree"/>
+			<Option target="BinaryTrees"/>
 			<Option target="BinaryTrees_test"/>
 		</Unit>
 		<Unit filename="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/src/main/main.cpp">
-			<Option target="BinaryTree"/>
+			<Option target="BinaryTrees"/>
+		</Unit>
+		<Unit filename="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/src/test/AvlTreeTest.cpp">
+			<Option target="BinaryTrees_test"/>
+		</Unit>
+		<Unit filename="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/src/test/BinarySearchTreeExpectations.h">
+			<Option target="BinaryTrees_test"/>
 		</Unit>
 		<Unit filename="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/src/test/BinarySearchTreeTest.cpp">
+			<Option target="BinaryTrees_test"/>
+		</Unit>
+		<Unit filename="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/src/test/utils/RandomValues.h">
 			<Option target="BinaryTrees_test"/>
 		</Unit>
 		<Unit filename="/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/CMakeLists.txt">

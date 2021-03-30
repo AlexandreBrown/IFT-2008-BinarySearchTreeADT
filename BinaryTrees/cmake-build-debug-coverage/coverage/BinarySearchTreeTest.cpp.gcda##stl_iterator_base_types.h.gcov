@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/9/bits/stl_iterator_base_types.h
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Types used in iterator implementation -*- C++ -*-
         -:    2:
@@ -206,13 +206,13 @@
         -:  202:  template<typename _Iter>
         -:  203:    inline _GLIBCXX_CONSTEXPR
         -:  204:    typename iterator_traits<_Iter>::iterator_category
-     286*:  205:    __iterator_category(const _Iter&)
-     286*:  206:    { return typename iterator_traits<_Iter>::iterator_category(); }
+     394*:  205:    __iterator_category(const _Iter&)
+     394*:  206:    { return typename iterator_traits<_Iter>::iterator_category(); }
 ------------------
 _ZSt19__iterator_categoryIPcENSt15iterator_traitsIT_E17iterator_categoryERKS2_:
-      286:  205:    __iterator_category(const _Iter&)
-      286:  206:    { return typename iterator_traits<_Iter>::iterator_category(); }
-      286:  206-block  0
+      394:  205:    __iterator_category(const _Iter&)
+      394:  206:    { return typename iterator_traits<_Iter>::iterator_category(); }
+      394:  206-block  0
 ------------------
 _ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_:
     #####:  205:    __iterator_category(const _Iter&)

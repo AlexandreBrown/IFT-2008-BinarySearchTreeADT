@@ -1,6 +1,6 @@
-        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/lib/googletest/googletest/include/gtest/gtest-message.h
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
+        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/lib/googletest/googletest/include/gtest/gtest-message.h
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
         -:    0:Runs:1
         -:    1:// Copyright 2005, Google Inc.
         -:    2:// All rights reserved.
@@ -122,7 +122,7 @@
         -:  110:
         -:  111:  // Streams a non-pointer value to this object.
         -:  112:  template <typename T>
-     430*:  113:  inline Message& operator <<(const T& val) {
+     432*:  113:  inline Message& operator <<(const T& val) {
         -:  114:    // Some libraries overload << for STL containers.  These
         -:  115:    // overloads are defined in the global namespace instead of ::std.
         -:  116:    //
@@ -138,8 +138,8 @@
         -:  126:    // overloads of << defined in the global namespace and those
         -:  127:    // visible via Koenig lookup are both exposed in this function.
         -:  128:    using ::operator <<;
-     430*:  129:    *ss_ << val;
-     430*:  130:    return *this;
+     432*:  129:    *ss_ << val;
+     432*:  130:    return *this;
         -:  131:  }
 ------------------
 _ZN7testing7MessagelsIA3_cEERS0_RKT_:
@@ -935,7 +935,7 @@ _ZN7testing7MessagelsIA14_cEERS0_RKT_:
         -:  131:  }
 ------------------
 _ZN7testing7MessagelsIlEERS0_RKT_:
-       31:  113:  inline Message& operator <<(const T& val) {
+       33:  113:  inline Message& operator <<(const T& val) {
         -:  114:    // Some libraries overload << for STL containers.  These
         -:  115:    // overloads are defined in the global namespace instead of ::std.
         -:  116:    //
@@ -951,9 +951,9 @@ _ZN7testing7MessagelsIlEERS0_RKT_:
         -:  126:    // overloads of << defined in the global namespace and those
         -:  127:    // visible via Koenig lookup are both exposed in this function.
         -:  128:    using ::operator <<;
-       31:  129:    *ss_ << val;
-       31:  129-block  0
-       31:  130:    return *this;
+       33:  129:    *ss_ << val;
+       33:  129-block  0
+       33:  130:    return *this;
         -:  131:  }
 ------------------
 _ZN7testing7MessagelsIA20_cEERS0_RKT_:
@@ -1529,8 +1529,8 @@ _ZN7testing7MessagelsIKcEERS0_RKPT_:
         -:  207:// ::std::string, ::wstring, or ::std::wstring object, each NUL
         -:  208:// character in it is replaced with "\\0".
         -:  209:template <typename T>
-      43*:  210:std::string StreamableToString(const T& streamable) {
-      86*:  211:  return (Message() << streamable).GetString();
+      45*:  210:std::string StreamableToString(const T& streamable) {
+      90*:  211:  return (Message() << streamable).GetString();
         -:  212:}
         -:  213:
         -:  214:}  // namespace internal

@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/9/bits/stl_iterator_base_funcs.h
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Functions used by iterators -*- C++ -*-
         -:    2:
@@ -99,24 +99,24 @@
         -:   95:  template<typename _RandomAccessIterator>
         -:   96:    inline _GLIBCXX14_CONSTEXPR
         -:   97:    typename iterator_traits<_RandomAccessIterator>::difference_type
-     286*:   98:    __distance(_RandomAccessIterator __first, _RandomAccessIterator __last,
+     394*:   98:    __distance(_RandomAccessIterator __first, _RandomAccessIterator __last,
         -:   99:               random_access_iterator_tag)
         -:  100:    {
         -:  101:      // concept requirements
         -:  102:      __glibcxx_function_requires(_RandomAccessIteratorConcept<
         -:  103:				  _RandomAccessIterator>)
-     286*:  104:      return __last - __first;
+     394*:  104:      return __last - __first;
         -:  105:    }
 ------------------
 _ZSt10__distanceIPcENSt15iterator_traitsIT_E15difference_typeES2_S2_St26random_access_iterator_tag:
-      286:   98:    __distance(_RandomAccessIterator __first, _RandomAccessIterator __last,
+      394:   98:    __distance(_RandomAccessIterator __first, _RandomAccessIterator __last,
         -:   99:               random_access_iterator_tag)
         -:  100:    {
         -:  101:      // concept requirements
         -:  102:      __glibcxx_function_requires(_RandomAccessIteratorConcept<
         -:  103:				  _RandomAccessIterator>)
-      286:  104:      return __last - __first;
-      286:  104-block  0
+      394:  104:      return __last - __first;
+      394:  104-block  0
         -:  105:    }
 ------------------
 _ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_access_iterator_tag:
@@ -162,11 +162,11 @@ _ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random_
         -:  135:  template<typename _InputIterator>
         -:  136:    inline _GLIBCXX17_CONSTEXPR
         -:  137:    typename iterator_traits<_InputIterator>::difference_type
-     286*:  138:    distance(_InputIterator __first, _InputIterator __last)
+     394*:  138:    distance(_InputIterator __first, _InputIterator __last)
         -:  139:    {
         -:  140:      // concept requirements -- taken care of in __distance
-     286*:  141:      return std::__distance(__first, __last,
-     572*:  142:			     std::__iterator_category(__first));
+     394*:  141:      return std::__distance(__first, __last,
+     788*:  142:			     std::__iterator_category(__first));
         -:  143:    }
         -:  144:
         -:  145:  template<typename _InputIterator, typename _Distance>

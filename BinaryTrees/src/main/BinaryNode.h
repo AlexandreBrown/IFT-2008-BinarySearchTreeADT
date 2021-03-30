@@ -5,21 +5,35 @@ template<typename T>
 struct BinaryNode {
 
 	T element;
-	BinaryNode* left;
-	BinaryNode* right;
+
+	BinaryNode<T>* left;
+
+	BinaryNode<T>* right;
+
+	BinaryNode(
+		const T& theElement
+	) : element{theElement},
+	    left{nullptr},
+	    right{nullptr} {}
+
+	BinaryNode(
+		T&& theElement
+	) : element{std::move(theElement)},
+	left{nullptr},
+	right{nullptr} {}
 
 	BinaryNode(
 		const T& theElement,
-		BinaryNode* theLeft,
-		BinaryNode* theRight
+		BinaryNode<T>* theLeft,
+		BinaryNode<T>* theRight
 	) : element{theElement},
 	    left{theLeft},
 	    right{theRight} {}
 
 	BinaryNode(
-		const T&& theElement,
-		BinaryNode* theLeft,
-		BinaryNode* theRight
+		T&& theElement,
+		BinaryNode<T>* theLeft,
+		BinaryNode<T>* theRight
 	) : element{std::move(theElement)},
 	    left{theLeft},
 	    right{theRight} {}

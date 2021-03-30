@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/9/bits/unique_ptr.h
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
         -:    0:Runs:1
         -:    1:// unique_ptr implementation -*- C++ -*-
         -:    2:
@@ -76,14 +76,14 @@
         -:   72:
         -:   73:      /// Calls @c delete @p __ptr
         -:   74:      void
-      32*:   75:      operator()(_Tp* __ptr) const
+      34*:   75:      operator()(_Tp* __ptr) const
         -:   76:      {
         -:   77:	static_assert(!is_void<_Tp>::value,
         -:   78:		      "can't delete pointer to incomplete type");
         -:   79:	static_assert(sizeof(_Tp)>0,
         -:   80:		      "can't delete pointer to incomplete type");
-      32*:   81:	delete __ptr;
-      32*:   82:      }
+      34*:   81:	delete __ptr;
+      34*:   82:      }
 ------------------
 _ZNKSt14default_deleteIN7testing8internal11ThreadLocalISt6vectorINS1_9TraceInfoESaIS4_EEE18ValueHolderFactoryEEclEPS8_:
         1:   75:      operator()(_Tp* __ptr) const
@@ -134,16 +134,16 @@ _ZNKSt14default_deleteIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclE
     #####:   82:      }
 ------------------
 _ZNKSt14default_deleteIN7testing8internal14GTestFlagSaverEEclEPS2_:
-       29:   75:      operator()(_Tp* __ptr) const
+       31:   75:      operator()(_Tp* __ptr) const
         -:   76:      {
         -:   77:	static_assert(!is_void<_Tp>::value,
         -:   78:		      "can't delete pointer to incomplete type");
         -:   79:	static_assert(sizeof(_Tp)>0,
         -:   80:		      "can't delete pointer to incomplete type");
-       29:   81:	delete __ptr;
-       29:   81-block  0
-       29:   81-block  1
-       29:   82:      }
+       31:   81:	delete __ptr;
+       31:   81-block  0
+       31:   81-block  1
+       31:   82:      }
 ------------------
 _ZNKSt14default_deleteIN7testing8internal17StreamingListener20AbstractSocketWriterEEclEPS3_:
     #####:   75:      operator()(_Tp* __ptr) const
@@ -266,7 +266,7 @@ _ZNSt15__uniq_ptr_implIN7testing8internal24InternalRunDeathTestFlagESt14default_
         1:  146:      __uniq_ptr_impl() = default;
         1:  146-block  0
 ------------------
-     174*:  147:      __uniq_ptr_impl(pointer __p) : _M_t() { _M_ptr() = __p; }
+     203*:  147:      __uniq_ptr_impl(pointer __p) : _M_t() { _M_ptr() = __p; }
 ------------------
 _ZNSt15__uniq_ptr_implIN7testing8internal11ThreadLocalISt6vectorINS1_9TraceInfoESaIS4_EEE18ValueHolderFactoryESt14default_deleteIS8_EEC2EPS8_:
         1:  147:      __uniq_ptr_impl(pointer __p) : _M_t() { _M_ptr() = __p; }
@@ -281,12 +281,12 @@ _ZNSt15__uniq_ptr_implIN7testing8internal16DeathTestFactoryESt14default_deleteIS
         1:  147-block  0
 ------------------
 _ZNSt15__uniq_ptr_implIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EEC2EPS6_:
-       59:  147:      __uniq_ptr_impl(pointer __p) : _M_t() { _M_ptr() = __p; }
-       59:  147-block  0
+       84:  147:      __uniq_ptr_impl(pointer __p) : _M_t() { _M_ptr() = __p; }
+       84:  147-block  0
 ------------------
 _ZNSt15__uniq_ptr_implIN7testing8internal14GTestFlagSaverESt14default_deleteIS2_EEC2EPS2_:
-       29:  147:      __uniq_ptr_impl(pointer __p) : _M_t() { _M_ptr() = __p; }
-       29:  147-block  0
+       31:  147:      __uniq_ptr_impl(pointer __p) : _M_t() { _M_ptr() = __p; }
+       31:  147-block  0
 ------------------
 _ZNSt15__uniq_ptr_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEC2EPS5_:
     #####:  147:      __uniq_ptr_impl(pointer __p) : _M_t() { _M_ptr() = __p; }
@@ -297,15 +297,15 @@ _ZNSt15__uniq_ptr_implIN7testing8internal17StreamingListener20AbstractSocketWrit
     %%%%%:  147-block  0
 ------------------
 _ZNSt15__uniq_ptr_implINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEC2EPS5_:
-       83:  147:      __uniq_ptr_impl(pointer __p) : _M_t() { _M_ptr() = __p; }
-       83:  147-block  0
+       85:  147:      __uniq_ptr_impl(pointer __p) : _M_t() { _M_ptr() = __p; }
+       85:  147-block  0
 ------------------
         -:  148:
         -:  149:      template<typename _Del>
         -:  150:      __uniq_ptr_impl(pointer __p, _Del&& __d)
         -:  151:	: _M_t(__p, std::forward<_Del>(__d)) { }
         -:  152:
-     184*:  153:      pointer&   _M_ptr() { return std::get<0>(_M_t); }
+     238*:  153:      pointer&   _M_ptr() { return std::get<0>(_M_t); }
 ------------------
 _ZNSt15__uniq_ptr_implIN7testing8internal11ThreadLocalISt6vectorINS1_9TraceInfoESaIS4_EEE18ValueHolderFactoryESt14default_deleteIS8_EE6_M_ptrEv:
         2:  153:      pointer&   _M_ptr() { return std::get<0>(_M_t); }
@@ -320,12 +320,12 @@ _ZNSt15__uniq_ptr_implIN7testing8internal16DeathTestFactoryESt14default_deleteIS
         2:  153-block  0
 ------------------
 _ZNSt15__uniq_ptr_implIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EE6_M_ptrEv:
-      118:  153:      pointer&   _M_ptr() { return std::get<0>(_M_t); }
-      118:  153-block  0
+      168:  153:      pointer&   _M_ptr() { return std::get<0>(_M_t); }
+      168:  153-block  0
 ------------------
 _ZNSt15__uniq_ptr_implIN7testing8internal14GTestFlagSaverESt14default_deleteIS2_EE6_M_ptrEv:
-       58:  153:      pointer&   _M_ptr() { return std::get<0>(_M_t); }
-       58:  153-block  0
+       62:  153:      pointer&   _M_ptr() { return std::get<0>(_M_t); }
+       62:  153-block  0
 ------------------
 _ZNSt15__uniq_ptr_implIN7testing8internal17StreamingListener20AbstractSocketWriterESt14default_deleteIS3_EE6_M_ptrEv:
     #####:  153:      pointer&   _M_ptr() { return std::get<0>(_M_t); }
@@ -343,7 +343,7 @@ _ZNSt15__uniq_ptr_implINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
     #####:  153:      pointer&   _M_ptr() { return std::get<0>(_M_t); }
     %%%%%:  153-block  0
 ------------------
-     653*:  154:      pointer    _M_ptr() const { return std::get<0>(_M_t); }
+     671*:  154:      pointer    _M_ptr() const { return std::get<0>(_M_t); }
 ------------------
 _ZNKSt15__uniq_ptr_implIN7testing8internal11ThreadLocalIPNS0_31TestPartResultReporterInterfaceEE18ValueHolderFactoryESt14default_deleteIS6_EE6_M_ptrEv:
     #####:  154:      pointer    _M_ptr() const { return std::get<0>(_M_t); }
@@ -358,8 +358,8 @@ _ZNKSt15__uniq_ptr_implIN7testing8internal17StreamingListener20AbstractSocketWri
     %%%%%:  154-block  0
 ------------------
 _ZNKSt15__uniq_ptr_implINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE6_M_ptrEv:
-      621:  154:      pointer    _M_ptr() const { return std::get<0>(_M_t); }
-      621:  154-block  0
+      627:  154:      pointer    _M_ptr() const { return std::get<0>(_M_t); }
+      627:  154-block  0
 ------------------
 _ZNKSt15__uniq_ptr_implIN7testing8internal16DeathTestFactoryESt14default_deleteIS2_EE6_M_ptrEv:
     #####:  154:      pointer    _M_ptr() const { return std::get<0>(_M_t); }
@@ -370,14 +370,14 @@ _ZNKSt15__uniq_ptr_implIN7testing8internal24InternalRunDeathTestFlagESt14default
         2:  154-block  0
 ------------------
 _ZNKSt15__uniq_ptr_implIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EE6_M_ptrEv:
-       30:  154:      pointer    _M_ptr() const { return std::get<0>(_M_t); }
-       30:  154-block  0
+       42:  154:      pointer    _M_ptr() const { return std::get<0>(_M_t); }
+       42:  154-block  0
 ------------------
 _ZNKSt15__uniq_ptr_implINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE6_M_ptrEv:
     #####:  154:      pointer    _M_ptr() const { return std::get<0>(_M_t); }
     %%%%%:  154-block  0
 ------------------
-      32*:  155:      _Dp&       _M_deleter() { return std::get<1>(_M_t); }
+      34*:  155:      _Dp&       _M_deleter() { return std::get<1>(_M_t); }
 ------------------
 _ZNSt15__uniq_ptr_implIN7testing8internal11ThreadLocalISt6vectorINS1_9TraceInfoESaIS4_EEE18ValueHolderFactoryESt14default_deleteIS8_EE10_M_deleterEv:
         1:  155:      _Dp&       _M_deleter() { return std::get<1>(_M_t); }
@@ -396,8 +396,8 @@ _ZNSt15__uniq_ptr_implIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14
     %%%%%:  155-block  0
 ------------------
 _ZNSt15__uniq_ptr_implIN7testing8internal14GTestFlagSaverESt14default_deleteIS2_EE10_M_deleterEv:
-       29:  155:      _Dp&       _M_deleter() { return std::get<1>(_M_t); }
-       29:  155-block  0
+       31:  155:      _Dp&       _M_deleter() { return std::get<1>(_M_t); }
+       31:  155-block  0
 ------------------
 _ZNSt15__uniq_ptr_implIN7testing8internal17StreamingListener20AbstractSocketWriterESt14default_deleteIS3_EE10_M_deleterEv:
     #####:  155:      _Dp&       _M_deleter() { return std::get<1>(_M_t); }
@@ -484,9 +484,9 @@ _ZNSt10unique_ptrIN7testing8internal24InternalRunDeathTestFlagESt14default_delet
         -:  208:       */
         -:  209:      template<typename _Del = _Dp, typename = _DeleterConstraint<_Del>>
         -:  210:	explicit
-     174*:  211:	unique_ptr(pointer __p) noexcept
-     174*:  212:	: _M_t(__p)
-     174*:  213:        { }
+     203*:  211:	unique_ptr(pointer __p) noexcept
+     203*:  212:	: _M_t(__p)
+     203*:  213:        { }
 ------------------
 _ZNSt10unique_ptrIN7testing8internal11ThreadLocalISt6vectorINS1_9TraceInfoESaIS4_EEE18ValueHolderFactoryESt14default_deleteIS8_EEC2ISA_vEEPS8_:
         1:  211:	unique_ptr(pointer __p) noexcept
@@ -507,16 +507,16 @@ _ZNSt10unique_ptrIN7testing8internal16DeathTestFactoryESt14default_deleteIS2_EEC
         1:  213:        { }
 ------------------
 _ZNSt10unique_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EEC2IS8_vEEPS6_:
-       59:  211:	unique_ptr(pointer __p) noexcept
-       59:  212:	: _M_t(__p)
-       59:  212-block  0
-       59:  213:        { }
+       84:  211:	unique_ptr(pointer __p) noexcept
+       84:  212:	: _M_t(__p)
+       84:  212-block  0
+       84:  213:        { }
 ------------------
 _ZNSt10unique_ptrIN7testing8internal14GTestFlagSaverESt14default_deleteIS2_EEC2IS4_vEEPS2_:
-       29:  211:	unique_ptr(pointer __p) noexcept
-       29:  212:	: _M_t(__p)
-       29:  212-block  0
-       29:  213:        { }
+       31:  211:	unique_ptr(pointer __p) noexcept
+       31:  212:	: _M_t(__p)
+       31:  212-block  0
+       31:  213:        { }
 ------------------
 _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEC2IS7_vEEPS5_:
     #####:  211:	unique_ptr(pointer __p) noexcept
@@ -531,10 +531,10 @@ _ZNSt10unique_ptrIN7testing8internal17StreamingListener20AbstractSocketWriterESt
     #####:  213:        { }
 ------------------
 _ZNSt10unique_ptrINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEC2IS7_vEEPS5_:
-       83:  211:	unique_ptr(pointer __p) noexcept
-       83:  212:	: _M_t(__p)
-       83:  212-block  0
-       83:  213:        { }
+       85:  211:	unique_ptr(pointer __p) noexcept
+       85:  212:	: _M_t(__p)
+       85:  212-block  0
+       85:  213:        { }
 ------------------
         -:  214:
         -:  215:      /** Takes ownership of a pointer.
@@ -608,15 +608,15 @@ _ZNSt10unique_ptrINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14
         -:  283:#endif
         -:  284:
         -:  285:      /// Destructor, invokes the deleter if the stored pointer is not null.
-      92*:  286:      ~unique_ptr() noexcept
+     119*:  286:      ~unique_ptr() noexcept
         -:  287:      {
         -:  288:	static_assert(__is_invocable<deleter_type&, pointer>::value,
         -:  289:		      "unique_ptr's deleter must be invocable with a pointer");
-      92*:  290:	auto& __ptr = _M_t._M_ptr();
-      92*:  291:	if (__ptr != nullptr)
-      32*:  292:	  get_deleter()(std::move(__ptr));
-      92*:  293:	__ptr = pointer();
-      92*:  294:      }
+     119*:  290:	auto& __ptr = _M_t._M_ptr();
+     119*:  291:	if (__ptr != nullptr)
+      34*:  292:	  get_deleter()(std::move(__ptr));
+     119*:  293:	__ptr = pointer();
+     119*:  294:      }
 ------------------
 _ZNSt10unique_ptrIN7testing8internal11ThreadLocalISt6vectorINS1_9TraceInfoESaIS4_EEE18ValueHolderFactoryESt14default_deleteIS8_EED2Ev:
         1:  286:      ~unique_ptr() noexcept
@@ -671,30 +671,30 @@ _ZNSt10unique_ptrIN7testing8internal24InternalRunDeathTestFlagESt14default_delet
         1:  294:      }
 ------------------
 _ZNSt10unique_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EED2Ev:
-       59:  286:      ~unique_ptr() noexcept
+       84:  286:      ~unique_ptr() noexcept
         -:  287:      {
         -:  288:	static_assert(__is_invocable<deleter_type&, pointer>::value,
         -:  289:		      "unique_ptr's deleter must be invocable with a pointer");
-       59:  290:	auto& __ptr = _M_t._M_ptr();
-       59:  290-block  0
-       59:  291:	if (__ptr != nullptr)
+       84:  290:	auto& __ptr = _M_t._M_ptr();
+       84:  290-block  0
+       84:  291:	if (__ptr != nullptr)
     #####:  292:	  get_deleter()(std::move(__ptr));
     %%%%%:  292-block  0
-       59:  293:	__ptr = pointer();
-       59:  294:      }
+       84:  293:	__ptr = pointer();
+       84:  294:      }
 ------------------
 _ZNSt10unique_ptrIN7testing8internal14GTestFlagSaverESt14default_deleteIS2_EED2Ev:
-       29:  286:      ~unique_ptr() noexcept
+       31:  286:      ~unique_ptr() noexcept
         -:  287:      {
         -:  288:	static_assert(__is_invocable<deleter_type&, pointer>::value,
         -:  289:		      "unique_ptr's deleter must be invocable with a pointer");
-       29:  290:	auto& __ptr = _M_t._M_ptr();
-       29:  290-block  0
-       29:  291:	if (__ptr != nullptr)
-       29:  292:	  get_deleter()(std::move(__ptr));
-       29:  292-block  0
-       29:  293:	__ptr = pointer();
-       29:  294:      }
+       31:  290:	auto& __ptr = _M_t._M_ptr();
+       31:  290-block  0
+       31:  291:	if (__ptr != nullptr)
+       31:  292:	  get_deleter()(std::move(__ptr));
+       31:  292-block  0
+       31:  293:	__ptr = pointer();
+       31:  294:      }
 ------------------
 _ZNSt10unique_ptrIN7testing8internal17StreamingListener20AbstractSocketWriterESt14default_deleteIS3_EED2Ev:
     #####:  286:      ~unique_ptr() noexcept
@@ -784,10 +784,10 @@ _ZNSt10unique_ptrINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14
         -:  341:
         -:  342:      /// Dereference the stored pointer.
         -:  343:      typename add_lvalue_reference<element_type>::type
-     538*:  344:      operator*() const
+     542*:  344:      operator*() const
         -:  345:      {
         -:  346:	__glibcxx_assert(get() != pointer());
-     538*:  347:	return *get();
+     542*:  347:	return *get();
         -:  348:      }
 ------------------
 _ZNKSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEdeEv:
@@ -799,11 +799,11 @@ _ZNKSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defau
         -:  348:      }
 ------------------
 _ZNKSt10unique_ptrINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEdeEv:
-      538:  344:      operator*() const
+      542:  344:      operator*() const
         -:  345:      {
         -:  346:	__glibcxx_assert(get() != pointer());
-      538:  347:	return *get();
-      538:  347-block  0
+      542:  347:	return *get();
+      542:  347-block  0
         -:  348:      }
 ------------------
         -:  349:
@@ -858,8 +858,8 @@ _ZNKSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defau
         -:  357:
         -:  358:      /// Return the stored pointer.
         -:  359:      pointer
-     653*:  360:      get() const noexcept
-     653*:  361:      { return _M_t._M_ptr(); }
+     671*:  360:      get() const noexcept
+     671*:  361:      { return _M_t._M_ptr(); }
 ------------------
 _ZNKSt10unique_ptrIN7testing8internal11ThreadLocalIPNS0_31TestPartResultReporterInterfaceEE18ValueHolderFactoryESt14default_deleteIS6_EE3getEv:
     #####:  360:      get() const noexcept
@@ -877,9 +877,9 @@ _ZNKSt10unique_ptrIN7testing8internal17StreamingListener20AbstractSocketWriterES
     %%%%%:  361-block  0
 ------------------
 _ZNKSt10unique_ptrINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE3getEv:
-      621:  360:      get() const noexcept
-      621:  361:      { return _M_t._M_ptr(); }
-      621:  361-block  0
+      627:  360:      get() const noexcept
+      627:  361:      { return _M_t._M_ptr(); }
+      627:  361-block  0
 ------------------
 _ZNKSt10unique_ptrIN7testing8internal16DeathTestFactoryESt14default_deleteIS2_EE3getEv:
     #####:  360:      get() const noexcept
@@ -892,9 +892,9 @@ _ZNKSt10unique_ptrIN7testing8internal24InternalRunDeathTestFlagESt14default_dele
         2:  361-block  0
 ------------------
 _ZNKSt10unique_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS6_EE3getEv:
-       30:  360:      get() const noexcept
-       30:  361:      { return _M_t._M_ptr(); }
-       30:  361-block  0
+       42:  360:      get() const noexcept
+       42:  361:      { return _M_t._M_ptr(); }
+       42:  361-block  0
 ------------------
 _ZNKSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EE3getEv:
     #####:  360:      get() const noexcept
@@ -904,8 +904,8 @@ _ZNKSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defau
         -:  362:
         -:  363:      /// Return a reference to the stored deleter.
         -:  364:      deleter_type&
-      32*:  365:      get_deleter() noexcept
-      32*:  366:      { return _M_t._M_deleter(); }
+      34*:  365:      get_deleter() noexcept
+      34*:  366:      { return _M_t._M_deleter(); }
 ------------------
 _ZNSt10unique_ptrIN7testing8internal11ThreadLocalISt6vectorINS1_9TraceInfoESaIS4_EEE18ValueHolderFactoryESt14default_deleteIS8_EE11get_deleterEv:
         1:  365:      get_deleter() noexcept
@@ -928,9 +928,9 @@ _ZNSt10unique_ptrIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defau
     %%%%%:  366-block  0
 ------------------
 _ZNSt10unique_ptrIN7testing8internal14GTestFlagSaverESt14default_deleteIS2_EE11get_deleterEv:
-       29:  365:      get_deleter() noexcept
-       29:  366:      { return _M_t._M_deleter(); }
-       29:  366-block  0
+       31:  365:      get_deleter() noexcept
+       31:  366:      { return _M_t._M_deleter(); }
+       31:  366-block  0
 ------------------
 _ZNSt10unique_ptrIN7testing8internal17StreamingListener20AbstractSocketWriterESt14default_deleteIS3_EE11get_deleterEv:
     #####:  365:      get_deleter() noexcept

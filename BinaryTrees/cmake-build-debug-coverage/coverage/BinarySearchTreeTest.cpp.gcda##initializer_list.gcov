@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/9/initializer_list
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// std::initializer_list support -*- C++ -*-
         -:    2:
@@ -72,41 +72,41 @@
         -:   68:
         -:   69:      // Number of elements.
         -:   70:      constexpr size_type
-        4:   71:      size() const noexcept { return _M_len; }
+       28:   71:      size() const noexcept { return _M_len; }
 ------------------
 _ZNKSt16initializer_listImE4sizeEv:
-        2:   71:      size() const noexcept { return _M_len; }
-        2:   71-block  0
+       24:   71:      size() const noexcept { return _M_len; }
+       24:   71-block  0
 ------------------
 _ZNKSt16initializer_listIiE4sizeEv:
-        2:   71:      size() const noexcept { return _M_len; }
-        2:   71-block  0
+        4:   71:      size() const noexcept { return _M_len; }
+        4:   71-block  0
 ------------------
         -:   72:
         -:   73:      // First element.
         -:   74:      constexpr const_iterator
-        8:   75:      begin() const noexcept { return _M_array; }
+       35:   75:      begin() const noexcept { return _M_array; }
 ------------------
 _ZNKSt16initializer_listImE5beginEv:
-        4:   75:      begin() const noexcept { return _M_array; }
-        4:   75-block  0
+       27:   75:      begin() const noexcept { return _M_array; }
+       27:   75-block  0
 ------------------
 _ZNKSt16initializer_listIiE5beginEv:
-        4:   75:      begin() const noexcept { return _M_array; }
-        4:   75-block  0
+        8:   75:      begin() const noexcept { return _M_array; }
+        8:   75-block  0
 ------------------
         -:   76:
         -:   77:      // One past the last element.
         -:   78:      constexpr const_iterator
-        4:   79:      end() const noexcept { return begin() + size(); }
+       28:   79:      end() const noexcept { return begin() + size(); }
 ------------------
 _ZNKSt16initializer_listImE3endEv:
-        2:   79:      end() const noexcept { return begin() + size(); }
-        2:   79-block  0
+       24:   79:      end() const noexcept { return begin() + size(); }
+       24:   79-block  0
 ------------------
 _ZNKSt16initializer_listIiE3endEv:
-        2:   79:      end() const noexcept { return begin() + size(); }
-        2:   79-block  0
+        4:   79:      end() const noexcept { return begin() + size(); }
+        4:   79-block  0
 ------------------
         -:   80:    };
         -:   81:

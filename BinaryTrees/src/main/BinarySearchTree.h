@@ -3,9 +3,8 @@
 
 #include <string>
 #include <iostream>
-#include "BinaryNode.h"
 
-template<typename Comparable>
+template<typename Comparable, typename NodeType>
 class BinarySearchTree {
 	public:
 
@@ -15,7 +14,7 @@ class BinarySearchTree {
 
 		BinarySearchTree(BinarySearchTree&& rhs);
 
-		~BinarySearchTree();
+		virtual ~BinarySearchTree();
 
 		const Comparable& findMin() const;
 
@@ -43,33 +42,34 @@ class BinarySearchTree {
 
 		BinarySearchTree& operator=(BinarySearchTree&& rhs);
 
+	protected:
+		virtual void insert(const Comparable& x, NodeType*& t);
+
+		virtual void insert(Comparable&& x, NodeType*& t);
+
+		virtual void remove(const Comparable& x, NodeType*& t);
+
 	private:
 
-		BinaryNode<Comparable>* root;
+		NodeType* root;
 
-		void insert(const Comparable& x, BinaryNode<Comparable>*& t);
+		NodeType* findMin(NodeType* t) const;
 
-		void insert(Comparable&& x, BinaryNode<Comparable>*& t);
+		NodeType* findMax(NodeType* t) const;
 
-		void remove(const Comparable& x, BinaryNode<Comparable>*& t);
+		bool contains(const Comparable& x, NodeType* t) const;
 
-		BinaryNode<Comparable>* findMin(BinaryNode<Comparable>* t) const;
+		void makeEmpty(NodeType*& t);
 
-		BinaryNode<Comparable>* findMax(BinaryNode<Comparable>* t) const;
+		NodeType* clone(NodeType* t) const;
 
-		bool contains(const Comparable& x, BinaryNode<Comparable>* t) const;
+		bool has2Children(NodeType* const& t) const;
 
-		void makeEmpty(BinaryNode<Comparable>*& t);
+		void printTreeInSymmetricOrder(NodeType* t, std::ostream& out) const;
 
-		BinaryNode<Comparable>* clone(BinaryNode<Comparable>* t) const;
+		void printTreeInPreOrder(NodeType* t, std::ostream& out) const;
 
-		bool has2Children(BinaryNode<Comparable>* const& t) const;
-
-		void printTreeInSymmetricOrder(BinaryNode<Comparable>* t, std::ostream& out) const;
-
-		void printTreeInPreOrder(BinaryNode<Comparable>* t, std::ostream& out) const;
-
-		void printTreeInPostOrder(BinaryNode<Comparable>* t, std::ostream& out) const;
+		void printTreeInPostOrder(NodeType* t, std::ostream& out) const;
 };
 
 #include "BinarySearchTree.tpp"

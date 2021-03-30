@@ -1,0 +1,813 @@
+        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/src/test/AvlTreeTest.cpp
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/AvlTreeTest.cpp.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/AvlTreeTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#include <gtest/gtest.h>
+        -:    2:#include "../main/AvlTree.h"
+        -:    3:#include "BinarySearchTreeExpectations.h"
+        -:    4:#include "utils/RandomValues.h"
+        -:    5:
+        -:    6:using std::to_string;
+        -:    7:using Random::RandomValues;
+        -:    8:
+        -:    9:namespace {
+        -:   10:	class AvlTreeTest : public testing::Test {
+        -:   11:		public:
+        -:   12:
+        -:   13:			BinarySearchTree<int, AvlNode<int>>* tree;
+        -:   14:
+        -:   15:		protected:
+    #####:   16:			void SetUp() override {
+    #####:   17:				Test::SetUp();
+    %%%%%:   17-block  0
+    #####:   18:				tree = new AvlTree<int>{};
+    $$$$$:   18-block  0
+    #####:   19:			}
+    %%%%%:   19-block  0
+        -:   20:
+    #####:   21:			void TearDown() override {
+    #####:   22:				Test::TearDown();
+    %%%%%:   22-block  0
+    #####:   23:				delete tree;
+    %%%%%:   23-block  0
+    #####:   24:			}
+        -:   25:	};
+        -:   26:}
+        -:   27:
+    #####:   28:TEST_F(AvlTreeTest, inserts_element_when_insertion_does_not_make_tree_imbalance) {
+        -:   29:
+    #####:   30:	auto expectedElement = RandomValues::getRandomNumber<int>();
+        -:   31:
+    #####:   32:	tree->insert(expectedElement);
+        -:   33:
+    #####:   34:	ASSERT_TRUE(tree->contains(expectedElement));
+        -:   35:}
+------------------
+_ZN76AvlTreeTest_inserts_element_when_insertion_does_not_make_tree_imbalance_TestC2Ev:
+    #####:   28:TEST_F(AvlTreeTest, inserts_element_when_insertion_does_not_make_tree_imbalance) {
+    %%%%%:   28-block  0
+------------------
+_ZN76AvlTreeTest_inserts_element_when_insertion_does_not_make_tree_imbalance_TestD0Ev:
+    #####:   28:TEST_F(AvlTreeTest, inserts_element_when_insertion_does_not_make_tree_imbalance) {
+    %%%%%:   28-block  0
+------------------
+_ZN76AvlTreeTest_inserts_element_when_insertion_does_not_make_tree_imbalance_TestD2Ev:
+    #####:   28:TEST_F(AvlTreeTest, inserts_element_when_insertion_does_not_make_tree_imbalance) {
+    %%%%%:   28-block  0
+------------------
+_ZN76AvlTreeTest_inserts_element_when_insertion_does_not_make_tree_imbalance_Test8TestBodyEv:
+    #####:   28:TEST_F(AvlTreeTest, inserts_element_when_insertion_does_not_make_tree_imbalance) {
+        -:   29:
+    #####:   30:	auto expectedElement = RandomValues::getRandomNumber<int>();
+    %%%%%:   30-block  0
+        -:   31:
+    #####:   32:	tree->insert(expectedElement);
+        -:   33:
+    #####:   34:	ASSERT_TRUE(tree->contains(expectedElement));
+    %%%%%:   34-block  0
+    %%%%%:   34-block  1
+    %%%%%:   34-block  2
+    %%%%%:   34-block  3
+    %%%%%:   34-block  4
+    %%%%%:   34-block  5
+    %%%%%:   34-block  6
+    $$$$$:   34-block  7
+    $$$$$:   34-block  8
+    $$$$$:   34-block  9
+    $$$$$:   34-block 10
+    $$$$$:   34-block 11
+    $$$$$:   34-block 12
+    $$$$$:   34-block 13
+        -:   35:}
+------------------
+        -:   36:
+    #####:   37:TEST_F(AvlTreeTest, inserts_element_when_insertion_using_std_move_does_not_make_tree_imbalance) {
+        -:   38:
+    #####:   39:	auto expectedElement = RandomValues::getRandomNumber<int>();
+        -:   40:
+    #####:   41:	tree->insert(std::move(expectedElement));
+        -:   42:
+    #####:   43:	ASSERT_TRUE(tree->contains(expectedElement));
+        -:   44:}
+------------------
+_ZN91AvlTreeTest_inserts_element_when_insertion_using_std_move_does_not_make_tree_imbalance_TestC2Ev:
+    #####:   37:TEST_F(AvlTreeTest, inserts_element_when_insertion_using_std_move_does_not_make_tree_imbalance) {
+    %%%%%:   37-block  0
+------------------
+_ZN91AvlTreeTest_inserts_element_when_insertion_using_std_move_does_not_make_tree_imbalance_TestD0Ev:
+    #####:   37:TEST_F(AvlTreeTest, inserts_element_when_insertion_using_std_move_does_not_make_tree_imbalance) {
+    %%%%%:   37-block  0
+------------------
+_ZN91AvlTreeTest_inserts_element_when_insertion_using_std_move_does_not_make_tree_imbalance_TestD2Ev:
+    #####:   37:TEST_F(AvlTreeTest, inserts_element_when_insertion_using_std_move_does_not_make_tree_imbalance) {
+    %%%%%:   37-block  0
+------------------
+_ZN91AvlTreeTest_inserts_element_when_insertion_using_std_move_does_not_make_tree_imbalance_Test8TestBodyEv:
+    #####:   37:TEST_F(AvlTreeTest, inserts_element_when_insertion_using_std_move_does_not_make_tree_imbalance) {
+        -:   38:
+    #####:   39:	auto expectedElement = RandomValues::getRandomNumber<int>();
+    %%%%%:   39-block  0
+        -:   40:
+    #####:   41:	tree->insert(std::move(expectedElement));
+        -:   42:
+    #####:   43:	ASSERT_TRUE(tree->contains(expectedElement));
+    %%%%%:   43-block  0
+    %%%%%:   43-block  1
+    %%%%%:   43-block  2
+    %%%%%:   43-block  3
+    %%%%%:   43-block  4
+    %%%%%:   43-block  5
+    %%%%%:   43-block  6
+    $$$$$:   43-block  7
+    $$$$$:   43-block  8
+    $$$$$:   43-block  9
+    $$$$$:   43-block 10
+    $$$$$:   43-block 11
+    $$$$$:   43-block 12
+    $$$$$:   43-block 13
+        -:   44:}
+------------------
+        -:   45:
+    #####:   46:TEST_F(AvlTreeTest, handles_zig_zig_left_single_rotation_after_insertion) {
+        -:   47:
+    #####:   48:	auto element1 = 10;
+    #####:   49:	tree->insert(element1);
+    #####:   50:	auto element2 = 5;
+    #####:   51:	tree->insert(element2);
+    #####:   52:	auto element3 = 20;
+    #####:   53:	tree->insert(element3);
+    #####:   54:	auto element4 = 4;
+    #####:   55:	tree->insert(element4);
+    #####:   56:	auto element5 = 3;
+    #####:   57:	std::ostringstream balancedTree;
+        -:   58:	auto expectedBalancedTreeInPreOrder = BinarySearchTreeExpectations::getExpectedTreeOutputFormat({
+        -:   59:		                                                                                                element1,
+        -:   60:		                                                                                                element4,
+        -:   61:		                                                                                                element5,
+        -:   62:		                                                                                                element2,
+        -:   63:		                                                                                                element3
+    #####:   64:	                                                                                                });
+        -:   65:
+    #####:   66:	tree->insert(element5);
+        -:   67:
+    #####:   68:	tree->printTreeInPreOrder(balancedTree);
+    #####:   69:	ASSERT_EQ(expectedBalancedTreeInPreOrder, balancedTree.str());
+        -:   70:}
+------------------
+_ZN69AvlTreeTest_handles_zig_zig_left_single_rotation_after_insertion_TestC2Ev:
+    #####:   46:TEST_F(AvlTreeTest, handles_zig_zig_left_single_rotation_after_insertion) {
+    %%%%%:   46-block  0
+------------------
+_ZN69AvlTreeTest_handles_zig_zig_left_single_rotation_after_insertion_TestD0Ev:
+    #####:   46:TEST_F(AvlTreeTest, handles_zig_zig_left_single_rotation_after_insertion) {
+    %%%%%:   46-block  0
+------------------
+_ZN69AvlTreeTest_handles_zig_zig_left_single_rotation_after_insertion_TestD2Ev:
+    #####:   46:TEST_F(AvlTreeTest, handles_zig_zig_left_single_rotation_after_insertion) {
+    %%%%%:   46-block  0
+------------------
+_ZN69AvlTreeTest_handles_zig_zig_left_single_rotation_after_insertion_Test8TestBodyEv:
+    #####:   46:TEST_F(AvlTreeTest, handles_zig_zig_left_single_rotation_after_insertion) {
+        -:   47:
+    #####:   48:	auto element1 = 10;
+    #####:   49:	tree->insert(element1);
+    %%%%%:   49-block  0
+    #####:   50:	auto element2 = 5;
+    #####:   51:	tree->insert(element2);
+    %%%%%:   51-block  0
+    #####:   52:	auto element3 = 20;
+    #####:   53:	tree->insert(element3);
+    %%%%%:   53-block  0
+    #####:   54:	auto element4 = 4;
+    #####:   55:	tree->insert(element4);
+    %%%%%:   55-block  0
+    #####:   56:	auto element5 = 3;
+    #####:   57:	std::ostringstream balancedTree;
+    %%%%%:   57-block  0
+    $$$$$:   57-block  1
+        -:   58:	auto expectedBalancedTreeInPreOrder = BinarySearchTreeExpectations::getExpectedTreeOutputFormat({
+        -:   59:		                                                                                                element1,
+        -:   60:		                                                                                                element4,
+        -:   61:		                                                                                                element5,
+        -:   62:		                                                                                                element2,
+        -:   63:		                                                                                                element3
+    #####:   64:	                                                                                                });
+    %%%%%:   64-block  0
+    $$$$$:   64-block  1
+    $$$$$:   64-block  2
+    $$$$$:   64-block  3
+        -:   65:
+    #####:   66:	tree->insert(element5);
+    %%%%%:   66-block  0
+        -:   67:
+    #####:   68:	tree->printTreeInPreOrder(balancedTree);
+    %%%%%:   68-block  0
+    #####:   69:	ASSERT_EQ(expectedBalancedTreeInPreOrder, balancedTree.str());
+    %%%%%:   69-block  0
+    %%%%%:   69-block  1
+    %%%%%:   69-block  2
+    %%%%%:   69-block  3
+    %%%%%:   69-block  4
+    %%%%%:   69-block  5
+    $$$$$:   69-block  6
+    $$$$$:   69-block  7
+    $$$$$:   69-block  8
+    $$$$$:   69-block  9
+    $$$$$:   69-block 10
+    $$$$$:   69-block 11
+        -:   70:}
+------------------
+        -:   71:
+    #####:   72:TEST_F(AvlTreeTest, handles_zig_zag_left_double_rotations_after_insertion) {
+        -:   73:
+    #####:   74:	auto element1 = 10;
+    #####:   75:	tree->insert(element1);
+    #####:   76:	auto element2 = 5;
+    #####:   77:	tree->insert(element2);
+    #####:   78:	auto element3 = 15;
+    #####:   79:	tree->insert(element3);
+    #####:   80:	auto element4 = 2;
+    #####:   81:	tree->insert(element4);
+    #####:   82:	auto element5 = 7;
+    #####:   83:	tree->insert(element5);
+    #####:   84:	auto element6 = 9;
+    #####:   85:	std::ostringstream balancedTree;
+        -:   86:	auto expectedBalancedTreeInPreOrder = BinarySearchTreeExpectations::getExpectedTreeOutputFormat({
+        -:   87:		                                                                                                element5,
+        -:   88:		                                                                                                element2,
+        -:   89:		                                                                                                element4,
+        -:   90:		                                                                                                element1,
+        -:   91:		                                                                                                element6,
+        -:   92:		                                                                                                element3
+    #####:   93:	                                                                                                });
+        -:   94:
+    #####:   95:	tree->insert(element6);
+        -:   96:
+    #####:   97:	tree->printTreeInPreOrder(balancedTree);
+    #####:   98:	ASSERT_EQ(expectedBalancedTreeInPreOrder, balancedTree.str());
+        -:   99:}
+------------------
+_ZN70AvlTreeTest_handles_zig_zag_left_double_rotations_after_insertion_TestC2Ev:
+    #####:   72:TEST_F(AvlTreeTest, handles_zig_zag_left_double_rotations_after_insertion) {
+    %%%%%:   72-block  0
+------------------
+_ZN70AvlTreeTest_handles_zig_zag_left_double_rotations_after_insertion_TestD0Ev:
+    #####:   72:TEST_F(AvlTreeTest, handles_zig_zag_left_double_rotations_after_insertion) {
+    %%%%%:   72-block  0
+------------------
+_ZN70AvlTreeTest_handles_zig_zag_left_double_rotations_after_insertion_TestD2Ev:
+    #####:   72:TEST_F(AvlTreeTest, handles_zig_zag_left_double_rotations_after_insertion) {
+    %%%%%:   72-block  0
+------------------
+_ZN70AvlTreeTest_handles_zig_zag_left_double_rotations_after_insertion_Test8TestBodyEv:
+    #####:   72:TEST_F(AvlTreeTest, handles_zig_zag_left_double_rotations_after_insertion) {
+        -:   73:
+    #####:   74:	auto element1 = 10;
+    #####:   75:	tree->insert(element1);
+    %%%%%:   75-block  0
+    #####:   76:	auto element2 = 5;
+    #####:   77:	tree->insert(element2);
+    %%%%%:   77-block  0
+    #####:   78:	auto element3 = 15;
+    #####:   79:	tree->insert(element3);
+    %%%%%:   79-block  0
+    #####:   80:	auto element4 = 2;
+    #####:   81:	tree->insert(element4);
+    %%%%%:   81-block  0
+    #####:   82:	auto element5 = 7;
+    #####:   83:	tree->insert(element5);
+    %%%%%:   83-block  0
+    #####:   84:	auto element6 = 9;
+    #####:   85:	std::ostringstream balancedTree;
+    %%%%%:   85-block  0
+    $$$$$:   85-block  1
+        -:   86:	auto expectedBalancedTreeInPreOrder = BinarySearchTreeExpectations::getExpectedTreeOutputFormat({
+        -:   87:		                                                                                                element5,
+        -:   88:		                                                                                                element2,
+        -:   89:		                                                                                                element4,
+        -:   90:		                                                                                                element1,
+        -:   91:		                                                                                                element6,
+        -:   92:		                                                                                                element3
+    #####:   93:	                                                                                                });
+    %%%%%:   93-block  0
+    $$$$$:   93-block  1
+    $$$$$:   93-block  2
+    $$$$$:   93-block  3
+        -:   94:
+    #####:   95:	tree->insert(element6);
+    %%%%%:   95-block  0
+        -:   96:
+    #####:   97:	tree->printTreeInPreOrder(balancedTree);
+    %%%%%:   97-block  0
+    #####:   98:	ASSERT_EQ(expectedBalancedTreeInPreOrder, balancedTree.str());
+    %%%%%:   98-block  0
+    %%%%%:   98-block  1
+    %%%%%:   98-block  2
+    %%%%%:   98-block  3
+    %%%%%:   98-block  4
+    %%%%%:   98-block  5
+    $$$$$:   98-block  6
+    $$$$$:   98-block  7
+    $$$$$:   98-block  8
+    $$$$$:   98-block  9
+    $$$$$:   98-block 10
+    $$$$$:   98-block 11
+        -:   99:}
+------------------
+        -:  100:
+    #####:  101:TEST_F(AvlTreeTest, handles_zig_zig_right_single_rotation_after_insertion) {
+        -:  102:
+    #####:  103:	auto element1 = 10;
+    #####:  104:	tree->insert(element1);
+    #####:  105:	auto element2 = 5;
+    #####:  106:	tree->insert(element2);
+    #####:  107:	auto element3 = 15;
+    #####:  108:	tree->insert(element3);
+    #####:  109:	auto element4 = 12;
+    #####:  110:	tree->insert(element4);
+    #####:  111:	auto element5 = 20;
+    #####:  112:	tree->insert(element5);
+    #####:  113:	auto element6 = 30;
+    #####:  114:	std::ostringstream balancedTree;
+        -:  115:	auto expectedBalancedTreeInPreOrder = BinarySearchTreeExpectations::getExpectedTreeOutputFormat({
+        -:  116:		                                                                                                element3,
+        -:  117:		                                                                                                element1,
+        -:  118:		                                                                                                element2,
+        -:  119:		                                                                                                element4,
+        -:  120:		                                                                                                element5,
+        -:  121:		                                                                                                element6
+    #####:  122:	                                                                                                });
+        -:  123:
+    #####:  124:	tree->insert(element6);
+        -:  125:
+    #####:  126:	tree->printTreeInPreOrder(balancedTree);
+    #####:  127:	ASSERT_EQ(expectedBalancedTreeInPreOrder, balancedTree.str());
+        -:  128:}
+------------------
+_ZN70AvlTreeTest_handles_zig_zig_right_single_rotation_after_insertion_TestC2Ev:
+    #####:  101:TEST_F(AvlTreeTest, handles_zig_zig_right_single_rotation_after_insertion) {
+    %%%%%:  101-block  0
+------------------
+_ZN70AvlTreeTest_handles_zig_zig_right_single_rotation_after_insertion_TestD0Ev:
+    #####:  101:TEST_F(AvlTreeTest, handles_zig_zig_right_single_rotation_after_insertion) {
+    %%%%%:  101-block  0
+------------------
+_ZN70AvlTreeTest_handles_zig_zig_right_single_rotation_after_insertion_TestD2Ev:
+    #####:  101:TEST_F(AvlTreeTest, handles_zig_zig_right_single_rotation_after_insertion) {
+    %%%%%:  101-block  0
+------------------
+_ZN70AvlTreeTest_handles_zig_zig_right_single_rotation_after_insertion_Test8TestBodyEv:
+    #####:  101:TEST_F(AvlTreeTest, handles_zig_zig_right_single_rotation_after_insertion) {
+        -:  102:
+    #####:  103:	auto element1 = 10;
+    #####:  104:	tree->insert(element1);
+    %%%%%:  104-block  0
+    #####:  105:	auto element2 = 5;
+    #####:  106:	tree->insert(element2);
+    %%%%%:  106-block  0
+    #####:  107:	auto element3 = 15;
+    #####:  108:	tree->insert(element3);
+    %%%%%:  108-block  0
+    #####:  109:	auto element4 = 12;
+    #####:  110:	tree->insert(element4);
+    %%%%%:  110-block  0
+    #####:  111:	auto element5 = 20;
+    #####:  112:	tree->insert(element5);
+    %%%%%:  112-block  0
+    #####:  113:	auto element6 = 30;
+    #####:  114:	std::ostringstream balancedTree;
+    %%%%%:  114-block  0
+    $$$$$:  114-block  1
+        -:  115:	auto expectedBalancedTreeInPreOrder = BinarySearchTreeExpectations::getExpectedTreeOutputFormat({
+        -:  116:		                                                                                                element3,
+        -:  117:		                                                                                                element1,
+        -:  118:		                                                                                                element2,
+        -:  119:		                                                                                                element4,
+        -:  120:		                                                                                                element5,
+        -:  121:		                                                                                                element6
+    #####:  122:	                                                                                                });
+    %%%%%:  122-block  0
+    $$$$$:  122-block  1
+    $$$$$:  122-block  2
+    $$$$$:  122-block  3
+        -:  123:
+    #####:  124:	tree->insert(element6);
+    %%%%%:  124-block  0
+        -:  125:
+    #####:  126:	tree->printTreeInPreOrder(balancedTree);
+    %%%%%:  126-block  0
+    #####:  127:	ASSERT_EQ(expectedBalancedTreeInPreOrder, balancedTree.str());
+    %%%%%:  127-block  0
+    %%%%%:  127-block  1
+    %%%%%:  127-block  2
+    %%%%%:  127-block  3
+    %%%%%:  127-block  4
+    %%%%%:  127-block  5
+    $$$$$:  127-block  6
+    $$$$$:  127-block  7
+    $$$$$:  127-block  8
+    $$$$$:  127-block  9
+    $$$$$:  127-block 10
+    $$$$$:  127-block 11
+        -:  128:}
+------------------
+        -:  129:
+    #####:  130:TEST_F(AvlTreeTest, handles_zig_zag_right_double_rotations_after_insertion) {
+        -:  131:
+    #####:  132:	auto element1 = 10;
+    #####:  133:	tree->insert(element1);
+    #####:  134:	auto element2 = 5;
+    #####:  135:	tree->insert(element2);
+    #####:  136:	auto element3 = 20;
+    #####:  137:	tree->insert(element3);
+    #####:  138:	auto element4 = 15;
+    #####:  139:	tree->insert(element4);
+    #####:  140:	auto element5 = 30;
+    #####:  141:	tree->insert(element5);
+    #####:  142:	auto element6 = 12;
+    #####:  143:	std::ostringstream balancedTree;
+        -:  144:	auto expectedBalancedTreeInPreOrder = BinarySearchTreeExpectations::getExpectedTreeOutputFormat({
+        -:  145:		                                                                                                element4,
+        -:  146:		                                                                                                element1,
+        -:  147:		                                                                                                element2,
+        -:  148:		                                                                                                element6,
+        -:  149:		                                                                                                element3,
+        -:  150:		                                                                                                element5
+    #####:  151:	                                                                                                });
+        -:  152:
+    #####:  153:	tree->insert(element6);
+        -:  154:
+    #####:  155:	tree->printTreeInPreOrder(balancedTree);
+    #####:  156:	ASSERT_EQ(expectedBalancedTreeInPreOrder, balancedTree.str());
+        -:  157:}
+------------------
+_ZN71AvlTreeTest_handles_zig_zag_right_double_rotations_after_insertion_TestC2Ev:
+    #####:  130:TEST_F(AvlTreeTest, handles_zig_zag_right_double_rotations_after_insertion) {
+    %%%%%:  130-block  0
+------------------
+_ZN71AvlTreeTest_handles_zig_zag_right_double_rotations_after_insertion_TestD0Ev:
+    #####:  130:TEST_F(AvlTreeTest, handles_zig_zag_right_double_rotations_after_insertion) {
+    %%%%%:  130-block  0
+------------------
+_ZN71AvlTreeTest_handles_zig_zag_right_double_rotations_after_insertion_TestD2Ev:
+    #####:  130:TEST_F(AvlTreeTest, handles_zig_zag_right_double_rotations_after_insertion) {
+    %%%%%:  130-block  0
+------------------
+_ZN71AvlTreeTest_handles_zig_zag_right_double_rotations_after_insertion_Test8TestBodyEv:
+    #####:  130:TEST_F(AvlTreeTest, handles_zig_zag_right_double_rotations_after_insertion) {
+        -:  131:
+    #####:  132:	auto element1 = 10;
+    #####:  133:	tree->insert(element1);
+    %%%%%:  133-block  0
+    #####:  134:	auto element2 = 5;
+    #####:  135:	tree->insert(element2);
+    %%%%%:  135-block  0
+    #####:  136:	auto element3 = 20;
+    #####:  137:	tree->insert(element3);
+    %%%%%:  137-block  0
+    #####:  138:	auto element4 = 15;
+    #####:  139:	tree->insert(element4);
+    %%%%%:  139-block  0
+    #####:  140:	auto element5 = 30;
+    #####:  141:	tree->insert(element5);
+    %%%%%:  141-block  0
+    #####:  142:	auto element6 = 12;
+    #####:  143:	std::ostringstream balancedTree;
+    %%%%%:  143-block  0
+    $$$$$:  143-block  1
+        -:  144:	auto expectedBalancedTreeInPreOrder = BinarySearchTreeExpectations::getExpectedTreeOutputFormat({
+        -:  145:		                                                                                                element4,
+        -:  146:		                                                                                                element1,
+        -:  147:		                                                                                                element2,
+        -:  148:		                                                                                                element6,
+        -:  149:		                                                                                                element3,
+        -:  150:		                                                                                                element5
+    #####:  151:	                                                                                                });
+    %%%%%:  151-block  0
+    $$$$$:  151-block  1
+    $$$$$:  151-block  2
+    $$$$$:  151-block  3
+        -:  152:
+    #####:  153:	tree->insert(element6);
+    %%%%%:  153-block  0
+        -:  154:
+    #####:  155:	tree->printTreeInPreOrder(balancedTree);
+    %%%%%:  155-block  0
+    #####:  156:	ASSERT_EQ(expectedBalancedTreeInPreOrder, balancedTree.str());
+    %%%%%:  156-block  0
+    %%%%%:  156-block  1
+    %%%%%:  156-block  2
+    %%%%%:  156-block  3
+    %%%%%:  156-block  4
+    %%%%%:  156-block  5
+    $$$$$:  156-block  6
+    $$$$$:  156-block  7
+    $$$$$:  156-block  8
+    $$$$$:  156-block  9
+    $$$$$:  156-block 10
+    $$$$$:  156-block 11
+        -:  157:}
+------------------
+        -:  158:
+    #####:  159:TEST_F(AvlTreeTest, handles_zig_zig_right_single_rotation_after_removal) {
+        -:  160:
+    #####:  161:	auto element1 = 15;
+    #####:  162:	tree->insert(element1);
+    #####:  163:	auto element2 = 10;
+    #####:  164:	tree->insert(element2);
+    #####:  165:	auto element4 = 20;
+    #####:  166:	tree->insert(element4);
+    #####:  167:	auto element3 = 7;
+    #####:  168:	tree->insert(element3);
+    #####:  169:	auto element5 = 30;
+    #####:  170:	tree->insert(element5);
+    #####:  171:	auto element6 = 40;
+    #####:  172:	tree->insert(element6);
+    #####:  173:	std::ostringstream balancedTree;
+        -:  174:	auto expectedBalancedTreeInPreOrder = BinarySearchTreeExpectations::getExpectedTreeOutputFormat({
+        -:  175:		                                                                                                element1,
+        -:  176:		                                                                                                element2,
+        -:  177:		                                                                                                element5,
+        -:  178:		                                                                                                element4,
+        -:  179:		                                                                                                element6
+    #####:  180:	                                                                                                });
+        -:  181:
+    #####:  182:	tree->remove(element3);
+        -:  183:
+    #####:  184:	tree->printTreeInPreOrder(balancedTree);
+    #####:  185:	ASSERT_EQ(expectedBalancedTreeInPreOrder, balancedTree.str());
+        -:  186:}
+------------------
+_ZN68AvlTreeTest_handles_zig_zig_right_single_rotation_after_removal_TestC2Ev:
+    #####:  159:TEST_F(AvlTreeTest, handles_zig_zig_right_single_rotation_after_removal) {
+    %%%%%:  159-block  0
+------------------
+_ZN68AvlTreeTest_handles_zig_zig_right_single_rotation_after_removal_TestD0Ev:
+    #####:  159:TEST_F(AvlTreeTest, handles_zig_zig_right_single_rotation_after_removal) {
+    %%%%%:  159-block  0
+------------------
+_ZN68AvlTreeTest_handles_zig_zig_right_single_rotation_after_removal_TestD2Ev:
+    #####:  159:TEST_F(AvlTreeTest, handles_zig_zig_right_single_rotation_after_removal) {
+    %%%%%:  159-block  0
+------------------
+_ZN68AvlTreeTest_handles_zig_zig_right_single_rotation_after_removal_Test8TestBodyEv:
+    #####:  159:TEST_F(AvlTreeTest, handles_zig_zig_right_single_rotation_after_removal) {
+        -:  160:
+    #####:  161:	auto element1 = 15;
+    #####:  162:	tree->insert(element1);
+    %%%%%:  162-block  0
+    #####:  163:	auto element2 = 10;
+    #####:  164:	tree->insert(element2);
+    %%%%%:  164-block  0
+    #####:  165:	auto element4 = 20;
+    #####:  166:	tree->insert(element4);
+    %%%%%:  166-block  0
+    #####:  167:	auto element3 = 7;
+    #####:  168:	tree->insert(element3);
+    %%%%%:  168-block  0
+    #####:  169:	auto element5 = 30;
+    #####:  170:	tree->insert(element5);
+    %%%%%:  170-block  0
+    #####:  171:	auto element6 = 40;
+    #####:  172:	tree->insert(element6);
+    %%%%%:  172-block  0
+    #####:  173:	std::ostringstream balancedTree;
+    %%%%%:  173-block  0
+    $$$$$:  173-block  1
+        -:  174:	auto expectedBalancedTreeInPreOrder = BinarySearchTreeExpectations::getExpectedTreeOutputFormat({
+        -:  175:		                                                                                                element1,
+        -:  176:		                                                                                                element2,
+        -:  177:		                                                                                                element5,
+        -:  178:		                                                                                                element4,
+        -:  179:		                                                                                                element6
+    #####:  180:	                                                                                                });
+    %%%%%:  180-block  0
+    $$$$$:  180-block  1
+    $$$$$:  180-block  2
+    $$$$$:  180-block  3
+        -:  181:
+    #####:  182:	tree->remove(element3);
+    %%%%%:  182-block  0
+        -:  183:
+    #####:  184:	tree->printTreeInPreOrder(balancedTree);
+    %%%%%:  184-block  0
+    #####:  185:	ASSERT_EQ(expectedBalancedTreeInPreOrder, balancedTree.str());
+    %%%%%:  185-block  0
+    %%%%%:  185-block  1
+    %%%%%:  185-block  2
+    %%%%%:  185-block  3
+    %%%%%:  185-block  4
+    %%%%%:  185-block  5
+    $$$$$:  185-block  6
+    $$$$$:  185-block  7
+    $$$$$:  185-block  8
+    $$$$$:  185-block  9
+    $$$$$:  185-block 10
+    $$$$$:  185-block 11
+        -:  186:}
+------------------
+        -:  187:
+    #####:  188:TEST_F(AvlTreeTest, handles_zig_zig_left_single_rotation_after_removal) {
+        -:  189:
+    #####:  190:	auto element1 = 15;
+    #####:  191:	tree->insert(element1);
+    #####:  192:	auto element2 = 10;
+    #####:  193:	tree->insert(element2);
+    #####:  194:	auto element3 = 20;
+    #####:  195:	tree->insert(element3);
+    #####:  196:	auto element4 = 7;
+    #####:  197:	tree->insert(element4);
+    #####:  198:	auto element5 = 30;
+    #####:  199:	tree->insert(element5);
+    #####:  200:	auto element6 = 3;
+    #####:  201:	tree->insert(element6);
+    #####:  202:	std::ostringstream balancedTree;
+        -:  203:	auto expectedBalancedTreeInPreOrder = BinarySearchTreeExpectations::getExpectedTreeOutputFormat({
+        -:  204:		                                                                                                element1,
+        -:  205:		                                                                                                element4,
+        -:  206:		                                                                                                element6,
+        -:  207:		                                                                                                element2,
+        -:  208:		                                                                                                element3
+    #####:  209:	                                                                                                });
+        -:  210:
+    #####:  211:	tree->remove(element5);
+        -:  212:
+    #####:  213:	tree->printTreeInPreOrder(balancedTree);
+    #####:  214:	ASSERT_EQ(expectedBalancedTreeInPreOrder, balancedTree.str());
+        -:  215:}
+------------------
+_ZN67AvlTreeTest_handles_zig_zig_left_single_rotation_after_removal_TestC2Ev:
+    #####:  188:TEST_F(AvlTreeTest, handles_zig_zig_left_single_rotation_after_removal) {
+    %%%%%:  188-block  0
+------------------
+_ZN67AvlTreeTest_handles_zig_zig_left_single_rotation_after_removal_TestD0Ev:
+    #####:  188:TEST_F(AvlTreeTest, handles_zig_zig_left_single_rotation_after_removal) {
+    %%%%%:  188-block  0
+------------------
+_ZN67AvlTreeTest_handles_zig_zig_left_single_rotation_after_removal_TestD2Ev:
+    #####:  188:TEST_F(AvlTreeTest, handles_zig_zig_left_single_rotation_after_removal) {
+    %%%%%:  188-block  0
+------------------
+_ZN67AvlTreeTest_handles_zig_zig_left_single_rotation_after_removal_Test8TestBodyEv:
+    #####:  188:TEST_F(AvlTreeTest, handles_zig_zig_left_single_rotation_after_removal) {
+        -:  189:
+    #####:  190:	auto element1 = 15;
+    #####:  191:	tree->insert(element1);
+    %%%%%:  191-block  0
+    #####:  192:	auto element2 = 10;
+    #####:  193:	tree->insert(element2);
+    %%%%%:  193-block  0
+    #####:  194:	auto element3 = 20;
+    #####:  195:	tree->insert(element3);
+    %%%%%:  195-block  0
+    #####:  196:	auto element4 = 7;
+    #####:  197:	tree->insert(element4);
+    %%%%%:  197-block  0
+    #####:  198:	auto element5 = 30;
+    #####:  199:	tree->insert(element5);
+    %%%%%:  199-block  0
+    #####:  200:	auto element6 = 3;
+    #####:  201:	tree->insert(element6);
+    %%%%%:  201-block  0
+    #####:  202:	std::ostringstream balancedTree;
+    %%%%%:  202-block  0
+    $$$$$:  202-block  1
+        -:  203:	auto expectedBalancedTreeInPreOrder = BinarySearchTreeExpectations::getExpectedTreeOutputFormat({
+        -:  204:		                                                                                                element1,
+        -:  205:		                                                                                                element4,
+        -:  206:		                                                                                                element6,
+        -:  207:		                                                                                                element2,
+        -:  208:		                                                                                                element3
+    #####:  209:	                                                                                                });
+    %%%%%:  209-block  0
+    $$$$$:  209-block  1
+    $$$$$:  209-block  2
+    $$$$$:  209-block  3
+        -:  210:
+    #####:  211:	tree->remove(element5);
+    %%%%%:  211-block  0
+        -:  212:
+    #####:  213:	tree->printTreeInPreOrder(balancedTree);
+    %%%%%:  213-block  0
+    #####:  214:	ASSERT_EQ(expectedBalancedTreeInPreOrder, balancedTree.str());
+    %%%%%:  214-block  0
+    %%%%%:  214-block  1
+    %%%%%:  214-block  2
+    %%%%%:  214-block  3
+    %%%%%:  214-block  4
+    %%%%%:  214-block  5
+    $$$$$:  214-block  6
+    $$$$$:  214-block  7
+    $$$$$:  214-block  8
+    $$$$$:  214-block  9
+    $$$$$:  214-block 10
+    $$$$$:  214-block 11
+        -:  215:}
+------------------
+        -:  216:
+    #####:  217:TEST_F(AvlTreeTest, handles_zig_zag_right_double_rotations_after_removal) {
+        -:  218:
+    #####:  219:	auto element1 = 15;
+    #####:  220:	tree->insert(element1);
+    #####:  221:	auto element2 = 10;
+    #####:  222:	tree->insert(element2);
+    #####:  223:	auto element3 = 20;
+    #####:  224:	tree->insert(element3);
+    #####:  225:	auto element4 = 18;
+    #####:  226:	tree->insert(element4);
+    #####:  227:	std::ostringstream balancedTree;
+        -:  228:	auto expectedBalancedTreeInPreOrder = BinarySearchTreeExpectations::getExpectedTreeOutputFormat({
+        -:  229:		                                                                                                element4,
+        -:  230:		                                                                                                element1,
+        -:  231:		                                                                                                element3
+    #####:  232:	                                                                                                });
+        -:  233:
+    #####:  234:	tree->remove(element2);
+        -:  235:
+    #####:  236:	tree->printTreeInPreOrder(balancedTree);
+    #####:  237:	ASSERT_EQ(expectedBalancedTreeInPreOrder, balancedTree.str());
+        -:  238:}
+------------------
+_ZN69AvlTreeTest_handles_zig_zag_right_double_rotations_after_removal_TestC2Ev:
+    #####:  217:TEST_F(AvlTreeTest, handles_zig_zag_right_double_rotations_after_removal) {
+    %%%%%:  217-block  0
+------------------
+_ZN69AvlTreeTest_handles_zig_zag_right_double_rotations_after_removal_TestD0Ev:
+    #####:  217:TEST_F(AvlTreeTest, handles_zig_zag_right_double_rotations_after_removal) {
+    %%%%%:  217-block  0
+------------------
+_ZN69AvlTreeTest_handles_zig_zag_right_double_rotations_after_removal_TestD2Ev:
+    #####:  217:TEST_F(AvlTreeTest, handles_zig_zag_right_double_rotations_after_removal) {
+    %%%%%:  217-block  0
+------------------
+_ZN69AvlTreeTest_handles_zig_zag_right_double_rotations_after_removal_Test8TestBodyEv:
+    #####:  217:TEST_F(AvlTreeTest, handles_zig_zag_right_double_rotations_after_removal) {
+        -:  218:
+    #####:  219:	auto element1 = 15;
+    #####:  220:	tree->insert(element1);
+    %%%%%:  220-block  0
+    #####:  221:	auto element2 = 10;
+    #####:  222:	tree->insert(element2);
+    %%%%%:  222-block  0
+    #####:  223:	auto element3 = 20;
+    #####:  224:	tree->insert(element3);
+    %%%%%:  224-block  0
+    #####:  225:	auto element4 = 18;
+    #####:  226:	tree->insert(element4);
+    %%%%%:  226-block  0
+    #####:  227:	std::ostringstream balancedTree;
+    %%%%%:  227-block  0
+    $$$$$:  227-block  1
+        -:  228:	auto expectedBalancedTreeInPreOrder = BinarySearchTreeExpectations::getExpectedTreeOutputFormat({
+        -:  229:		                                                                                                element4,
+        -:  230:		                                                                                                element1,
+        -:  231:		                                                                                                element3
+    #####:  232:	                                                                                                });
+    %%%%%:  232-block  0
+    $$$$$:  232-block  1
+    $$$$$:  232-block  2
+    $$$$$:  232-block  3
+        -:  233:
+    #####:  234:	tree->remove(element2);
+    %%%%%:  234-block  0
+        -:  235:
+    #####:  236:	tree->printTreeInPreOrder(balancedTree);
+    %%%%%:  236-block  0
+    #####:  237:	ASSERT_EQ(expectedBalancedTreeInPreOrder, balancedTree.str());
+    %%%%%:  237-block  0
+    %%%%%:  237-block  1
+    %%%%%:  237-block  2
+    %%%%%:  237-block  3
+    %%%%%:  237-block  4
+    %%%%%:  237-block  5
+    $$$$$:  237-block  6
+    $$$$$:  237-block  7
+    $$$$$:  237-block  8
+    $$$$$:  237-block  9
+    $$$$$:  237-block 10
+    $$$$$:  237-block 11
+        -:  238:}
+------------------
+        -:  239:
+    #####:  240:TEST_F(AvlTreeTest, handles_zig_zag_left_double_rotations_after_removal) {
+        -:  241:
+    #####:  242:	auto element1 = 15;
+    #####:  243:	tree->insert(element1);
+    #####:  244:	auto element2 = 10;
+    #####:  245:	tree->insert(element2);
+    #####:  246:	auto element3 = 17;
+    #####:  247:	tree->insert(element3);
+    #####:  248:	auto element4 = 12;
+    #####:  249:	tree->insert(element4);
+    #####:  250:	std::ostringstream balancedTree;
+        -:  251:	auto expectedBalancedTreeInPreOrder = BinarySearchTreeExpectations::getExpectedTreeOutputFormat({
+        -:  252:		                                                                                                element4,
+        -:  253:		                                                                                                element2,
+        -:  254:		                                                                                                element1,
+    #####:  255:	                                                                                                });
+        -:  256:
+    #####:  257:	tree->remove(element3);
+        -:  258:
+    #####:  259:	tree->printTreeInPreOrder(balancedTree);
+    #####:  260:	ASSERT_EQ(expectedBalancedTreeInPreOrder, balancedTree.str());
+        -:  261:}

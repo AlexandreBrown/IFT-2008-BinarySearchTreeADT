@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/9/bits/stl_uninitialized.h
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
         -:    0:Runs:1
         -:    1:// Raw memory manipulators -*- C++ -*-
         -:    2:
@@ -2107,13 +2107,13 @@ _ZSt19__relocate_object_aIN7testing14TestPartResultES1_SaIS1_EEvPT_PT0_RT1_:
         -:  921:
         -:  922:  template <typename _Tp, typename _Up>
         -:  923:    inline __enable_if_t<std::__is_bitwise_relocatable<_Tp>::value, _Tp*>
-      30*:  924:    __relocate_a_1(_Tp* __first, _Tp* __last,
+      54*:  924:    __relocate_a_1(_Tp* __first, _Tp* __last,
         -:  925:		   _Tp* __result, allocator<_Up>&) noexcept
         -:  926:    {
-      30*:  927:      ptrdiff_t __count = __last - __first;
-      30*:  928:      if (__count > 0)
-      10*:  929:	__builtin_memmove(__result, __first, __count * sizeof(_Tp));
-      30*:  930:      return __result + __count;
+      54*:  927:      ptrdiff_t __count = __last - __first;
+      54*:  928:      if (__count > 0)
+      20*:  929:	__builtin_memmove(__result, __first, __count * sizeof(_Tp));
+      54*:  930:      return __result + __count;
         -:  931:    }
 ------------------
 _ZSt14__relocate_a_1IPcS0_ENSt9enable_ifIXsrSt24__is_bitwise_relocatableIT_vE5valueEPS3_E4typeES5_S5_S5_RSaIT0_E:
@@ -2130,16 +2130,16 @@ _ZSt14__relocate_a_1IPcS0_ENSt9enable_ifIXsrSt24__is_bitwise_relocatableIT_vE5va
         -:  931:    }
 ------------------
 _ZSt14__relocate_a_1IiiENSt9enable_ifIXsrSt24__is_bitwise_relocatableIT_vE5valueEPS2_E4typeES4_S4_S4_RSaIT0_E:
-       14:  924:    __relocate_a_1(_Tp* __first, _Tp* __last,
+       26:  924:    __relocate_a_1(_Tp* __first, _Tp* __last,
         -:  925:		   _Tp* __result, allocator<_Up>&) noexcept
         -:  926:    {
-       14:  927:      ptrdiff_t __count = __last - __first;
-       14:  928:      if (__count > 0)
-       14:  928-block  0
-        5:  929:	__builtin_memmove(__result, __first, __count * sizeof(_Tp));
-        5:  929-block  0
-       14:  930:      return __result + __count;
-       14:  930-block  0
+       26:  927:      ptrdiff_t __count = __last - __first;
+       26:  928:      if (__count > 0)
+       26:  928-block  0
+       10:  929:	__builtin_memmove(__result, __first, __count * sizeof(_Tp));
+       10:  929-block  0
+       26:  930:      return __result + __count;
+       26:  930-block  0
         -:  931:    }
 ------------------
 _ZSt14__relocate_a_1ImmENSt9enable_ifIXsrSt24__is_bitwise_relocatableIT_vE5valueEPS2_E4typeES4_S4_S4_RSaIT0_E:
@@ -2156,16 +2156,16 @@ _ZSt14__relocate_a_1ImmENSt9enable_ifIXsrSt24__is_bitwise_relocatableIT_vE5value
         -:  931:    }
 ------------------
 _ZSt14__relocate_a_1IPN7testing9TestSuiteES2_ENSt9enable_ifIXsrSt24__is_bitwise_relocatableIT_vE5valueEPS5_E4typeES7_S7_S7_RSaIT0_E:
-        2:  924:    __relocate_a_1(_Tp* __first, _Tp* __last,
+        4:  924:    __relocate_a_1(_Tp* __first, _Tp* __last,
         -:  925:		   _Tp* __result, allocator<_Up>&) noexcept
         -:  926:    {
-        2:  927:      ptrdiff_t __count = __last - __first;
-        2:  928:      if (__count > 0)
-        2:  928-block  0
-    #####:  929:	__builtin_memmove(__result, __first, __count * sizeof(_Tp));
-    %%%%%:  929-block  0
-        2:  930:      return __result + __count;
-        2:  930-block  0
+        4:  927:      ptrdiff_t __count = __last - __first;
+        4:  928:      if (__count > 0)
+        4:  928-block  0
+        1:  929:	__builtin_memmove(__result, __first, __count * sizeof(_Tp));
+        1:  929-block  0
+        4:  930:      return __result + __count;
+        4:  930-block  0
         -:  931:    }
 ------------------
 _ZSt14__relocate_a_1IPN7testing11EnvironmentES2_ENSt9enable_ifIXsrSt24__is_bitwise_relocatableIT_vE5valueEPS5_E4typeES7_S7_S7_RSaIT0_E:
@@ -2195,16 +2195,16 @@ _ZSt14__relocate_a_1IPN7testing17TestEventListenerES2_ENSt9enable_ifIXsrSt24__is
         -:  931:    }
 ------------------
 _ZSt14__relocate_a_1IPN7testing8TestInfoES2_ENSt9enable_ifIXsrSt24__is_bitwise_relocatableIT_vE5valueEPS5_E4typeES7_S7_S7_RSaIT0_E:
-       12:  924:    __relocate_a_1(_Tp* __first, _Tp* __last,
+       22:  924:    __relocate_a_1(_Tp* __first, _Tp* __last,
         -:  925:		   _Tp* __result, allocator<_Up>&) noexcept
         -:  926:    {
-       12:  927:      ptrdiff_t __count = __last - __first;
-       12:  928:      if (__count > 0)
-       12:  928-block  0
-        5:  929:	__builtin_memmove(__result, __first, __count * sizeof(_Tp));
-        5:  929-block  0
-       12:  930:      return __result + __count;
-       12:  930-block  0
+       22:  927:      ptrdiff_t __count = __last - __first;
+       22:  928:      if (__count > 0)
+       22:  928-block  0
+        9:  929:	__builtin_memmove(__result, __first, __count * sizeof(_Tp));
+        9:  929-block  0
+       22:  930:      return __result + __count;
+       22:  930-block  0
         -:  931:    }
 ------------------
 _ZSt14__relocate_a_1IN7testing8internal13edit_distance8EditTypeES3_ENSt9enable_ifIXsrSt24__is_bitwise_relocatableIT_vE5valueEPS6_E4typeES8_S8_S8_RSaIT0_E:
@@ -2343,15 +2343,15 @@ _ZSt14__relocate_a_1IPN7testing14TestPartResultES2_SaIS1_EET0_T_S5_S4_RT1_:
         -:  955:  template <typename _InputIterator, typename _ForwardIterator,
         -:  956:	    typename _Allocator>
         -:  957:    inline _ForwardIterator
-      36*:  958:    __relocate_a(_InputIterator __first, _InputIterator __last,
+      60*:  958:    __relocate_a(_InputIterator __first, _InputIterator __last,
         -:  959:		 _ForwardIterator __result, _Allocator& __alloc)
         -:  960:    noexcept(noexcept(__relocate_a_1(std::__niter_base(__first),
         -:  961:				     std::__niter_base(__last),
         -:  962:				     std::__niter_base(__result), __alloc)))
         -:  963:    {
-      36*:  964:      return __relocate_a_1(std::__niter_base(__first),
+      60*:  964:      return __relocate_a_1(std::__niter_base(__first),
         -:  965:			    std::__niter_base(__last),
-      36*:  966:			    std::__niter_base(__result), __alloc);
+      60*:  966:			    std::__niter_base(__result), __alloc);
         -:  967:    }
         -:  968:#endif
         -:  969:

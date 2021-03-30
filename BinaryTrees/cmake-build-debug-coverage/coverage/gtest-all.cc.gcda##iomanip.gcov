@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/9/iomanip
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
         -:    0:Runs:1
         -:    1:// Standard stream manipulators -*- C++ -*-
         -:    2:
@@ -197,9 +197,9 @@
         -:  192:   *  that object.
         -:  193:  */
         -:  194:  inline _Setprecision
-       83:  195:  setprecision(int __n)
-       83:  196:  { return { __n }; }
-       83:  196-block  0
+       85:  195:  setprecision(int __n)
+       85:  196:  { return { __n }; }
+       85:  196-block  0
         -:  197:
         -:  198:  template<typename _CharT, typename _Traits>
         -:  199:    inline basic_istream<_CharT, _Traits>&

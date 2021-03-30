@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/9/bits/stl_algobase.h
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
         -:    0:Runs:1
         -:    1:// Core algorithmic facilities -*- C++ -*-
         -:    2:
@@ -200,14 +200,14 @@
         -:  195:  template<typename _Tp>
         -:  196:    _GLIBCXX14_CONSTEXPR
         -:  197:    inline const _Tp&
-      36*:  198:    min(const _Tp& __a, const _Tp& __b)
+      60*:  198:    min(const _Tp& __a, const _Tp& __b)
         -:  199:    {
         -:  200:      // concept requirements
         -:  201:      __glibcxx_function_requires(_LessThanComparableConcept<_Tp>)
         -:  202:      //return __b < __a ? __b : __a;
-      36*:  203:      if (__b < __a)
+      60*:  203:      if (__b < __a)
     #####:  204:	return __b;
-      36*:  205:      return __a;
+      60*:  205:      return __a;
         -:  206:    }
 ------------------
 _ZSt3minIdERKT_S2_S2_:
@@ -225,17 +225,17 @@ _ZSt3minIdERKT_S2_S2_:
         -:  206:    }
 ------------------
 _ZSt3minImERKT_S2_S2_:
-       36:  198:    min(const _Tp& __a, const _Tp& __b)
+       60:  198:    min(const _Tp& __a, const _Tp& __b)
         -:  199:    {
         -:  200:      // concept requirements
         -:  201:      __glibcxx_function_requires(_LessThanComparableConcept<_Tp>)
         -:  202:      //return __b < __a ? __b : __a;
-       36:  203:      if (__b < __a)
-       36:  203-block  0
+       60:  203:      if (__b < __a)
+       60:  203-block  0
     #####:  204:	return __b;
     %%%%%:  204-block  0
-       36:  205:      return __a;
-       36:  205-block  0
+       60:  205:      return __a;
+       60:  205-block  0
         -:  206:    }
 ------------------
         -:  207:
@@ -253,17 +253,17 @@ _ZSt3minImERKT_S2_S2_:
         -:  219:  template<typename _Tp>
         -:  220:    _GLIBCXX14_CONSTEXPR
         -:  221:    inline const _Tp&
-       18:  222:    max(const _Tp& __a, const _Tp& __b)
+       30:  222:    max(const _Tp& __a, const _Tp& __b)
         -:  223:    {
         -:  224:      // concept requirements
         -:  225:      __glibcxx_function_requires(_LessThanComparableConcept<_Tp>)
         -:  226:      //return  __a < __b ? __b : __a;
-       18:  227:      if (__a < __b)
-       18:  227-block  0
-        6:  228:	return __b;
-        6:  228-block  0
-       12:  229:      return __a;
-       12:  229-block  0
+       30:  227:      if (__a < __b)
+       30:  227-block  0
+        8:  228:	return __b;
+        8:  228-block  0
+       22:  229:      return __a;
+       22:  229-block  0
         -:  230:    }
         -:  231:
         -:  232:  /**
@@ -314,15 +314,15 @@ _ZSt3minImERKT_S2_S2_:
         -:  277:  // remove the __normal_iterator wrapper. See copy, fill, ...
         -:  278:  template<typename _Iterator>
         -:  279:    inline _Iterator
-     108*:  280:    __niter_base(_Iterator __it)
+     180*:  280:    __niter_base(_Iterator __it)
         -:  281:    _GLIBCXX_NOEXCEPT_IF(std::is_nothrow_copy_constructible<_Iterator>::value)
-     108*:  282:    { return __it; }
+     180*:  282:    { return __it; }
 ------------------
 _ZSt12__niter_baseIPiET_S1_:
-       42:  280:    __niter_base(_Iterator __it)
+       78:  280:    __niter_base(_Iterator __it)
         -:  281:    _GLIBCXX_NOEXCEPT_IF(std::is_nothrow_copy_constructible<_Iterator>::value)
-       42:  282:    { return __it; }
-       42:  282-block  0
+       78:  282:    { return __it; }
+       78:  282-block  0
 ------------------
 _ZSt12__niter_baseIPmET_S1_:
     #####:  280:    __niter_base(_Iterator __it)
@@ -367,10 +367,10 @@ _ZSt12__niter_baseIPPN7testing17TestEventListenerEET_S4_:
         6:  282-block  0
 ------------------
 _ZSt12__niter_baseIPPN7testing8TestInfoEET_S4_:
-       36:  280:    __niter_base(_Iterator __it)
+       66:  280:    __niter_base(_Iterator __it)
         -:  281:    _GLIBCXX_NOEXCEPT_IF(std::is_nothrow_copy_constructible<_Iterator>::value)
-       36:  282:    { return __it; }
-       36:  282-block  0
+       66:  282:    { return __it; }
+       66:  282-block  0
 ------------------
 _ZSt12__niter_baseIPN7testing12TestPropertyEET_S3_:
     #####:  280:    __niter_base(_Iterator __it)
@@ -391,10 +391,10 @@ _ZSt12__niter_baseIPN7testing8internal13edit_distance8EditTypeEET_S5_:
     %%%%%:  282-block  0
 ------------------
 _ZSt12__niter_baseIPPN7testing9TestSuiteEET_S4_:
-        6:  280:    __niter_base(_Iterator __it)
+       12:  280:    __niter_base(_Iterator __it)
         -:  281:    _GLIBCXX_NOEXCEPT_IF(std::is_nothrow_copy_constructible<_Iterator>::value)
-        6:  282:    { return __it; }
-        6:  282-block  0
+       12:  282:    { return __it; }
+       12:  282-block  0
 ------------------
         -:  283:
         -:  284:  // Reverse the __niter_base transformation to get a

@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/9/ext/type_traits.h
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// -*- C++ -*-
         -:    2:
@@ -153,13 +153,13 @@
         -:  149:  // For use in string and vstring.
         -:  150:  template<typename _Type>
         -:  151:    inline bool
-     286*:  152:    __is_null_pointer(_Type* __ptr)
-     286*:  153:    { return __ptr == 0; }
+     394*:  152:    __is_null_pointer(_Type* __ptr)
+     394*:  153:    { return __ptr == 0; }
 ------------------
 _ZN9__gnu_cxx17__is_null_pointerIcEEbPT_:
-      286:  152:    __is_null_pointer(_Type* __ptr)
-      286:  153:    { return __ptr == 0; }
-      286:  153-block  0
+      394:  152:    __is_null_pointer(_Type* __ptr)
+      394:  153:    { return __ptr == 0; }
+      394:  153-block  0
 ------------------
 _ZN9__gnu_cxx17__is_null_pointerIKcEEbPT_:
     #####:  152:    __is_null_pointer(_Type* __ptr)

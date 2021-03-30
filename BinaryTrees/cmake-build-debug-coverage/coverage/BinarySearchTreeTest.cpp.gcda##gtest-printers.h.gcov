@@ -1,6 +1,6 @@
-        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/lib/googletest/googletest/include/gtest/gtest-printers.h
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
+        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/lib/googletest/googletest/include/gtest/gtest-printers.h
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Copyright 2007, Google Inc.
         -:    2:// All rights reserved.
@@ -222,24 +222,8 @@
         -:  218:    // Call streaming operator found by ADL, possibly with implicit conversions
         -:  219:    // of the arguments.
     #####:  220:    *os << value;
-    #####:  221:  }
-------------------
-_ZN7testing8internal52internal_stream_operator_without_lexical_name_lookup13StreamPrinter10PrintValueImvRSoEEvRKT_PSo:
-    #####:  217:  static void PrintValue(const T& value, ::std::ostream* os) {
-        -:  218:    // Call streaming operator found by ADL, possibly with implicit conversions
-        -:  219:    // of the arguments.
-    #####:  220:    *os << value;
     %%%%%:  220-block  0
     #####:  221:  }
-------------------
-_ZN7testing8internal52internal_stream_operator_without_lexical_name_lookup13StreamPrinter10PrintValueIlvRSoEEvRKT_PSo:
-    #####:  217:  static void PrintValue(const T& value, ::std::ostream* os) {
-        -:  218:    // Call streaming operator found by ADL, possibly with implicit conversions
-        -:  219:    // of the arguments.
-    #####:  220:    *os << value;
-    %%%%%:  220-block  0
-    #####:  221:  }
-------------------
         -:  222:};
         -:  223:
         -:  224:}  // namespace internal_stream_operator_without_lexical_name_lookup
@@ -336,30 +320,8 @@ _ZN7testing8internal52internal_stream_operator_without_lexical_name_lookup13Stre
         -:  315:      ProtobufPrinter, ConvertibleToIntegerPrinter,
         -:  316:      ConvertibleToStringViewPrinter, RawBytesPrinter, FallbackPrinter>::type;
     #####:  317:  Printer::PrintValue(value, os);
-    #####:  318:}
-------------------
-_ZN7testing8internal17PrintWithFallbackImEEvRKT_PSo:
-    #####:  311:void PrintWithFallback(const T& value, ::std::ostream* os) {
-        -:  312:  using Printer = typename FindFirstPrinter<
-        -:  313:      T, void, ContainerPrinter, FunctionPointerPrinter, PointerPrinter,
-        -:  314:      internal_stream_operator_without_lexical_name_lookup::StreamPrinter,
-        -:  315:      ProtobufPrinter, ConvertibleToIntegerPrinter,
-        -:  316:      ConvertibleToStringViewPrinter, RawBytesPrinter, FallbackPrinter>::type;
-    #####:  317:  Printer::PrintValue(value, os);
     %%%%%:  317-block  0
     #####:  318:}
-------------------
-_ZN7testing8internal17PrintWithFallbackIlEEvRKT_PSo:
-    #####:  311:void PrintWithFallback(const T& value, ::std::ostream* os) {
-        -:  312:  using Printer = typename FindFirstPrinter<
-        -:  313:      T, void, ContainerPrinter, FunctionPointerPrinter, PointerPrinter,
-        -:  314:      internal_stream_operator_without_lexical_name_lookup::StreamPrinter,
-        -:  315:      ProtobufPrinter, ConvertibleToIntegerPrinter,
-        -:  316:      ConvertibleToStringViewPrinter, RawBytesPrinter, FallbackPrinter>::type;
-    #####:  317:  Printer::PrintValue(value, os);
-    %%%%%:  317-block  0
-    #####:  318:}
-------------------
         -:  319:
         -:  320:// FormatForComparison<ToPrint, OtherOperand>::Format(value) formats a
         -:  321:// value of type ToPrint that is an operand of a comparison assertion
@@ -389,13 +351,7 @@ _ZN7testing8internal19FormatForComparisonINSt7__cxx1112basic_stringIcSt11char_tr
     %%%%%:  339-block  0
         -:  340:  }
 ------------------
-_ZN7testing8internal19FormatForComparisonImlE6FormatB5cxx11ERKm:
-    #####:  338:  static ::std::string Format(const ToPrint& value) {
-    #####:  339:    return ::testing::PrintToString(value);
-    %%%%%:  339-block  0
-        -:  340:  }
-------------------
-_ZN7testing8internal19FormatForComparisonIlmE6FormatB5cxx11ERKl:
+_ZN7testing8internal19FormatForComparisonImmE6FormatB5cxx11ERKm:
     #####:  338:  static ::std::string Format(const ToPrint& value) {
     #####:  339:    return ::testing::PrintToString(value);
     %%%%%:  339-block  0
@@ -490,14 +446,7 @@ _ZN7testing8internal33FormatForComparisonFailureMessageINSt7__cxx1112basic_strin
     %%%%%:  420-block  0
         -:  421:}
 ------------------
-_ZN7testing8internal33FormatForComparisonFailureMessageImlEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_:
-    #####:  418:std::string FormatForComparisonFailureMessage(
-        -:  419:    const T1& value, const T2& /* other_operand */) {
-    #####:  420:  return FormatForComparison<T1, T2>::Format(value);
-    %%%%%:  420-block  0
-        -:  421:}
-------------------
-_ZN7testing8internal33FormatForComparisonFailureMessageIlmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_:
+_ZN7testing8internal33FormatForComparisonFailureMessageImmEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_:
     #####:  418:std::string FormatForComparisonFailureMessage(
         -:  419:    const T1& value, const T2& /* other_operand */) {
     #####:  420:  return FormatForComparison<T1, T2>::Format(value);
@@ -529,20 +478,8 @@ _ZN7testing8internal33FormatForComparisonFailureMessageIlmEENSt7__cxx1112basic_s
         -:  444:template <typename T>
     #####:  445:void PrintTo(const T& value, ::std::ostream* os) {
     #####:  446:  internal::PrintWithFallback(value, os);
-    #####:  447:}
-------------------
-_ZN7testing8internal7PrintToImEEvRKT_PSo:
-    #####:  445:void PrintTo(const T& value, ::std::ostream* os) {
-    #####:  446:  internal::PrintWithFallback(value, os);
     %%%%%:  446-block  0
     #####:  447:}
-------------------
-_ZN7testing8internal7PrintToIlEEvRKT_PSo:
-    #####:  445:void PrintTo(const T& value, ::std::ostream* os) {
-    #####:  446:  internal::PrintWithFallback(value, os);
-    %%%%%:  446-block  0
-    #####:  447:}
-------------------
         -:  448:
         -:  449:// The following list of PrintTo() overloads tells
         -:  450:// UniversalPrinter<T>::Print() how to print standard types (built-in
@@ -821,20 +758,6 @@ _ZN7testing8internal16UniversalPrinterImE5PrintERKmPSo:
     %%%%%:  708-block  0
     #####:  709:  }
 ------------------
-_ZN7testing8internal16UniversalPrinterIlE5PrintERKlPSo:
-    #####:  699:  static void Print(const T& value, ::std::ostream* os) {
-        -:  700:    // By default, ::testing::internal::PrintTo() is used for printing
-        -:  701:    // the value.
-        -:  702:    //
-        -:  703:    // Thanks to Koenig look-up, if T is a class and has its own
-        -:  704:    // PrintTo() function defined in its namespace, that function will
-        -:  705:    // be visible here.  Since it is more specific than the generic ones
-        -:  706:    // in ::testing::internal, it will be picked by the compiler in the
-        -:  707:    // following statement - exactly what we want.
-    #####:  708:    PrintTo(value, os);
-    %%%%%:  708-block  0
-    #####:  709:  }
-------------------
 _ZN7testing8internal16UniversalPrinterINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5PrintERKS7_PSo:
     #####:  699:  static void Print(const T& value, ::std::ostream* os) {
         -:  700:    // By default, ::testing::internal::PrintTo() is used for printing
@@ -1036,12 +959,6 @@ _ZN7testing8internal21UniversalTersePrinterImE5PrintERKmPSo:
     %%%%%:  882-block  0
     #####:  883:  }
 ------------------
-_ZN7testing8internal21UniversalTersePrinterIlE5PrintERKlPSo:
-    #####:  881:  static void Print(const T& value, ::std::ostream* os) {
-    #####:  882:    UniversalPrint(value, os);
-    %%%%%:  882-block  0
-    #####:  883:  }
-------------------
         -:  884:};
         -:  885:template <typename T>
         -:  886:class UniversalTersePrinter<T&> {
@@ -1159,15 +1076,6 @@ _ZN7testing8internal21UniversalTersePrinterIlE5PrintERKlPSo:
     #####:  998:}
 ------------------
 _ZN7testing8internal14UniversalPrintImEEvRKT_PSo:
-    #####:  993:void UniversalPrint(const T& value, ::std::ostream* os) {
-        -:  994:  // A workarond for the bug in VC++ 7.1 that prevents us from instantiating
-        -:  995:  // UniversalPrinter with T directly.
-        -:  996:  typedef T T1;
-    #####:  997:  UniversalPrinter<T1>::Print(value, os);
-    %%%%%:  997-block  0
-    #####:  998:}
-------------------
-_ZN7testing8internal14UniversalPrintIlEEvRKT_PSo:
     #####:  993:void UniversalPrint(const T& value, ::std::ostream* os) {
         -:  994:  // A workarond for the bug in VC++ 7.1 that prevents us from instantiating
         -:  995:  // UniversalPrinter with T directly.

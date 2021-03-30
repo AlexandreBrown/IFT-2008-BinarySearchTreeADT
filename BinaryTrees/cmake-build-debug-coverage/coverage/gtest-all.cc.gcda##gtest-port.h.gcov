@@ -1,6 +1,6 @@
-        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/lib/googletest/googletest/include/gtest/internal/gtest-port.h
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
+        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/lib/googletest/googletest/include/gtest/internal/gtest-port.h
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
         -:    0:Runs:1
         -:    1:// Copyright 2005, Google Inc.
         -:    2:// All rights reserved.
@@ -1775,22 +1775,22 @@ _ZN7testing8internal27CheckedDowncastToActualTypeINS0_11ThreadLocalISt6vectorINS
         -: 1699:// shares its API with MutexBase otherwise.
         -: 1700:class Mutex : public MutexBase {
         -: 1701: public:
-       33: 1702:  Mutex() {
-      33*: 1703:    GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_init(&mutex_, nullptr));
-       33: 1703-block  0
+       46: 1702:  Mutex() {
+      46*: 1703:    GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_init(&mutex_, nullptr));
+       46: 1703-block  0
     %%%%%: 1703-block  1
     %%%%%: 1703-block  2
     %%%%%: 1703-block  3
     %%%%%: 1703-block  4
     $$$$$: 1703-block  5
-       33: 1704:    has_owner_ = false;
-       33: 1705:  }
-       33: 1705-block  0
-       66: 1706:  ~Mutex() {
-      33*: 1707:    GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_destroy(&mutex_));
-       33: 1707-block  0
+       46: 1704:    has_owner_ = false;
+       46: 1705:  }
+       46: 1705-block  0
+       92: 1706:  ~Mutex() {
+      46*: 1707:    GTEST_CHECK_POSIX_SUCCESS_(pthread_mutex_destroy(&mutex_));
+       46: 1707-block  0
     %%%%%: 1707-block  1
-       33: 1708:  }
+       46: 1708:  }
         -: 1709:
         -: 1710: private:
         -: 1711:  GTEST_DISALLOW_COPY_AND_ASSIGN_(Mutex);

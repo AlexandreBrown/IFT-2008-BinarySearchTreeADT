@@ -1,6 +1,6 @@
-        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/lib/googletest/googletest/include/gtest/internal/gtest-internal.h
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
+        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/lib/googletest/googletest/include/gtest/internal/gtest-internal.h
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Copyright 2005, Google Inc.
         -:    2:// All rights reserved.
@@ -436,13 +436,13 @@
         -:  432:// returned for different types.  Calling the function twice with the
         -:  433:// same type argument is guaranteed to return the same ID.
         -:  434:template <typename T>
-       29:  435:TypeId GetTypeId() {
+       31:  435:TypeId GetTypeId() {
         -:  436:  // The compiler is required to allocate a different
         -:  437:  // TypeIdHelper<T>::dummy_ variable for each T used to instantiate
         -:  438:  // the template.  Therefore, the address of dummy_ is guaranteed to
         -:  439:  // be unique.
-       29:  440:  return &(TypeIdHelper<T>::dummy_);
-       29:  440-block  0
+       31:  440:  return &(TypeIdHelper<T>::dummy_);
+       31:  440-block  0
         -:  441:}
         -:  442:
         -:  443:// Returns the type ID of ::testing::Test.  Always call this instead
@@ -456,14 +456,14 @@
         -:  451:// of a Test object.
         -:  452:class TestFactoryBase {
         -:  453: public:
-      29*:  454:  virtual ~TestFactoryBase() {}
+      41*:  454:  virtual ~TestFactoryBase() {}
 ------------------
 _ZN7testing8internal15TestFactoryBaseD0Ev:
     #####:  454:  virtual ~TestFactoryBase() {}
     %%%%%:  454-block  0
 ------------------
 _ZN7testing8internal15TestFactoryBaseD2Ev:
-       29:  454:  virtual ~TestFactoryBase() {}
+       41:  454:  virtual ~TestFactoryBase() {}
 ------------------
         -:  455:
         -:  456:  // Creates a test instance to run. The instance is both created and destroyed
@@ -471,7 +471,7 @@ _ZN7testing8internal15TestFactoryBaseD2Ev:
         -:  458:  virtual Test* CreateTest() = 0;
         -:  459:
         -:  460: protected:
-       29:  461:  TestFactoryBase() {}
+       41:  461:  TestFactoryBase() {}
         -:  462:
         -:  463: private:
         -:  464:  GTEST_DISALLOW_COPY_AND_ASSIGN_(TestFactoryBase);
@@ -482,9 +482,23 @@ _ZN7testing8internal15TestFactoryBaseD2Ev:
         -:  469:template <class TestClass>
         -:  470:class TestFactoryImpl : public TestFactoryBase {
         -:  471: public:
-       29:  472:  Test* CreateTest() override { return new TestClass; }
+       31:  472:  Test* CreateTest() override { return new TestClass; }
 ------------------
-_ZN7testing8internal15TestFactoryImplI70BinarySearchTreeTest_can_remove_value_when_value_has_two_children_TestE10CreateTestEv:
+_ZN7testing8internal15TestFactoryImplI65BinarySearchTreeTest_isEmpty_returns_true_when_tree_is_empty_TestE10CreateTestEv:
+        1:  472:  Test* CreateTest() override { return new TestClass; }
+        1:  472-block  0
+        1:  472-block  1
+        1:  472-block  2
+    $$$$$:  472-block  3
+------------------
+_ZN7testing8internal15TestFactoryImplI104BinarySearchTreeTest_trying_to_insert_a_value_using_std_move_that_already_exists_throws_logic_error_TestE10CreateTestEv:
+        1:  472:  Test* CreateTest() override { return new TestClass; }
+        1:  472-block  0
+        1:  472-block  1
+        1:  472-block  2
+    $$$$$:  472-block  3
+------------------
+_ZN7testing8internal15TestFactoryImplI62BinarySearchTreeTest_inserts_value_in_tree_using_std_move_TestE10CreateTestEv:
         1:  472:  Test* CreateTest() override { return new TestClass; }
         1:  472-block  0
         1:  472-block  1
@@ -582,14 +596,14 @@ _ZN7testing8internal15TestFactoryImplI78BinarySearchTreeTest_isEmpty_returns_tru
         1:  472-block  2
     $$$$$:  472-block  3
 ------------------
-_ZN7testing8internal15TestFactoryImplI65BinarySearchTreeTest_isEmpty_returns_true_when_tree_is_empty_TestE10CreateTestEv:
+_ZN7testing8internal15TestFactoryImplI75BinarySearchTreeTest_contains_return_true_when_node_is_present_in_tree_TestE10CreateTestEv:
         1:  472:  Test* CreateTest() override { return new TestClass; }
         1:  472-block  0
         1:  472-block  1
         1:  472-block  2
     $$$$$:  472-block  3
 ------------------
-_ZN7testing8internal15TestFactoryImplI75BinarySearchTreeTest_contains_return_true_when_node_is_present_in_tree_TestE10CreateTestEv:
+_ZN7testing8internal15TestFactoryImplI70BinarySearchTreeTest_can_remove_value_when_value_has_two_children_TestE10CreateTestEv:
         1:  472:  Test* CreateTest() override { return new TestClass; }
         1:  472-block  0
         1:  472-block  1
@@ -707,9 +721,9 @@ _ZN7testing8internal15TestFactoryImplI80BinarySearchTreeTest_contains_return_fal
         -:  490:using TearDownTestSuiteFunc = void (*)();
         -:  491:
         -:  492:struct CodeLocation {
-       29:  493:  CodeLocation(const std::string& a_file, int a_line)
-       29:  494:      : file(a_file), line(a_line) {}
-       29:  494-block  0
+       41:  493:  CodeLocation(const std::string& a_file, int a_line)
+       41:  494:      : file(a_file), line(a_line) {}
+       41:  494-block  0
         -:  495:
         -:  496:  std::string file;
         -:  497:  int line;
@@ -721,13 +735,13 @@ _ZN7testing8internal15TestFactoryImplI80BinarySearchTreeTest_contains_return_fal
         -:  503:// Utility functions to help SuiteApiResolver
         -:  504:using SetUpTearDownSuiteFuncType = void (*)();
         -:  505:
-      116:  506:inline SetUpTearDownSuiteFuncType GetNotDefaultOrNull(
+      164:  506:inline SetUpTearDownSuiteFuncType GetNotDefaultOrNull(
         -:  507:    SetUpTearDownSuiteFuncType a, SetUpTearDownSuiteFuncType def) {
-     116*:  508:  return a == def ? nullptr : a;
-      116:  508-block  0
+     164*:  508:  return a == def ? nullptr : a;
+      164:  508-block  0
     %%%%%:  508-block  1
-      116:  508-block  2
-      116:  508-block  3
+      164:  508-block  2
+      164:  508-block  3
         -:  509:}
         -:  510:
         -:  511:template <typename T>
@@ -740,20 +754,20 @@ _ZN7testing8internal15TestFactoryImplI80BinarySearchTreeTest_contains_return_fal
         -:  518:  using Test =
         -:  519:      typename std::conditional<sizeof(T) != 0, ::testing::Test, void>::type;
         -:  520:
-       29:  521:  static SetUpTearDownSuiteFuncType GetSetUpCaseOrSuite(const char* filename,
+       31:  521:  static SetUpTearDownSuiteFuncType GetSetUpCaseOrSuite(const char* filename,
         -:  522:                                                        int line_num) {
         -:  523:#ifndef GTEST_REMOVE_LEGACY_TEST_CASEAPI_
         -:  524:    SetUpTearDownSuiteFuncType test_case_fp =
-       29:  525:        GetNotDefaultOrNull(&T::SetUpTestCase, &Test::SetUpTestCase);
-       29:  525-block  0
+       31:  525:        GetNotDefaultOrNull(&T::SetUpTestCase, &Test::SetUpTestCase);
+       31:  525-block  0
         -:  526:    SetUpTearDownSuiteFuncType test_suite_fp =
-       29:  527:        GetNotDefaultOrNull(&T::SetUpTestSuite, &Test::SetUpTestSuite);
+       31:  527:        GetNotDefaultOrNull(&T::SetUpTestSuite, &Test::SetUpTestSuite);
         -:  528:
-      29*:  529:    GTEST_CHECK_(!test_case_fp || !test_suite_fp)
+      31*:  529:    GTEST_CHECK_(!test_case_fp || !test_suite_fp)
     %%%%%:  529-block  0
-       29:  529-block  1
+       31:  529-block  1
     %%%%%:  529-block  2
-       29:  529-block  3
+       31:  529-block  3
     %%%%%:  529-block  4
     %%%%%:  529-block  5
     $$$$$:  529-block  6
@@ -765,12 +779,12 @@ _ZN7testing8internal15TestFactoryImplI80BinarySearchTreeTest_contains_return_fal
     %%%%%:  532-block  2
     %%%%%:  532-block  3
         -:  533:
-      29*:  534:    return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
-       29:  534-block  0
+      31*:  534:    return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
+       31:  534-block  0
     %%%%%:  534-block  1
-       29:  534-block  2
-       29:  534-block  3
-       29:  534-block  4
+       31:  534-block  2
+       31:  534-block  3
+       31:  534-block  4
         -:  535:#else
         -:  536:    (void)(filename);
         -:  537:    (void)(line_num);
@@ -778,20 +792,20 @@ _ZN7testing8internal15TestFactoryImplI80BinarySearchTreeTest_contains_return_fal
         -:  539:#endif
         -:  540:  }
         -:  541:
-       29:  542:  static SetUpTearDownSuiteFuncType GetTearDownCaseOrSuite(const char* filename,
+       31:  542:  static SetUpTearDownSuiteFuncType GetTearDownCaseOrSuite(const char* filename,
         -:  543:                                                           int line_num) {
         -:  544:#ifndef GTEST_REMOVE_LEGACY_TEST_CASEAPI_
         -:  545:    SetUpTearDownSuiteFuncType test_case_fp =
-       29:  546:        GetNotDefaultOrNull(&T::TearDownTestCase, &Test::TearDownTestCase);
-       29:  546-block  0
+       31:  546:        GetNotDefaultOrNull(&T::TearDownTestCase, &Test::TearDownTestCase);
+       31:  546-block  0
         -:  547:    SetUpTearDownSuiteFuncType test_suite_fp =
-       29:  548:        GetNotDefaultOrNull(&T::TearDownTestSuite, &Test::TearDownTestSuite);
+       31:  548:        GetNotDefaultOrNull(&T::TearDownTestSuite, &Test::TearDownTestSuite);
         -:  549:
-      29*:  550:    GTEST_CHECK_(!test_case_fp || !test_suite_fp)
+      31*:  550:    GTEST_CHECK_(!test_case_fp || !test_suite_fp)
     %%%%%:  550-block  0
-       29:  550-block  1
+       31:  550-block  1
     %%%%%:  550-block  2
-       29:  550-block  3
+       31:  550-block  3
     %%%%%:  550-block  4
     %%%%%:  550-block  5
     $$$$$:  550-block  6
@@ -803,12 +817,12 @@ _ZN7testing8internal15TestFactoryImplI80BinarySearchTreeTest_contains_return_fal
     %%%%%:  553-block  2
     %%%%%:  553-block  3
         -:  554:
-      29*:  555:    return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
-       29:  555-block  0
+      31*:  555:    return test_case_fp != nullptr ? test_case_fp : test_suite_fp;
+       31:  555-block  0
     %%%%%:  555-block  1
-       29:  555-block  2
-       29:  555-block  3
-       29:  555-block  4
+       31:  555-block  2
+       31:  555-block  3
+       31:  555-block  4
         -:  556:#else
         -:  557:    (void)(filename);
         -:  558:    (void)(line_num);
@@ -1111,12 +1125,12 @@ _ZN7testing8internal15TestFactoryImplI80BinarySearchTreeTest_contains_return_fal
         -:  855:// Helper for declaring std::string within 'if' statement
         -:  856:// in pre C++17 build environment.
         -:  857:struct TrueWithString {
-        4:  858:  TrueWithString() = default;
-        4:  858-block  0
+        5:  858:  TrueWithString() = default;
+        5:  858-block  0
         -:  859:  explicit TrueWithString(const char* str) : value(str) {}
         -:  860:  explicit TrueWithString(const std::string& str) : value(str) {}
-        4:  861:  explicit operator bool() const { return true; }
-        4:  861-block  0
+        5:  861:  explicit operator bool() const { return true; }
+        5:  861-block  0
         -:  862:  std::string value;
         -:  863:};
         -:  864:

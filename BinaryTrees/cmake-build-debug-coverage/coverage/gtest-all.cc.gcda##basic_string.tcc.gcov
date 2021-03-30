@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/9/bits/basic_string.tcc
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
         -:    0:Runs:1
         -:    1:// Components for manipulating sequences of characters -*- C++ -*-
         -:    2:
@@ -207,34 +207,34 @@
         -:  203:  template<typename _CharT, typename _Traits, typename _Alloc>
         -:  204:    template<typename _InIterator>
         -:  205:      void
-     172*:  206:      basic_string<_CharT, _Traits, _Alloc>::
+     235*:  206:      basic_string<_CharT, _Traits, _Alloc>::
         -:  207:      _M_construct(_InIterator __beg, _InIterator __end,
         -:  208:		   std::forward_iterator_tag)
         -:  209:      {
         -:  210:	// NB: Not required, but considered best practice.
-     172*:  211:	if (__gnu_cxx::__is_null_pointer(__beg) && __beg != __end)
+     235*:  211:	if (__gnu_cxx::__is_null_pointer(__beg) && __beg != __end)
     #####:  212:	  std::__throw_logic_error(__N("basic_string::"
         -:  213:				       "_M_construct null not valid"));
         -:  214:
-     172*:  215:	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
+     235*:  215:	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
         -:  216:
-     172*:  217:	if (__dnew > size_type(_S_local_capacity))
+     235*:  217:	if (__dnew > size_type(_S_local_capacity))
         -:  218:	  {
-     149*:  219:	    _M_data(_M_create(__dnew, size_type(0)));
-     149*:  220:	    _M_capacity(__dnew);
+     189*:  219:	    _M_data(_M_create(__dnew, size_type(0)));
+     189*:  220:	    _M_capacity(__dnew);
         -:  221:	  }
         -:  222:
         -:  223:	// Check for out_of_range and length_error exceptions.
         -:  224:	__try
-     172*:  225:	  { this->_S_copy_chars(_M_data(), __beg, __end); }
+     235*:  225:	  { this->_S_copy_chars(_M_data(), __beg, __end); }
     =====:  226:	__catch(...)
         -:  227:	  {
     =====:  228:	    _M_dispose();
     =====:  229:	    __throw_exception_again;
         -:  230:	  }
         -:  231:
-     172*:  232:	_M_set_length(__dnew);
-     172*:  233:      }
+     235*:  232:	_M_set_length(__dnew);
+     235*:  233:      }
 ------------------
 _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE12_M_constructIPKwEEvT_S8_St20forward_iterator_tag:
     #####:  206:      basic_string<_CharT, _Traits, _Alloc>::
@@ -331,39 +331,39 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St
     %%%%%:  233-block  0
 ------------------
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag:
-      172:  206:      basic_string<_CharT, _Traits, _Alloc>::
+      235:  206:      basic_string<_CharT, _Traits, _Alloc>::
         -:  207:      _M_construct(_InIterator __beg, _InIterator __end,
         -:  208:		   std::forward_iterator_tag)
         -:  209:      {
         -:  210:	// NB: Not required, but considered best practice.
-     172*:  211:	if (__gnu_cxx::__is_null_pointer(__beg) && __beg != __end)
-      172:  211-block  0
+     235*:  211:	if (__gnu_cxx::__is_null_pointer(__beg) && __beg != __end)
+      235:  211-block  0
     %%%%%:  211-block  1
     %%%%%:  211-block  2
-      172:  211-block  3
-      172:  211-block  4
+      235:  211-block  3
+      235:  211-block  4
     #####:  212:	  std::__throw_logic_error(__N("basic_string::"
     %%%%%:  212-block  0
         -:  213:				       "_M_construct null not valid"));
         -:  214:
-      172:  215:	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
-      172:  215-block  0
+      235:  215:	size_type __dnew = static_cast<size_type>(std::distance(__beg, __end));
+      235:  215-block  0
         -:  216:
-      172:  217:	if (__dnew > size_type(_S_local_capacity))
-      172:  217-block  0
+      235:  217:	if (__dnew > size_type(_S_local_capacity))
+      235:  217-block  0
         -:  218:	  {
-      149:  219:	    _M_data(_M_create(__dnew, size_type(0)));
-      149:  219-block  0
-      149:  219-block  1
-      149:  220:	    _M_capacity(__dnew);
-      149:  220-block  0
+      189:  219:	    _M_data(_M_create(__dnew, size_type(0)));
+      189:  219-block  0
+      189:  219-block  1
+      189:  220:	    _M_capacity(__dnew);
+      189:  220-block  0
         -:  221:	  }
         -:  222:
         -:  223:	// Check for out_of_range and length_error exceptions.
         -:  224:	__try
-      172:  225:	  { this->_S_copy_chars(_M_data(), __beg, __end); }
-      172:  225-block  0
-      172:  225-block  1
+      235:  225:	  { this->_S_copy_chars(_M_data(), __beg, __end); }
+      235:  225-block  0
+      235:  225-block  1
     =====:  226:	__catch(...)
     $$$$$:  226-block  0
     $$$$$:  226-block  1
@@ -373,9 +373,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_S
     $$$$$:  229-block  0
         -:  230:	  }
         -:  231:
-      172:  232:	_M_set_length(__dnew);
-      172:  233:      }
-      172:  233-block  0
+      235:  232:	_M_set_length(__dnew);
+      235:  233:      }
+      235:  233-block  0
 ------------------
         -:  234:
         -:  235:  template<typename _CharT, typename _Traits, typename _Alloc>

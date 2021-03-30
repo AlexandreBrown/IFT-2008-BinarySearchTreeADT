@@ -1,6 +1,6 @@
-        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/lib/googletest/googletest/src/gtest-filepath.cc
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
+        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/lib/googletest/googletest/src/gtest-filepath.cc
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
         -:    0:Runs:1
         -:    1:// Copyright 2008, Google Inc.
         -:    2:// All rights reserved.
@@ -86,12 +86,12 @@
         -:   82:#endif  // GTEST_OS_WINDOWS
         -:   83:
         -:   84:// Returns whether the given character is a valid path separator.
-      140:   85:static bool IsPathSeparator(char c) {
+      159:   85:static bool IsPathSeparator(char c) {
         -:   86:#if GTEST_HAS_ALT_PATH_SEP_
         -:   87:  return (c == kPathSeparator) || (c == kAlternatePathSeparator);
         -:   88:#else
-      140:   89:  return c == kPathSeparator;
-      140:   89-block  0
+      159:   89:  return c == kPathSeparator;
+      159:   89-block  0
         -:   90:#endif
         -:   91:}
         -:   92:
@@ -501,13 +501,13 @@
         1:  352:  auto out = pathname_.begin();
         1:  352-block  0
         -:  353:
-      141:  354:  for (const char character : pathname_) {
-      141:  354-block  0
-      140:  354-block  1
-      140:  354-block  2
-      140:  355:    if (!IsPathSeparator(character)) {
-      131:  356:      *(out++) = character;
-      131:  356-block  0
+      160:  354:  for (const char character : pathname_) {
+      160:  354-block  0
+      159:  354-block  1
+      159:  354-block  2
+      159:  355:    if (!IsPathSeparator(character)) {
+      150:  356:      *(out++) = character;
+      150:  356-block  0
        9*:  357:    } else if (out == pathname_.begin() || *std::prev(out) != kPathSeparator) {
         9:  357-block  0
         8:  357-block  1

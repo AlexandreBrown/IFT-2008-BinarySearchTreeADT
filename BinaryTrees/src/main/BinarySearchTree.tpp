@@ -1,42 +1,42 @@
 #include "BinarySearchTree.h"
 
-template<typename Comparable>
-BinarySearchTree<Comparable>::BinarySearchTree() : root{nullptr} {}
+template<typename Comparable, typename NodeType>
+BinarySearchTree<Comparable, NodeType>::BinarySearchTree() : root{nullptr} {}
 
-template<typename Comparable>
-BinarySearchTree<Comparable>::BinarySearchTree(const BinarySearchTree& rhs) : root{nullptr} {
+template<typename Comparable, typename NodeType>
+BinarySearchTree<Comparable, NodeType>::BinarySearchTree(const BinarySearchTree& rhs) : root{nullptr} {
 	root = clone(rhs.root);
 }
 
-template<typename Comparable>
-BinaryNode<Comparable>* BinarySearchTree<Comparable>::clone(BinaryNode<Comparable>* t) const {
+template<typename Comparable, typename NodeType>
+NodeType* BinarySearchTree<Comparable, NodeType>::clone(NodeType* t) const {
 	if (t==nullptr) {
 		return nullptr;
 	}
-	return new BinaryNode<Comparable>{
-		.element = t->element,
-		.left = clone(t->left),
-		.right = clone(t->right)
-	};
+	return new NodeType(
+		t->element,
+		clone(t->left),
+		clone(t->right)
+	);
 }
 
-template<typename Comparable>
-BinarySearchTree<Comparable>::BinarySearchTree(BinarySearchTree&& rhs): root{nullptr} {
+template<typename Comparable, typename NodeType>
+BinarySearchTree<Comparable, NodeType>::BinarySearchTree(BinarySearchTree<Comparable, NodeType>&& rhs): root{nullptr} {
 	root = clone(rhs.root);
 }
 
-template<typename Comparable>
-BinarySearchTree<Comparable>::~BinarySearchTree() {
+template<typename Comparable, typename NodeType>
+BinarySearchTree<Comparable, NodeType>::~BinarySearchTree() {
 	makeEmpty();
 }
 
-template<typename Comparable>
-void BinarySearchTree<Comparable>::makeEmpty() {
+template<typename Comparable, typename NodeType>
+void BinarySearchTree<Comparable, NodeType>::makeEmpty() {
 	makeEmpty(root);
 }
 
-template<typename Comparable>
-void BinarySearchTree<Comparable>::makeEmpty(BinaryNode<Comparable>*& t) {
+template<typename Comparable, typename NodeType>
+void BinarySearchTree<Comparable, NodeType>::makeEmpty(NodeType*& t) {
 	if (t!=nullptr) {
 		makeEmpty(t->left);
 		makeEmpty(t->right);
@@ -46,13 +46,13 @@ void BinarySearchTree<Comparable>::makeEmpty(BinaryNode<Comparable>*& t) {
 	t = nullptr;
 }
 
-template<typename Comparable>
-bool BinarySearchTree<Comparable>::contains(const Comparable& x) const {
+template<typename Comparable, typename NodeType>
+bool BinarySearchTree<Comparable, NodeType>::contains(const Comparable& x) const {
 	return contains(x, root);
 }
 
-template<typename Comparable>
-bool BinarySearchTree<Comparable>::contains(const Comparable& x, BinaryNode<Comparable>* t) const {
+template<typename Comparable, typename NodeType>
+bool BinarySearchTree<Comparable, NodeType>::contains(const Comparable& x, NodeType* t) const {
 	if (t==nullptr) {
 		return false;
 	}
@@ -65,8 +65,8 @@ bool BinarySearchTree<Comparable>::contains(const Comparable& x, BinaryNode<Comp
 	return true;
 }
 
-template<typename Comparable>
-const Comparable& BinarySearchTree<Comparable>::findMin() const {
+template<typename Comparable, typename NodeType>
+const Comparable& BinarySearchTree<Comparable, NodeType>::findMin() const {
 	if (root==nullptr) {
 		throw std::logic_error{"Could not find min element of empty tree!"};
 	}
@@ -74,16 +74,16 @@ const Comparable& BinarySearchTree<Comparable>::findMin() const {
 	return findMin(root)->element;
 }
 
-template<typename Comparable>
-BinaryNode<Comparable>* BinarySearchTree<Comparable>::findMin(BinaryNode<Comparable>* t) const {
+template<typename Comparable, typename NodeType>
+NodeType* BinarySearchTree<Comparable, NodeType>::findMin(NodeType* t) const {
 	if (t->left==nullptr) {
 		return t;
 	}
 	return findMin(t->left);
 }
 
-template<typename Comparable>
-const Comparable& BinarySearchTree<Comparable>::findMax() const {
+template<typename Comparable, typename NodeType>
+const Comparable& BinarySearchTree<Comparable, NodeType>::findMax() const {
 	if (root==nullptr) {
 		throw std::logic_error{"Could not find max element of empty tree!"};
 	}
@@ -91,23 +91,23 @@ const Comparable& BinarySearchTree<Comparable>::findMax() const {
 	return findMax(root)->element;
 }
 
-template<typename Comparable>
-BinaryNode<Comparable>* BinarySearchTree<Comparable>::findMax(BinaryNode<Comparable>* t) const {
+template<typename Comparable, typename NodeType>
+NodeType* BinarySearchTree<Comparable, NodeType>::findMax(NodeType* t) const {
 	while (t->right!=nullptr) {
 		t = t->right;
 	}
 	return t;
 }
 
-template<typename Comparable>
-void BinarySearchTree<Comparable>::insert(const Comparable& x) {
+template<typename Comparable, typename NodeType>
+void BinarySearchTree<Comparable, NodeType>::insert(const Comparable& x) {
 	insert(x, root);
 }
 
-template<typename Comparable>
-void BinarySearchTree<Comparable>::insert(const Comparable& x, BinaryNode<Comparable>*& t) {
+template<typename Comparable, typename NodeType>
+void BinarySearchTree<Comparable, NodeType>::insert(const Comparable& x, NodeType*& t) {
 	if (t==nullptr) {
-		t = new BinaryNode<Comparable>{x, nullptr, nullptr};
+		t = new NodeType(x);
 	} else if (x < t->element) {
 		insert(x, t->left);
 	} else if (t->element < x) {
@@ -117,15 +117,15 @@ void BinarySearchTree<Comparable>::insert(const Comparable& x, BinaryNode<Compar
 	}
 }
 
-template<typename Comparable>
-void BinarySearchTree<Comparable>::insert(Comparable&& x) {
+template<typename Comparable, typename NodeType>
+void BinarySearchTree<Comparable, NodeType>::insert(Comparable&& x) {
 	insert(std::move(x), root);
 }
 
-template<typename Comparable>
-void BinarySearchTree<Comparable>::insert(Comparable&& x, BinaryNode<Comparable>*& t) {
+template<typename Comparable, typename NodeType>
+void BinarySearchTree<Comparable, NodeType>::insert(Comparable&& x, NodeType*& t) {
 	if (t==nullptr) {
-		t = new BinaryNode<Comparable>{std::move(x), nullptr, nullptr};
+		t = new NodeType(std::move(x));
 	} else if (x < t->element) {
 		insert(std::move(x), t->left);
 	} else if (t->element < x) {
@@ -135,13 +135,13 @@ void BinarySearchTree<Comparable>::insert(Comparable&& x, BinaryNode<Comparable>
 	}
 }
 
-template<typename Comparable>
-void BinarySearchTree<Comparable>::remove(const Comparable& x) {
+template<typename Comparable, typename NodeType>
+void BinarySearchTree<Comparable, NodeType>::remove(const Comparable& x) {
 	remove(x, root);
 }
 
-template<typename Comparable>
-void BinarySearchTree<Comparable>::remove(const Comparable& x, BinaryNode<Comparable>*& t) {
+template<typename Comparable, typename NodeType>
+void BinarySearchTree<Comparable, NodeType>::remove(const Comparable& x, NodeType*& t) {
 	if (t==nullptr) {
 		return;
 	}
@@ -154,24 +154,24 @@ void BinarySearchTree<Comparable>::remove(const Comparable& x, BinaryNode<Compar
 		t->element = findMin(t->right)->element;
 		remove(t->element, t->right);
 	} else {
-		BinaryNode<Comparable>* oldNode = t;
+		NodeType* oldNode = t;
 		t = (t->left!=nullptr) ? t->left : t->right;
 		delete oldNode;
 	}
 }
 
-template<typename Comparable>
-bool BinarySearchTree<Comparable>::has2Children(BinaryNode<Comparable>* const& t) const {
+template<typename Comparable, typename NodeType>
+bool BinarySearchTree<Comparable, NodeType>::has2Children(NodeType* const& t) const {
 	return t->left!=nullptr && t->right!=nullptr;
 }
 
-template<typename Comparable>
-bool BinarySearchTree<Comparable>::isEmpty() const {
+template<typename Comparable, typename NodeType>
+bool BinarySearchTree<Comparable, NodeType>::isEmpty() const {
 	return root==nullptr;
 }
 
-template<typename Comparable>
-BinarySearchTree<Comparable>& BinarySearchTree<Comparable>::operator=(const BinarySearchTree& rhs) {
+template<typename Comparable, typename NodeType>
+BinarySearchTree<Comparable, NodeType>& BinarySearchTree<Comparable, NodeType>::operator=(const BinarySearchTree& rhs) {
 
 	if (this->root!=rhs.root) {
 		makeEmpty();
@@ -181,8 +181,8 @@ BinarySearchTree<Comparable>& BinarySearchTree<Comparable>::operator=(const Bina
 	return *this;
 }
 
-template<typename Comparable>
-BinarySearchTree<Comparable>& BinarySearchTree<Comparable>::operator=(BinarySearchTree&& rhs) {
+template<typename Comparable, typename NodeType>
+BinarySearchTree<Comparable, NodeType>& BinarySearchTree<Comparable, NodeType>::operator=(BinarySearchTree&& rhs) {
 
 	if (this->root!=rhs.root) {
 		makeEmpty();
@@ -192,14 +192,14 @@ BinarySearchTree<Comparable>& BinarySearchTree<Comparable>::operator=(BinarySear
 	return *this;
 }
 
-template<typename Comparable>
-void BinarySearchTree<Comparable>::printTreeInSymmetricOrder(std::ostream& out) const {
+template<typename Comparable, typename NodeType>
+void BinarySearchTree<Comparable, NodeType>::printTreeInSymmetricOrder(std::ostream& out) const {
 	printTreeInSymmetricOrder(root, out);
 }
 
-template<typename Comparable>
-void BinarySearchTree<Comparable>::printTreeInSymmetricOrder(BinaryNode<Comparable>* t, std::ostream& out) const {
-	if(t ==nullptr) {
+template<typename Comparable, typename NodeType>
+void BinarySearchTree<Comparable, NodeType>::printTreeInSymmetricOrder(NodeType* t, std::ostream& out) const {
+	if (t==nullptr) {
 		return;
 	}
 
@@ -210,14 +210,14 @@ void BinarySearchTree<Comparable>::printTreeInSymmetricOrder(BinaryNode<Comparab
 	printTreeInSymmetricOrder(t->right, out);
 }
 
-template <typename Comparable>
-void BinarySearchTree<Comparable>::printTreeInPreOrder(std::ostream& out) const {
+template<typename Comparable, typename NodeType>
+void BinarySearchTree<Comparable, NodeType>::printTreeInPreOrder(std::ostream& out) const {
 	printTreeInPreOrder(root, out);
 }
 
-template<typename Comparable>
-void BinarySearchTree<Comparable>::printTreeInPreOrder(BinaryNode<Comparable>* t, std::ostream& out) const {
-	if(t ==nullptr) {
+template<typename Comparable, typename NodeType>
+void BinarySearchTree<Comparable, NodeType>::printTreeInPreOrder(NodeType* t, std::ostream& out) const {
+	if (t==nullptr) {
 		return;
 	}
 
@@ -228,14 +228,14 @@ void BinarySearchTree<Comparable>::printTreeInPreOrder(BinaryNode<Comparable>* t
 	printTreeInPreOrder(t->right, out);
 }
 
-template <typename Comparable>
-void BinarySearchTree<Comparable>::printTreeInPostOrder(std::ostream& out) const {
+template<typename Comparable, typename NodeType>
+void BinarySearchTree<Comparable, NodeType>::printTreeInPostOrder(std::ostream& out) const {
 	printTreeInPostOrder(root, out);
 }
 
-template<typename Comparable>
-void BinarySearchTree<Comparable>::printTreeInPostOrder(BinaryNode<Comparable>* t, std::ostream& out) const {
-	if(t ==nullptr) {
+template<typename Comparable, typename NodeType>
+void BinarySearchTree<Comparable, NodeType>::printTreeInPostOrder(NodeType* t, std::ostream& out) const {
+	if (t==nullptr) {
 		return;
 	}
 

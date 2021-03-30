@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/9/bits/basic_string.h
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Components for manipulating sequences of characters -*- C++ -*-
         -:    2:
@@ -6141,22 +6141,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -: 6094:
         -: 6095:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 6096:    inline basic_string<_CharT, _Traits, _Alloc>
-       18: 6097:    operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+        -: 6097:    operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
         -: 6098:	      basic_string<_CharT, _Traits, _Alloc>&& __rhs)
         -: 6099:    {
-       18: 6100:      const auto __size = __lhs.size() + __rhs.size();
-       18: 6100-block  0
-       18: 6101:      const bool __cond = (__size > __lhs.capacity()
-      18*: 6102:			   && __size <= __rhs.capacity());
-    %%%%%: 6102-block  0
-    %%%%%: 6102-block  1
-       18: 6102-block  2
-    #####: 6103:      return __cond ? std::move(__rhs.insert(0, __lhs))
-    %%%%%: 6103-block  0
-       18: 6104:	            : std::move(__lhs.append(__rhs));
-       18: 6104-block  0
-       18: 6104-block  1
-       18: 6104-block  2
+        -: 6100:      const auto __size = __lhs.size() + __rhs.size();
+        -: 6101:      const bool __cond = (__size > __lhs.capacity()
+        -: 6102:			   && __size <= __rhs.capacity());
+        -: 6103:      return __cond ? std::move(__rhs.insert(0, __lhs))
+        -: 6104:	            : std::move(__lhs.append(__rhs));
         -: 6105:    }
         -: 6106:
         -: 6107:  template<typename _CharT, typename _Traits, typename _Alloc>
@@ -6173,10 +6165,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_:
         -: 6118:
         -: 6119:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 6120:    inline basic_string<_CharT, _Traits, _Alloc>
-       88: 6121:    operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
+      100: 6121:    operator+(basic_string<_CharT, _Traits, _Alloc>&& __lhs,
         -: 6122:	      const _CharT* __rhs)
-       88: 6123:    { return std::move(__lhs.append(__rhs)); }
-       88: 6123-block  0
+      100: 6123:    { return std::move(__lhs.append(__rhs)); }
+      100: 6123-block  0
         -: 6124:
         -: 6125:  template<typename _CharT, typename _Traits, typename _Alloc>
         -: 6126:    inline basic_string<_CharT, _Traits, _Alloc>

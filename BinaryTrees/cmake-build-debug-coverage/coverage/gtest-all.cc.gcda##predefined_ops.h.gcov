@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/9/bits/predefined_ops.h
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/lib/googletest/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.gcda
         -:    0:Runs:1
         -:    1:// Default predicates for internal use -*- C++ -*-
         -:    2:
@@ -279,15 +279,15 @@
         -:  273:      _Predicate _M_pred;
         -:  274:
         -:  275:      explicit
-      29*:  276:      _Iter_pred(_Predicate __pred)
-      29*:  277:	: _M_pred(_GLIBCXX_MOVE(__pred))
-      29*:  278:      { }
+      41*:  276:      _Iter_pred(_Predicate __pred)
+      41*:  277:	: _M_pred(_GLIBCXX_MOVE(__pred))
+      41*:  278:      { }
 ------------------
 _ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal15TestSuiteNameIsEEC2ES4_:
-       29:  276:      _Iter_pred(_Predicate __pred)
-       29:  277:	: _M_pred(_GLIBCXX_MOVE(__pred))
-       29:  277-block  0
-       29:  278:      { }
+       41:  276:      _Iter_pred(_Predicate __pred)
+       41:  277:	: _M_pred(_GLIBCXX_MOVE(__pred))
+       41:  277-block  0
+       41:  278:      { }
 ------------------
 _ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal17TestPropertyKeyIsEEC2ES4_:
     #####:  276:      _Iter_pred(_Predicate __pred)
@@ -298,13 +298,13 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal17TestPropertyKeyIsEEC2ES4_:
         -:  279:
         -:  280:      template<typename _Iterator>
         -:  281:	bool
-      28*:  282:	operator()(_Iterator __it)
-      28*:  283:	{ return bool(_M_pred(*__it)); }
+      40*:  282:	operator()(_Iterator __it)
+      40*:  283:	{ return bool(_M_pred(*__it)); }
 ------------------
 _ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal15TestSuiteNameIsEEclISt16reverse_iteratorINS_17__normal_iteratorIPPNS2_9TestSuiteESt6vectorISA_SaISA_EEEEEEEbT_:
-       28:  282:	operator()(_Iterator __it)
-       28:  283:	{ return bool(_M_pred(*__it)); }
-       28:  283-block  0
+       40:  282:	operator()(_Iterator __it)
+       40:  283:	{ return bool(_M_pred(*__it)); }
+       40:  283-block  0
 ------------------
 _ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal17TestPropertyKeyIsEEclINS_17__normal_iteratorIPNS2_12TestPropertyESt6vectorIS8_SaIS8_EEEEEEbT_:
     #####:  282:	operator()(_Iterator __it)
@@ -315,13 +315,13 @@ _ZN9__gnu_cxx5__ops10_Iter_predIN7testing8internal17TestPropertyKeyIsEEclINS_17_
         -:  285:
         -:  286:  template<typename _Predicate>
         -:  287:    inline _Iter_pred<_Predicate>
-      29*:  288:    __pred_iter(_Predicate __pred)
-      29*:  289:    { return _Iter_pred<_Predicate>(_GLIBCXX_MOVE(__pred)); }
+      41*:  288:    __pred_iter(_Predicate __pred)
+      41*:  289:    { return _Iter_pred<_Predicate>(_GLIBCXX_MOVE(__pred)); }
 ------------------
 _ZN9__gnu_cxx5__ops11__pred_iterIN7testing8internal15TestSuiteNameIsEEENS0_10_Iter_predIT_EES6_:
-       29:  288:    __pred_iter(_Predicate __pred)
-       29:  289:    { return _Iter_pred<_Predicate>(_GLIBCXX_MOVE(__pred)); }
-       29:  289-block  0
+       41:  288:    __pred_iter(_Predicate __pred)
+       41:  289:    { return _Iter_pred<_Predicate>(_GLIBCXX_MOVE(__pred)); }
+       41:  289-block  0
 ------------------
 _ZN9__gnu_cxx5__ops11__pred_iterIN7testing8internal17TestPropertyKeyIsEEENS0_10_Iter_predIT_EES6_:
     #####:  288:    __pred_iter(_Predicate __pred)

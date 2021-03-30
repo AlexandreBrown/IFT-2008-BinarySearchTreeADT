@@ -5,9 +5,9 @@ set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCE_FILES src/main/BinarySearchTree.tpp
         src/main/BinarySearchTree.h
-        src/main/BinaryNode.h)
+        src/main/BinaryNode.h src/main/AvlNode.h src/main/AvlTree.h src/main/AvlTree.tpp)
 
-add_executable(BinaryTree src/main/main.cpp ${SOURCE_FILES})
+add_executable(${PROJECT_NAME} src/main/main.cpp ${SOURCE_FILES})
 
 # Testing flags
 option(BUILD_TESTING "build unit tests" ON)
@@ -23,10 +23,17 @@ if (BUILD_TESTING)
     # Not mandatory but nice tool
     enable_testing() #Enables CTest which can run all our tests via command-line (use command : "make" in /build to apply changes made to code then run "make test")
 
-    set(TEST_SOURCE_FILES src/test/BinarySearchTreeTest.cpp src/test/BinarySearchTreeTest.cpp)
+    set(TEST_SOURCE_FILES src/test/BinarySearchTreeTest.cpp
+            src/test/BinarySearchTreeTest.cpp
+            src/test/AvlTreeTest.cpp
+            src/test/BinarySearchTreeExpectations.h
+            src/test/utils/RandomValues.h)
     set(TESTABLE_SOURCE_FILES src/main/BinarySearchTree.tpp
             src/main/BinarySearchTree.h
-            src/main/BinaryNode.h) # Note that we don't need to include main.cpp from production because we don't want to test our entry point
+            src/main/BinaryNode.h
+            src/main/AvlNode.h
+            src/main/AvlTree.h
+            src/main/AvlTree.tpp) # Note that we don't need to include main.cpp from production because we don't want to test our entry point
 
     add_executable(${PROJECT_NAME}_test ${TESTABLE_SOURCE_FILES} ${TEST_SOURCE_FILES})
     add_test(${PROJECT_NAME}_test ${PROJECT_NAME}_test) # If we don't add this, CTest will not find our tests when doing: make test

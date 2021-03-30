@@ -109,17 +109,6 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
-	/home/brownthedev/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/203.7717.62/bin/cmake/linux/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-
-.PHONY : test/fast
-
 # Special rule for the target install/strip
 install/strip: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
@@ -143,6 +132,17 @@ install/local/fast: preinstall/fast
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
 	/home/brownthedev/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/203.7717.62/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
 .PHONY : install/local/fast
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/home/brownthedev/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/203.7717.62/bin/cmake/linux/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+
+.PHONY : test/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -188,17 +188,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named BinaryTree
+# Target rules for targets named BinaryTrees
 
 # Build rule for target.
-BinaryTree: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BinaryTree
-.PHONY : BinaryTree
+BinaryTrees: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BinaryTrees
+.PHONY : BinaryTrees
 
 # fast build rule for target.
-BinaryTree/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTree.dir/build.make CMakeFiles/BinaryTree.dir/build
-.PHONY : BinaryTree/fast
+BinaryTrees/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTrees.dir/build.make CMakeFiles/BinaryTrees.dir/build
+.PHONY : BinaryTrees/fast
 
 #=============================================================================
 # Target rules for targets named BinaryTrees_test
@@ -271,7 +271,7 @@ src/main/main.o: src/main/main.cpp.o
 
 # target to build an object file
 src/main/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTree.dir/build.make CMakeFiles/BinaryTree.dir/src/main/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTrees.dir/build.make CMakeFiles/BinaryTrees.dir/src/main/main.cpp.o
 .PHONY : src/main/main.cpp.o
 
 src/main/main.i: src/main/main.cpp.i
@@ -280,7 +280,7 @@ src/main/main.i: src/main/main.cpp.i
 
 # target to preprocess a source file
 src/main/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTree.dir/build.make CMakeFiles/BinaryTree.dir/src/main/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTrees.dir/build.make CMakeFiles/BinaryTrees.dir/src/main/main.cpp.i
 .PHONY : src/main/main.cpp.i
 
 src/main/main.s: src/main/main.cpp.s
@@ -289,8 +289,35 @@ src/main/main.s: src/main/main.cpp.s
 
 # target to generate assembly for a file
 src/main/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTree.dir/build.make CMakeFiles/BinaryTree.dir/src/main/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTrees.dir/build.make CMakeFiles/BinaryTrees.dir/src/main/main.cpp.s
 .PHONY : src/main/main.cpp.s
+
+src/test/AvlTreeTest.o: src/test/AvlTreeTest.cpp.o
+
+.PHONY : src/test/AvlTreeTest.o
+
+# target to build an object file
+src/test/AvlTreeTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTrees_test.dir/build.make CMakeFiles/BinaryTrees_test.dir/src/test/AvlTreeTest.cpp.o
+.PHONY : src/test/AvlTreeTest.cpp.o
+
+src/test/AvlTreeTest.i: src/test/AvlTreeTest.cpp.i
+
+.PHONY : src/test/AvlTreeTest.i
+
+# target to preprocess a source file
+src/test/AvlTreeTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTrees_test.dir/build.make CMakeFiles/BinaryTrees_test.dir/src/test/AvlTreeTest.cpp.i
+.PHONY : src/test/AvlTreeTest.cpp.i
+
+src/test/AvlTreeTest.s: src/test/AvlTreeTest.cpp.s
+
+.PHONY : src/test/AvlTreeTest.s
+
+# target to generate assembly for a file
+src/test/AvlTreeTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTrees_test.dir/build.make CMakeFiles/BinaryTrees_test.dir/src/test/AvlTreeTest.cpp.s
+.PHONY : src/test/AvlTreeTest.cpp.s
 
 src/test/BinarySearchTreeTest.o: src/test/BinarySearchTreeTest.cpp.o
 
@@ -332,7 +359,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
-	@echo "... BinaryTree"
+	@echo "... BinaryTrees"
 	@echo "... BinaryTrees_test"
 	@echo "... gmock"
 	@echo "... gmock_main"
@@ -341,6 +368,9 @@ help:
 	@echo "... src/main/main.o"
 	@echo "... src/main/main.i"
 	@echo "... src/main/main.s"
+	@echo "... src/test/AvlTreeTest.o"
+	@echo "... src/test/AvlTreeTest.i"
+	@echo "... src/test/AvlTreeTest.s"
 	@echo "... src/test/BinarySearchTreeTest.o"
 	@echo "... src/test/BinarySearchTreeTest.i"
 	@echo "... src/test/BinarySearchTreeTest.s"

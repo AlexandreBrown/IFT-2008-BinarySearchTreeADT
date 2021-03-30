@@ -1,20 +1,24 @@
 #include <gtest/gtest.h>
 #include "../main/BinarySearchTree.h"
+#include "../main/BinaryNode.h"
+#include "BinarySearchTreeExpectations.h"
+#include "utils/RandomValues.h"
 
 using std::logic_error;
 using std::to_string;
+using Random::RandomValues;
 
 namespace {
 	class BinarySearchTreeTest : public testing::Test {
 
 		public:
-			BinarySearchTree<size_t> tree;
+			BinarySearchTree<size_t, BinaryNode<size_t>> tree;
 	};
 }
 
 TEST_F(BinarySearchTreeTest, contains_return_true_when_node_is_present_in_tree) {
 
-	auto expectedValue = random();
+	auto expectedValue = RandomValues::getRandomNumber<size_t>();;
 	tree.insert(expectedValue);
 
 	auto contains = tree.contains(expectedValue);
@@ -24,7 +28,7 @@ TEST_F(BinarySearchTreeTest, contains_return_true_when_node_is_present_in_tree) 
 
 TEST_F(BinarySearchTreeTest, contains_return_false_when_node_is_not_present_in_tree) {
 
-	auto expectedValue = random();
+	auto expectedValue = RandomValues::getRandomNumber<size_t>();
 	tree.insert(expectedValue + 1);
 
 	auto contains = tree.contains(expectedValue);
@@ -34,7 +38,7 @@ TEST_F(BinarySearchTreeTest, contains_return_false_when_node_is_not_present_in_t
 
 TEST_F(BinarySearchTreeTest, contains_return_true_when_node_is_present_in_complex_tree) {
 
-	auto expectedValue = random();
+	auto expectedValue = RandomValues::getRandomNumber<size_t>();
 	tree.insert(expectedValue - 4);
 	tree.insert(expectedValue - 3);
 	tree.insert(expectedValue - 2);
@@ -57,7 +61,7 @@ TEST_F(BinarySearchTreeTest, findMin_throws_logic_error_when_tree_is_empty) {
 
 TEST_F(BinarySearchTreeTest, findMin_returns_minimum_value_when_value_is_present) {
 
-	auto expectedMin = random();
+	auto expectedMin = RandomValues::getRandomNumber<size_t>();
 	tree.insert(expectedMin);
 
 	auto min = tree.findMin();
@@ -67,7 +71,7 @@ TEST_F(BinarySearchTreeTest, findMin_returns_minimum_value_when_value_is_present
 
 TEST_F(BinarySearchTreeTest, findMin_returns_minimum_value_when_value_is_present_in_complex_tree) {
 
-	auto randomValue = random();
+	auto randomValue = RandomValues::getRandomNumber<size_t>();
 	auto expectedMin = randomValue - 2;
 	tree.insert(randomValue - 1);
 	tree.insert(randomValue + 2);
@@ -87,7 +91,7 @@ TEST_F(BinarySearchTreeTest, findMax_throws_logic_error_when_tree_is_empty) {
 
 TEST_F(BinarySearchTreeTest, findMax_returns_maximum_value_when_value_is_present) {
 
-	auto expectedMax = random();
+	auto expectedMax = RandomValues::getRandomNumber<size_t>();
 	tree.insert(expectedMax);
 
 	auto max = tree.findMax();
@@ -97,7 +101,7 @@ TEST_F(BinarySearchTreeTest, findMax_returns_maximum_value_when_value_is_present
 
 TEST_F(BinarySearchTreeTest, findMax_returns_maximum_value_when_value_is_present_in_complex_tree) {
 
-	auto randomValue = random();
+	auto randomValue = RandomValues::getRandomNumber<size_t>();
 	auto expectedMax = randomValue + 2;
 	tree.insert(randomValue - 2);
 	tree.insert(randomValue - 1);
@@ -112,12 +116,12 @@ TEST_F(BinarySearchTreeTest, findMax_returns_maximum_value_when_value_is_present
 
 TEST_F(BinarySearchTreeTest, trying_to_remove_element_of_empty_tree_does_not_crash) {
 
-	ASSERT_NO_THROW(tree.remove(random()));
+	ASSERT_NO_THROW(tree.remove(RandomValues::getRandomNumber<size_t>()));
 }
 
 TEST_F(BinarySearchTreeTest, removes_value_from_tree) {
 
-	auto expectedValue = random();
+	auto expectedValue = RandomValues::getRandomNumber<size_t>();
 	tree.insert(expectedValue);
 
 	tree.remove(expectedValue);
@@ -127,11 +131,11 @@ TEST_F(BinarySearchTreeTest, removes_value_from_tree) {
 
 TEST_F(BinarySearchTreeTest, removes_value_from_complex_tree_without_removing_other_values) {
 
-	auto value1 = random();
-	auto value2 = random();
-	auto value3 = random();
-	auto value4 = random();
-	auto value5 = random();
+	auto value1 = RandomValues::getRandomNumber<size_t>();
+	auto value2 = RandomValues::getRandomNumber<size_t>();
+	auto value3 = RandomValues::getRandomNumber<size_t>();
+	auto value4 = RandomValues::getRandomNumber<size_t>();
+	auto value5 = RandomValues::getRandomNumber<size_t>();
 	tree.insert(value1);
 	tree.insert(value3);
 	tree.insert(value5);
@@ -196,7 +200,7 @@ TEST_F(BinarySearchTreeTest, isEmpty_returns_true_when_tree_is_empty) {
 
 TEST_F(BinarySearchTreeTest, isEmpty_returns_true_when_tree_is_empty_after_remove) {
 
-	auto element = random();
+	auto element = RandomValues::getRandomNumber<size_t>();
 	tree.insert(element);
 
 	tree.remove(element);
@@ -206,8 +210,8 @@ TEST_F(BinarySearchTreeTest, isEmpty_returns_true_when_tree_is_empty_after_remov
 
 TEST_F(BinarySearchTreeTest, isEmpty_returns_false_when_tree_still_contains_elements) {
 
-	auto element1 = random();
-	auto element2 = random();
+	auto element1 = RandomValues::getRandomNumber<size_t>();
+	auto element2 = RandomValues::getRandomNumber<size_t>();
 	tree.insert(element1);
 	tree.insert(element2);
 
@@ -218,8 +222,8 @@ TEST_F(BinarySearchTreeTest, isEmpty_returns_false_when_tree_still_contains_elem
 
 TEST_F(BinarySearchTreeTest, makeEmpty_removes_all_elements) {
 
-	auto element1 = random();
-	auto element2 = random();
+	auto element1 = RandomValues::getRandomNumber<size_t>();
+	auto element2 = RandomValues::getRandomNumber<size_t>();
 	tree.insert(element1);
 	tree.insert(element2);
 
@@ -246,12 +250,12 @@ TEST_F(BinarySearchTreeTest, makeEmpty_is_idempotent) {
 TEST_F(BinarySearchTreeTest, copy_constructor_copies_other_tree_content) {
 
 	auto treeExpectedElements = {
-		static_cast<int>(random()),
-		static_cast<int>(random()),
-		static_cast<int>(random()),
-		static_cast<int>(random())
+		RandomValues::getRandomNumber<int>(),
+		RandomValues::getRandomNumber<int>(),
+		RandomValues::getRandomNumber<int>(),
+		RandomValues::getRandomNumber<int>()
 	};
-	auto tree1 = BinarySearchTree<int>{};
+	auto tree1 = BinarySearchTree<int, BinaryNode<int>>{};
 	for (const auto& element : treeExpectedElements) {
 		tree1.insert(element);
 	}
@@ -266,12 +270,12 @@ TEST_F(BinarySearchTreeTest, copy_constructor_copies_other_tree_content) {
 TEST_F(BinarySearchTreeTest, assignment_operator_copies_other_tree_content) {
 
 	auto treeExpectedElements = {
-		static_cast<size_t>(random()),
-		static_cast<size_t>(random()),
-		static_cast<size_t>(random()),
-		static_cast<size_t>(random())
+		RandomValues::getRandomNumber<int>(),
+		RandomValues::getRandomNumber<int>(),
+		RandomValues::getRandomNumber<int>(),
+		RandomValues::getRandomNumber<int>()
 	};
-	auto tree1 = BinarySearchTree<size_t>{};
+	auto tree1 = BinarySearchTree<size_t, BinaryNode<size_t>>{};
 	for (const auto& element : treeExpectedElements) {
 		tree1.insert(element);
 	}
@@ -286,10 +290,10 @@ TEST_F(BinarySearchTreeTest, assignment_operator_copies_other_tree_content) {
 TEST_F(BinarySearchTreeTest,
        assignment_operator_removes_previously_inserted_element_before_copying_content_of_other_tree) {
 
-	auto expectedElement = random();
-	auto tree1 = BinarySearchTree<size_t>{};
+	auto expectedElement = RandomValues::getRandomNumber<size_t>();
+	auto tree1 = BinarySearchTree<size_t, BinaryNode<size_t>>{};
 	tree1.insert(expectedElement);
-	auto unexpectedElement = random();
+	auto unexpectedElement = RandomValues::getRandomNumber<size_t>();
 	tree.insert(unexpectedElement);
 
 	tree = tree1;
@@ -313,13 +317,15 @@ TEST_F(BinarySearchTreeTest, prints_tree_in_symmetric_order) {
 	tree.insert(expectedNode5);
 	tree.insert(expectedNode6);
 	tree.insert(expectedNode7);
-	auto expectedTreeInSymmetricOrder = to_string(expectedNode4) + ";" +
-		to_string(expectedNode2) + ";" +
-		to_string(expectedNode6) + ";" +
-		to_string(expectedNode5) + ";" +
-		to_string(expectedNode7) + ";" +
-		to_string(expectedNode1) + ";" +
-		to_string(expectedNode3) + ";";
+	auto expectedTreeInSymmetricOrder = BinarySearchTreeExpectations::getExpectedTreeOutputFormat({
+		                                                                                              expectedNode4,
+		                                                                                              expectedNode2,
+		                                                                                              expectedNode6,
+		                                                                                              expectedNode5,
+		                                                                                              expectedNode7,
+		                                                                                              expectedNode1,
+		                                                                                              expectedNode3
+	                                                                                              });
 	std::ostringstream output;
 
 	tree.printTreeInSymmetricOrder(output);
@@ -343,13 +349,15 @@ TEST_F(BinarySearchTreeTest, prints_tree_in_pre_order) {
 	tree.insert(expectedNode5);
 	tree.insert(expectedNode6);
 	tree.insert(expectedNode7);
-	auto expectedTreeInPreOrder = to_string(expectedNode1) + ";" +
-		to_string(expectedNode2) + ";" +
-		to_string(expectedNode4) + ";" +
-		to_string(expectedNode5) + ";" +
-		to_string(expectedNode6) + ";" +
-		to_string(expectedNode7) + ";" +
-		to_string(expectedNode3) + ";";
+	auto expectedTreeInPreOrder = BinarySearchTreeExpectations::getExpectedTreeOutputFormat({
+		                                                                                              expectedNode1,
+		                                                                                              expectedNode2,
+		                                                                                              expectedNode4,
+		                                                                                              expectedNode5,
+		                                                                                              expectedNode6,
+		                                                                                              expectedNode7,
+		                                                                                              expectedNode3
+	                                                                                              });
 	std::ostringstream output;
 
 	tree.printTreeInPreOrder(output);
@@ -373,13 +381,15 @@ TEST_F(BinarySearchTreeTest, prints_tree_in_post_order) {
 	tree.insert(expectedNode5);
 	tree.insert(expectedNode6);
 	tree.insert(expectedNode7);
-	auto expectedTreeInPostOrder = to_string(expectedNode4) + ";" +
-		to_string(expectedNode6) + ";" +
-		to_string(expectedNode7) + ";" +
-		to_string(expectedNode5) + ";" +
-		to_string(expectedNode2) + ";" +
-		to_string(expectedNode3) + ";" +
-		to_string(expectedNode1) + ";";
+	auto expectedTreeInPostOrder = BinarySearchTreeExpectations::getExpectedTreeOutputFormat({
+		                                                                                        expectedNode4,
+		                                                                                        expectedNode6,
+		                                                                                        expectedNode7,
+		                                                                                        expectedNode5,
+		                                                                                        expectedNode2,
+		                                                                                        expectedNode3,
+		                                                                                        expectedNode1
+	                                                                                        });
 	std::ostringstream output;
 
 	tree.printTreeInPostOrder(output);
@@ -389,7 +399,7 @@ TEST_F(BinarySearchTreeTest, prints_tree_in_post_order) {
 
 TEST_F(BinarySearchTreeTest, inserts_value_in_tree) {
 
-	auto expectedValue = static_cast<size_t>(random());
+	auto expectedValue = RandomValues::getRandomNumber<size_t>();
 
 	tree.insert(expectedValue);
 
@@ -398,9 +408,27 @@ TEST_F(BinarySearchTreeTest, inserts_value_in_tree) {
 
 TEST_F(BinarySearchTreeTest, trying_to_insert_a_value_that_already_exists_throws_logic_error) {
 
-	auto expectedValue = static_cast<size_t>(random());
+	auto expectedValue = RandomValues::getRandomNumber<size_t>();
 
 	tree.insert(expectedValue);
 
 	ASSERT_THROW(tree.insert(expectedValue), logic_error);
+}
+
+TEST_F(BinarySearchTreeTest, inserts_value_in_tree_using_std_move) {
+
+	auto expectedValue = RandomValues::getRandomNumber<size_t>();
+
+	tree.insert(std::move(expectedValue));
+
+	ASSERT_TRUE(tree.contains(expectedValue));
+}
+
+TEST_F(BinarySearchTreeTest, trying_to_insert_a_value_using_std_move_that_already_exists_throws_logic_error) {
+
+	auto expectedValue = RandomValues::getRandomNumber<size_t>();
+
+	tree.insert(std::move(expectedValue));
+
+	ASSERT_THROW(tree.insert(std::move(expectedValue)), logic_error);
 }

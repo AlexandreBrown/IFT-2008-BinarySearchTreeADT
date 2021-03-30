@@ -1,6 +1,6 @@
         -:    0:Source:/usr/include/c++/9/bits/move.h
-        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
-        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/BinaryTree/BinaryTree/cmake-build-debug-coverage/CMakeFiles/BinaryTree_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.gcda
         -:    0:Runs:1
         -:    1:// Move, forward and identity for C++11 + swap -*- C++ -*-
         -:    2:
@@ -100,18 +100,13 @@
         -:   96:  */
         -:   97:  template<typename _Tp>
         -:   98:    constexpr typename std::remove_reference<_Tp>::type&&
-     365*:   99:    move(_Tp&& __t) noexcept
-     365*:  100:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+     347*:   99:    move(_Tp&& __t) noexcept
+     347*:  100:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
 ------------------
-_ZSt4moveIRKmEONSt16remove_referenceIT_E4typeEOS3_:
-       36:   99:    move(_Tp&& __t) noexcept
-       36:  100:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-       36:  100-block  0
-------------------
-_ZSt4moveIRmEONSt16remove_referenceIT_E4typeEOS2_:
-      134:   99:    move(_Tp&& __t) noexcept
-      134:  100:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-      134:  100-block  0
+_ZSt4moveIRiEONSt16remove_referenceIT_E4typeEOS2_:
+       43:   99:    move(_Tp&& __t) noexcept
+       43:  100:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+       43:  100-block  0
 ------------------
 _ZSt4moveIRPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_referenceIT_E4typeEOS9_:
     #####:   99:    move(_Tp&& __t) noexcept
@@ -119,19 +114,24 @@ _ZSt4moveIRPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_re
     %%%%%:  100-block  0
 ------------------
 _ZSt4moveIRPNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEEEONSt16remove_referenceIT_E4typeEOS9_:
-       83:   99:    move(_Tp&& __t) noexcept
-       83:  100:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-       83:  100-block  0
+       85:   99:    move(_Tp&& __t) noexcept
+       85:  100:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+       85:  100-block  0
 ------------------
 _ZSt4moveIRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEONSt16remove_referenceIT_E4typeEOS8_:
-      112:   99:    move(_Tp&& __t) noexcept
-      112:  100:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
-      112:  100-block  0
+      106:   99:    move(_Tp&& __t) noexcept
+      106:  100:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+      106:  100-block  0
 ------------------
 _ZSt4moveIRSaIcEEONSt16remove_referenceIT_E4typeEOS3_:
     #####:   99:    move(_Tp&& __t) noexcept
     #####:  100:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
     %%%%%:  100-block  0
+------------------
+_ZSt4moveIRmEONSt16remove_referenceIT_E4typeEOS2_:
+      113:   99:    move(_Tp&& __t) noexcept
+      113:  100:    { return static_cast<typename std::remove_reference<_Tp>::type&&>(__t); }
+      113:  100-block  0
 ------------------
         -:  101:
         -:  102:

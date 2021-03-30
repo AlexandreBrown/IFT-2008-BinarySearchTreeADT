@@ -1,0 +1,55 @@
+        -:    0:Source:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/src/main/AvlNode.h
+        -:    0:Graph:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/AvlTreeTest.cpp.gcno
+        -:    0:Data:/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algorithmes et structures de données/IFT-2008-BinarySearchTreeADT/BinaryTrees/cmake-build-debug-coverage/CMakeFiles/BinaryTrees_test.dir/src/test/AvlTreeTest.cpp.gcda
+        -:    0:Runs:1
+        -:    1:#ifndef BINARYTREES_SRC_MAIN_AVLNODE_H_
+        -:    2:#define BINARYTREES_SRC_MAIN_AVLNODE_H_
+        -:    3:
+        -:    4:#include "BinaryNode.h"
+        -:    5:
+        -:    6:template<typename T>
+        -:    7:struct AvlNode {
+        -:    8:
+        -:    9:	T element;
+        -:   10:
+        -:   11:	AvlNode<T>* left;
+        -:   12:
+        -:   13:	AvlNode<T>* right;
+        -:   14:
+        -:   15:	int height;
+        -:   16:
+    #####:   17:	AvlNode(
+        -:   18:		const T& theElement
+        -:   19:	) : element{theElement},
+        -:   20:	    left{nullptr},
+        -:   21:	    right{nullptr},
+    #####:   22:	    height{0} {}
+        -:   23:
+    #####:   24:	AvlNode(
+        -:   25:		T&& theElement
+    #####:   26:	) : element{std::move(theElement)},
+    %%%%%:   26-block  0
+        -:   27:	    left{nullptr},
+        -:   28:	    right{nullptr},
+    #####:   29:	    height{0} {}
+        -:   30:
+        -:   31:	AvlNode(
+        -:   32:		const T& theElement,
+        -:   33:		AvlNode<T>* theLeft,
+        -:   34:		AvlNode<T>* theRight
+        -:   35:	) : element{theElement},
+        -:   36:	    left{theLeft},
+        -:   37:	    right{theRight},
+        -:   38:	    height{0} {}
+        -:   39:
+        -:   40:	AvlNode(
+        -:   41:		T&& theElement,
+        -:   42:		AvlNode<T>* theLeft,
+        -:   43:		AvlNode<T>* theRight
+        -:   44:	) : element{std::move(theElement)},
+        -:   45:	    left{theLeft},
+        -:   46:	    right{theRight},
+        -:   47:	    height{0} {}
+        -:   48:};
+        -:   49:
+        -:   50:#endif
