@@ -1,4 +1,4 @@
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 #include "../main/AvlTree.h"
 #include "BinarySearchTreeExpectations.h"
 #include "utils/RandomValues.h"

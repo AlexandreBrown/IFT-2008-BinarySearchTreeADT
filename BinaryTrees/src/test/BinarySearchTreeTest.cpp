@@ -1,4 +1,4 @@
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 #include "../main/BinarySearchTree.h"
 #include "../main/BinaryNode.h"
 #include "BinarySearchTreeExpectations.h"

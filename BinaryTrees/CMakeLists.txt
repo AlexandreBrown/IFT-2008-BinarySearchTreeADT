@@ -14,32 +14,20 @@ option(BUILD_TESTING "build unit tests" ON)
 
 if (BUILD_TESTING)
 
-    # GTest
-    add_subdirectory(lib/googletest)
-    include_directories(lib/googletest/googletest/include)
-    include_directories(lib/googletest/googlemock/include)
+    include(ExternalProject) # Allows us to include external projects via github URL instead of downloading the repo manually
 
+    #GTest
+    ExternalProject_add(gtest-target
+            GIT_REPOSITORY "https://github.com/google/googletest"
+            CMAKE_ARGS "-DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/extern"
+            UPDATE_COMMAND ""
+            )
+    include_directories(${CMAKE_CURRENT_BINARY_DIR}/extern/include)
+    link_directories(${CMAKE_CURRENT_BINARY_DIR}/extern/lib)
 
     # Not mandatory but nice tool
     enable_testing() #Enables CTest which can run all our tests via command-line (use command : "make" in /build to apply changes made to code then run "make test")
 
-    set(TEST_SOURCE_FILES src/test/BinarySearchTreeTest.cpp
-            src/test/BinarySearchTreeTest.cpp
-            src/test/AvlTreeTest.cpp
-            src/test/BinarySearchTreeExpectations.h
-            src/test/utils/RandomValues.h)
-    set(TESTABLE_SOURCE_FILES src/main/BinarySearchTree.tpp
-            src/main/BinarySearchTree.h
-            src/main/BinaryNode.h
-            src/main/AvlNode.h
-            src/main/AvlTree.h
-            src/main/AvlTree.tpp) # Note that we don't need to include main.cpp from production because we don't want to test our entry point
-
-    add_executable(${PROJECT_NAME}_test ${TESTABLE_SOURCE_FILES} ${TEST_SOURCE_FILES})
-    add_test(${PROJECT_NAME}_test ${PROJECT_NAME}_test) # If we don't add this, CTest will not find our tests when doing: make test
-
-    # Executes our executable which contains our production source files and our test files using GTest main function
-    # Not using gtest_main is possible but we would need to write the test main function ourselves, see https://gist.githubusercontent.com/mawenbao/9223908/raw/10fd68efe5565da7b7e79dcc5fd9ed314bcb3aed/main.cpp for an implementation
-    target_link_libraries(${PROJECT_NAME}_test gtest gtest_main pthread)
+    add_subdirectory(src/test)
 endif ()
 

@@ -76,28 +76,6 @@ CMAKE_BINARY_DIR = "/home/brownthedev/Documents/uLaval/Hiver2021/IFT-2008 Algori
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target install
-install: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/home/brownthedev/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/203.7717.62/bin/cmake/linux/bin/cmake -P cmake_install.cmake
-.PHONY : install
-
-# Special rule for the target install
-install/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
-	/home/brownthedev/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/203.7717.62/bin/cmake/linux/bin/cmake -P cmake_install.cmake
-.PHONY : install/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
@@ -109,29 +87,16 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/home/brownthedev/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/203.7717.62/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
+	/home/brownthedev/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/203.7717.62/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+.PHONY : edit_cache
 
-# Special rule for the target install/strip
-install/strip/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/home/brownthedev/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/203.7717.62/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip/fast
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
 
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/home/brownthedev/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/203.7717.62/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: preinstall/fast
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/home/brownthedev/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/203.7717.62/bin/cmake/linux/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local/fast
+.PHONY : edit_cache/fast
 
 # Special rule for the target test
 test:
@@ -143,17 +108,6 @@ test:
 test/fast: test
 
 .PHONY : test/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/home/brownthedev/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/203.7717.62/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -201,6 +155,19 @@ BinaryTrees/fast:
 .PHONY : BinaryTrees/fast
 
 #=============================================================================
+# Target rules for targets named gtest-target
+
+# Build rule for target.
+gtest-target: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest-target
+.PHONY : gtest-target
+
+# fast build rule for target.
+gtest-target/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/gtest-target.dir/build.make CMakeFiles/gtest-target.dir/build
+.PHONY : gtest-target/fast
+
+#=============================================================================
 # Target rules for targets named BinaryTrees_test
 
 # Build rule for target.
@@ -210,60 +177,8 @@ BinaryTrees_test: cmake_check_build_system
 
 # fast build rule for target.
 BinaryTrees_test/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTrees_test.dir/build.make CMakeFiles/BinaryTrees_test.dir/build
+	$(MAKE) $(MAKESILENT) -f src/test/CMakeFiles/BinaryTrees_test.dir/build.make src/test/CMakeFiles/BinaryTrees_test.dir/build
 .PHONY : BinaryTrees_test/fast
-
-#=============================================================================
-# Target rules for targets named gmock_main
-
-# Build rule for target.
-gmock_main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock_main
-.PHONY : gmock_main
-
-# fast build rule for target.
-gmock_main/fast:
-	$(MAKE) $(MAKESILENT) -f lib/googletest/googlemock/CMakeFiles/gmock_main.dir/build.make lib/googletest/googlemock/CMakeFiles/gmock_main.dir/build
-.PHONY : gmock_main/fast
-
-#=============================================================================
-# Target rules for targets named gmock
-
-# Build rule for target.
-gmock: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gmock
-.PHONY : gmock
-
-# fast build rule for target.
-gmock/fast:
-	$(MAKE) $(MAKESILENT) -f lib/googletest/googlemock/CMakeFiles/gmock.dir/build.make lib/googletest/googlemock/CMakeFiles/gmock.dir/build
-.PHONY : gmock/fast
-
-#=============================================================================
-# Target rules for targets named gtest
-
-# Build rule for target.
-gtest: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest
-.PHONY : gtest
-
-# fast build rule for target.
-gtest/fast:
-	$(MAKE) $(MAKESILENT) -f lib/googletest/googletest/CMakeFiles/gtest.dir/build.make lib/googletest/googletest/CMakeFiles/gtest.dir/build
-.PHONY : gtest/fast
-
-#=============================================================================
-# Target rules for targets named gtest_main
-
-# Build rule for target.
-gtest_main: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 gtest_main
-.PHONY : gtest_main
-
-# fast build rule for target.
-gtest_main/fast:
-	$(MAKE) $(MAKESILENT) -f lib/googletest/googletest/CMakeFiles/gtest_main.dir/build.make lib/googletest/googletest/CMakeFiles/gtest_main.dir/build
-.PHONY : gtest_main/fast
 
 src/main/main.o: src/main/main.cpp.o
 
@@ -292,60 +207,6 @@ src/main/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTrees.dir/build.make CMakeFiles/BinaryTrees.dir/src/main/main.cpp.s
 .PHONY : src/main/main.cpp.s
 
-src/test/AvlTreeTest.o: src/test/AvlTreeTest.cpp.o
-
-.PHONY : src/test/AvlTreeTest.o
-
-# target to build an object file
-src/test/AvlTreeTest.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTrees_test.dir/build.make CMakeFiles/BinaryTrees_test.dir/src/test/AvlTreeTest.cpp.o
-.PHONY : src/test/AvlTreeTest.cpp.o
-
-src/test/AvlTreeTest.i: src/test/AvlTreeTest.cpp.i
-
-.PHONY : src/test/AvlTreeTest.i
-
-# target to preprocess a source file
-src/test/AvlTreeTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTrees_test.dir/build.make CMakeFiles/BinaryTrees_test.dir/src/test/AvlTreeTest.cpp.i
-.PHONY : src/test/AvlTreeTest.cpp.i
-
-src/test/AvlTreeTest.s: src/test/AvlTreeTest.cpp.s
-
-.PHONY : src/test/AvlTreeTest.s
-
-# target to generate assembly for a file
-src/test/AvlTreeTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTrees_test.dir/build.make CMakeFiles/BinaryTrees_test.dir/src/test/AvlTreeTest.cpp.s
-.PHONY : src/test/AvlTreeTest.cpp.s
-
-src/test/BinarySearchTreeTest.o: src/test/BinarySearchTreeTest.cpp.o
-
-.PHONY : src/test/BinarySearchTreeTest.o
-
-# target to build an object file
-src/test/BinarySearchTreeTest.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTrees_test.dir/build.make CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.o
-.PHONY : src/test/BinarySearchTreeTest.cpp.o
-
-src/test/BinarySearchTreeTest.i: src/test/BinarySearchTreeTest.cpp.i
-
-.PHONY : src/test/BinarySearchTreeTest.i
-
-# target to preprocess a source file
-src/test/BinarySearchTreeTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTrees_test.dir/build.make CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.i
-.PHONY : src/test/BinarySearchTreeTest.cpp.i
-
-src/test/BinarySearchTreeTest.s: src/test/BinarySearchTreeTest.cpp.s
-
-.PHONY : src/test/BinarySearchTreeTest.s
-
-# target to generate assembly for a file
-src/test/BinarySearchTreeTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BinaryTrees_test.dir/build.make CMakeFiles/BinaryTrees_test.dir/src/test/BinarySearchTreeTest.cpp.s
-.PHONY : src/test/BinarySearchTreeTest.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -353,27 +214,14 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
-	@echo "... install"
-	@echo "... install/local"
-	@echo "... install/strip"
-	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... gtest-target"
 	@echo "... BinaryTrees"
 	@echo "... BinaryTrees_test"
-	@echo "... gmock"
-	@echo "... gmock_main"
-	@echo "... gtest"
-	@echo "... gtest_main"
 	@echo "... src/main/main.o"
 	@echo "... src/main/main.i"
 	@echo "... src/main/main.s"
-	@echo "... src/test/AvlTreeTest.o"
-	@echo "... src/test/AvlTreeTest.i"
-	@echo "... src/test/AvlTreeTest.s"
-	@echo "... src/test/BinarySearchTreeTest.o"
-	@echo "... src/test/BinarySearchTreeTest.i"
-	@echo "... src/test/BinarySearchTreeTest.s"
 .PHONY : help
 
 
